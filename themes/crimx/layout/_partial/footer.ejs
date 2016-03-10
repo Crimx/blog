@@ -1,0 +1,54 @@
+<footer>
+  <div class="new-articles">
+    <%
+      var allPosts = site.posts.sort('-date');
+      if (!allPosts.length) {
+        return;
+      }
+
+      // show 4 new articles
+      var postCount = 0;
+      allPosts.each(function(post) {
+        if (!post.published) {
+          return true;
+        }
+
+        postCount += 1;
+        if (postCount > 4) {
+          return false;
+        }
+    %>
+        <a class="new-articles__item" href="<%- url_for(post.path) %>">
+    <%
+          // article with cover
+          if (post.cover) {
+    %>
+            <figure>
+              <img class="new-articles__cover" src="<%- url_for(post.path) %>" alt="<%- titlecase(post.title) %>">
+              <figcaption class="new-articles__title"><%= titlecase(post.title) %></figcaption>
+            </figure>
+    <%
+          // article without cover
+          } else {
+    %>
+            <h1 class="new-articles__title"><%= titlecase(post.title) %></h1>
+            <p class="new-articles__excerpt"><%= (function() {
+              if (post.excerpt) {
+                return strip_html(post.excerpt);
+              }
+              return strip_html(post.content).substr(0, 140);
+            }()) %></p>
+    <%
+          }
+    %>
+        </a>
+    <%
+      });
+    %>
+  </div>
+  <!-- /.new-articles -->
+  <div class="site-description">
+    I <a href="https://github.com/<%- theme.github %>/">code</a>, <a href="http://codepen.io/<%- theme.codepen %>/">design</a>, <a href="https://twitter.com/<%- theme.tweeter %>/">tweet</a>, and of course, <a href="<%- config.url %>">blog</a>.
+  </div>
+  <div class="copyright">© COPYRIGHT 2016 | Made with ❤ by <a href="http://www.crimx.com/aboutme">Jack</a></div>
+</footer>

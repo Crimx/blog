@@ -1,0 +1,45 @@
+# Header
+menu:
+  Home: /
+  Archives: /archives
+  Tags: /tags
+  Categories: /categories
+  Search: /search
+rss: /atom.xml
+
+# Content
+excerpt_link: Read More
+
+# Sidebar
+sidebar: right
+widgets:
+- category
+- tag
+- tagcloud
+- archive
+- recent_posts
+
+# display widgets at the bottom of index pages (pagination == 2)
+index_widgets:
+# - category
+# - tagcloud
+# - archive
+
+# widget behavior
+archive_type: 'monthly'
+show_count: false
+
+category_generator:
+  per_page: 10
+
+# Miscellaneous
+google_analytics:
+favicon: images/favicon.ico
+apple_touch_icon: images/apple-touch-icon.png
+twitter: straybugs
+github: Crimx
+codepen: straybugs
+google_plus:
+fb_admins:
+fb_app_id:
+

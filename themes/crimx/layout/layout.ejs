@@ -1,0 +1,29 @@
+<%- partial('_partial/head') %>
+
+<body>
+
+  <!--[if lt IE 8]>
+    <p class="browser-warning">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+  <![endif]-->
+
+  <div class="main-container">
+    <div class="wrap">
+      <%- partial('_partial/header', null, {cache: !config.relative_link}) %>
+
+      <div class="main-content">
+        <%- body %>
+        <%- partial('_partial/footer', null, {cache: !config.relative_link}) %>
+      </div>
+
+    <% if (is_post()) {  %>
+        <%- partial('_partial/toc', null, {cache: !config.relative_link}) %>
+    <% } %>
+    </div> <!-- .wrap -->
+  </div> <!-- .main-container -->
+
+  <%- js('js/script') %>
+  <%- partial('_partial/disqus') %>
+  <%- partial('_partial/google-analytics') %>
+
+</body>
+</html>

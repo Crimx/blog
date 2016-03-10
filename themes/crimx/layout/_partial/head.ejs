@@ -1,0 +1,52 @@
+<%
+  var title = page.title;
+
+  if (is_archive()) {
+    title = 'Archives';
+
+    if (is_month()) {
+      title += ': ' + page.year + '/' + page.month;
+    } else if (is_year()) {
+      title += ': ' + page.year;
+    }
+  } else if (is_category()){
+    title = 'Category: ' + page.category;
+  } else if (is_tag()){
+    title = 'Tag: ' + page.tag;
+  }
+%>
+
+<!doctype html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title><% if (title){ %><%= title %> | <% } %><%= config.title %></title>
+
+  <% if (theme.rss){ %>
+    <link rel="alternate" href="<%- theme.rss %>" title="<%= config.title %>" type="application/atom+xml">
+  <% } %>
+
+  <% if (theme.favicon){ %>
+    <link rel="icon" href="<%- url_for(theme.favicon) %>">
+  <% } %>
+
+  <% if (theme.apple_touch_icon){ %>
+    <link rel="apple-touch-icon" href="<%- url_for(theme.apple_touch_icon) %>">
+  <% } %>
+
+  <%- open_graph({twitter_id: theme.twitter, google_plus: theme.google_plus, fb_admins: theme.fb_admins, fb_app_id: theme.fb_app_id}) %>
+
+  <%- css('css/style') %>
+
+  <!-- <script src="js/vendor/modernizr-2.8.3-respond-1.4.2.min.js"></script> -->
+</head>
+
+
+
+
