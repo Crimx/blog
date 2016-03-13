@@ -1,0 +1,25 @@
+/*------------------------------------*\
+    #CLEARFIX
+\*------------------------------------*/
+
+/**
+ * Micro clearfix, as per: css-101.org/articles/clearfix/latest-new-clearfix-so-far.php
+ * Extend the clearfix class with Sass to avoid the `.clearfix` class appearing
+ * over and over in your markup.
+ */
+
+$clearfix-semantic-naming: $global-semantic-naming !default;
+
+@if $clearfix-semantic-naming == false {
+  .#{$global-namespace}clearfix {
+    @extend %#{$global-namespace}clearfix;
+  }
+}
+
+%#{$global-namespace}clearfix {
+  &:after {
+    content: '';
+    display: table;
+    clear: both;
+  }
+}

@@ -1,0 +1,15 @@
+/*------------------------------------*\
+    #BOX-SIZING
+\*------------------------------------*/
+
+// https://css-tricks.com/inheriting-box-sizing-probably-slightly-better-best-practice/
+
+$global-box-sizing: border-box !default;
+
+html {
+  box-sizing: $global-box-sizing;
+}
+
+*, *:before, *:after {
+  box-sizing: inherit;
+}
