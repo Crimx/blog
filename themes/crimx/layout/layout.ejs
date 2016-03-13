@@ -1,3 +1,9 @@
+<!doctype html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+
 <%- partial('_partial/head') %>
 
 <body>
@@ -12,17 +18,17 @@
 
       <div class="main-content">
         <%- body %>
+        <% if (is_post()) {  %>
+            <%- partial('_partial/toc', null, {cache: !config.relative_link}) %>
+        <% } %>
+        <%- partial('_partial/disqus') %>
         <%- partial('_partial/footer', null, {cache: !config.relative_link}) %>
       </div>
 
-    <% if (is_post()) {  %>
-        <%- partial('_partial/toc', null, {cache: !config.relative_link}) %>
-    <% } %>
     </div> <!-- .wrap -->
   </div> <!-- .main-container -->
 
   <%- js('js/script') %>
-  <%- partial('_partial/disqus') %>
   <%- partial('_partial/google-analytics') %>
 
 </body>
