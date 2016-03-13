@@ -8,6 +8,7 @@ var autoprefixer = require('autoprefixer');
 var Hexo = require('hexo');
 var hexo = new Hexo(process.cwd(), {});
 var del = require('del');
+var browserSync = require('browser-sync').create();
 
 
 gulp.task('clean', function() {
@@ -22,7 +23,7 @@ gulp.task('sass-debug', function () {
     .pipe($.postcss([
       autoprefixer({browsers: ['last 1 version']})
     ]))
-    .pipe($.minifyCss())
+    // .pipe($.minifyCss())
     .pipe($.sourcemaps.write('./'))
     .pipe(gulp.dest('./themes/crimx/source/css/'))
     .pipe($.size({title: 'sass'}));
@@ -43,21 +44,28 @@ gulp.task('sass', function () {
 
 gulp.task('watch', function() {
   gulp.watch(['./themes/crimx/source/_scss/**/*.scss'], ['sass-debug']);
+  gulp.watch(['./themes/**/*', './source/**/*']).on('change', browserSync.reload);
 });
 
 
 gulp.task('default', function() {
+  hexo.init().then(function(){
+    return hexo.call('generate', {watch: true});
+  }).catch(function(err){
+    console.log(err);
+  });
+
+  browserSync.init({
+    server: './public',
+    reloadDelay: 2000
+  });
+
   runSequence(
     'clean',
     'sass-debug',
     'watch'
   );
 
-  hexo.init().then(function(){
-    return hexo.call('generate', {watch: true});
-  }).catch(function(err){
-    console.log(err);
-  });
 });
 
 
