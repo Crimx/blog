@@ -1,0 +1,15 @@
+// /*------------------------------------*\
+//     #MIXINS
+// \*------------------------------------*/
+
+// classes are default using placeholder
+// set `$global-sematic-naming: false;` to enable non-sematic class naming
+@mixin sematic-fallback($sematic-flag, $classes...) {
+  @if $sematic-flag == false {
+    @each $class in $classes {
+      .#{$global-namespace}#{$class} {
+        @extend %#{$global-namespace}#{$class};
+      }
+    }
+  }
+}

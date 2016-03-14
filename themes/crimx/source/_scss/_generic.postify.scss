@@ -16,15 +16,7 @@ $postify-color-link-hover:     #333 !default;
 $postify-color-link:           #3187db !default;
 $postify-color-header-counter: #888 !default;
 
-@if $postify-semantic-naming == false {
-  .#{$global-namespace}postify {
-    @extend %#{$global-namespace}postify;
-  }
-
-  .#{$global-namespace}underline-fix {
-    @extend %#{$global-namespace}underline-fix;
-  }
-}
+@include sematic-fallback($postify-semantic-naming, postify, underline-fix);
 
 %#{$global-namespace}postify {
   margin-left: auto !important;
