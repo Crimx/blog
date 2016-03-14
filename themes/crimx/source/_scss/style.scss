@@ -1,30 +1,31 @@
 @charset 'UTF-8';
 
-/*------------------------------------*\
-    #STYLE
-\*------------------------------------*/
+// /*------------------------------------*\
+//     #STYLE
+// \*------------------------------------*/
 
 
 // 入口
 
-/**
- * #SETTINGS
- */
+//
+// #SETTINGS
+//
 @import 'settings.defaults';
+@import 'settings.color';
 
 
 
-/**
- * #TOOLS
- */
+//
+// #TOOLS
+//
 @import 'tools.functions';
 @import 'tools.mixins';
 
 
 
-/**
- * #GENERIC
- */
+//
+// #GENERIC
+//
 @import 'generic.font-face';
 @import 'generic.reset';
 @import 'generic.box-sizing';
@@ -32,29 +33,29 @@
 
 
 
-/**
- * #BASE
- */
+//
+// #BASE
+//
+@import 'base.page';
+
+
+//
+// #OBJECTS
+//
 
 
 
-/**
- * #OBJECTS
- */
-
-
-
-/**
- * #COMPONENTS
- */
+//
+// #COMPONENTS
+//
 @import 'components.codeblock';
 @import 'components.post';
 @import 'components.toc';
 
 
 
-/**
- * #TRUMPS
- */
+//
+// #TRUMPS
+//
 @import 'trumps.clearfix';
 

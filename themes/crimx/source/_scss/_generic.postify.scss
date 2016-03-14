@@ -11,6 +11,11 @@ $postify-semantic-naming: $global-semantic-naming !default;
 $postify-font-size:       $global-font-size !default;
 $postify-line-height:     $global-line-height !default;
 
+$postify-color-hr:             #999 !default;
+$postify-color-link-hover:     #333 !default;
+$postify-color-link:           #3187db !default;
+$postify-color-header-counter: #888 !default;
+
 @if $postify-semantic-naming == false {
   .#{$global-namespace}postify {
     @extend %#{$global-namespace}postify;
@@ -220,6 +225,8 @@ $postify-line-height:     $global-line-height !default;
     line-height: normal;
     margin: 0 .25em;
     padding: 0 .4em;
+    border: 1px solid #ddd;
+    background-color: #f8f8f8;
     border-radius: 3px;
   }
 
@@ -346,7 +353,7 @@ $postify-line-height:     $global-line-height !default;
 
   hr {
     border: 0 none;
-    border-bottom: 2px solid #999;
+    border-bottom: 2px solid $postify-color-hr;
     margin-top: 32px;
     margin-bottom: 32px;
   }
@@ -391,7 +398,7 @@ $postify-line-height:     $global-line-height !default;
   h2, h3, h4 {
     &:before {
       margin-right: .5em;
-      color: #888;
+      color: $postify-color-header-counter;
     }
   }
 
