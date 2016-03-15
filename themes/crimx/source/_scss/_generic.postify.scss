@@ -19,8 +19,8 @@ $postify-color-header-counter: #888 !default;
 @include sematic-fallback($postify-semantic-naming, postify, underline-fix);
 
 %postify {
-  margin-left: auto !important;
-  margin-right: auto !important;
+  margin-left: auto;
+  margin-right: auto;
   font-size: $postify-font-size;
   line-height: $postify-line-height;
 
@@ -215,6 +215,7 @@ $postify-color-header-counter: #888 !default;
     *display: inline;
     *zoom: 1;
     line-height: normal;
+    font-size: 0.86em;
     margin: 0 .25em;
     padding: 0 .4em;
     border: 1px solid #ddd;
@@ -345,7 +346,7 @@ $postify-color-header-counter: #888 !default;
 
   hr {
     border: 0 none;
-    border-bottom: 2px solid $postify-color-hr;
+    border-bottom: 1px solid $postify-color-hr;
     margin-top: 32px;
     margin-bottom: 32px;
   }

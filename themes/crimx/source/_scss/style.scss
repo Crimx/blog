@@ -11,7 +11,7 @@
 // #SETTINGS
 //
 @import 'settings.defaults';
-@import 'settings.color';
+@import 'settings.colors';
 
 
 
@@ -42,7 +42,8 @@
 //
 // #OBJECTS
 //
-
+$wrapper-sematic-naming: false;
+@import 'objects.wrappers';
 
 
 //

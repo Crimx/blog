@@ -4,8 +4,33 @@
 
 // 文章篇幅
 
-.article--post {
-  @extend %#{$global-namespace}postify;
+.article-inner {
+  @extend %postify;
+
+  background-color: #fff;
+  text-align: justify;
+
+
+  // 两侧边无缝贴合
+  padding-left: $global-spacing-unit--small;
+  padding-right: $global-spacing-unit--small;
+  // 充满两边
+  &,
+  hr,
+  .highlight {
+    margin-left: -$global-spacing-unit--small;
+    margin-right: -$global-spacing-unit--small;
+  }
+
+  // 图片充满宽度
+  img {
+    display: block;
+    width: 100%;
+  }
+
 }
 
-
+// 标题
+.article-title {
+  text-align: center;
+}

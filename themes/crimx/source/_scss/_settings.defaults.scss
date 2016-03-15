@@ -22,7 +22,7 @@ $global-semantic-naming: true !default;
 // These variables are framework variables, sourced from variables defined
 // above. Feel free to use these variables throughout your project, but do not
 // modify or reassign them.
-$global-spacing-unit:           $global-line-height;
+$global-spacing-unit:           $global-font-size * $global-line-height;
 $global-spacing-unit--tiny:     round($global-spacing-unit / 4);
 $global-spacing-unit--small:    round($global-spacing-unit / 2);
 $global-spacing-unit--large:    round($global-spacing-unit * 2);
