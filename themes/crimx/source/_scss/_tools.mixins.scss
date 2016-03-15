@@ -8,7 +8,7 @@
   @if $sematic-flag == false {
     @each $class in $classes {
       .#{$global-namespace}#{$class} {
-        @extend %#{$global-namespace}#{$class};
+        @extend %#{$class};
       }
     }
   }

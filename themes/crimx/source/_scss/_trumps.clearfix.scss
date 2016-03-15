@@ -12,7 +12,7 @@ $clearfix-semantic-naming: $global-semantic-naming !default;
 
 @include sematic-fallback($clearfix-semantic-naming, clearfix);
 
-%#{$global-namespace}clearfix {
+%clearfix {
   &:after {
     content: '';
     display: table;

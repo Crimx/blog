@@ -18,7 +18,7 @@ $postify-color-header-counter: #888 !default;
 
 @include sematic-fallback($postify-semantic-naming, postify, underline-fix);
 
-%#{$global-namespace}postify {
+%postify {
   margin-left: auto !important;
   margin-right: auto !important;
   font-size: $postify-font-size;
@@ -436,7 +436,7 @@ $postify-color-header-counter: #888 !default;
 
 // a 默认使用 border 来模拟下划线会占用盒模型高度，
 // 如果某些布局的地方不需要这样的下划线，使用该 class 去除。
-%#{$global-namespace}underline-fix {
+%underline-fix {
   a:hover,
   ins:hover {
     border: 0 none;
