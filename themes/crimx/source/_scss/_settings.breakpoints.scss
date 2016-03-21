@@ -1,0 +1,15 @@
+// /*------------------------------------*\
+//     #BREAKPOINTS
+// \*------------------------------------*/
+
+
+// media queries
+
+// 单栏，竖放的设备以及平板以下的屏幕
+$breakpoint-single-column: screen (orientation portrait), screen (max-width 1023px), screen 1921px;
+
+// 两栏，横放的平板到 13 寸屏
+$breakpoint-two-column: screen 1024px 1366px (orientation landscape);
+
+// 三栏，大于 13 寸屏
+$breakpoint-three-column: screen 1367px (orientation landscape);

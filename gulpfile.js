@@ -19,7 +19,12 @@ gulp.task('clean', function() {
 gulp.task('sass-debug', function () {
   return gulp.src('./themes/crimx/source/_scss/style.scss')
     .pipe($.sourcemaps.init({loadMaps: true}))
-    .pipe($.sass().on('error', $.sass.logError))
+    .pipe($.sass({
+      includePaths: [
+        './node_modules/breakpoint-sass/stylesheets',
+        './node_modules/susy/sass' //required for sass
+      ]
+    }).on('error', $.sass.logError))
     .pipe($.postcss([
       autoprefixer({browsers: ['last 1 version']})
     ]))
@@ -32,7 +37,12 @@ gulp.task('sass-debug', function () {
 
 gulp.task('sass', function () {
   return gulp.src('./themes/crimx/source/_scss/style.scss')
-    .pipe($.sass().on('error', $.sass.logError))
+    .pipe($.sass({
+      includePaths: [
+        './node_modules/breakpoint-sass/stylesheets',
+        './node_modules/susy/sass' //required for sass
+      ]
+    }).on('error', $.sass.logError))
     .pipe($.postcss([
       autoprefixer({browsers: ['last 1 version']})
     ]))
@@ -50,7 +60,9 @@ gulp.task('watch', function() {
 
 gulp.task('default', function() {
   hexo.init().then(function(){
-    return hexo.call('generate', {watch: true});
+    return hexo.call('clean').then(function(){
+      return hexo.call('generate', {watch: true});
+    });
   }).catch(function(err){
     console.log(err);
   });
@@ -76,7 +88,9 @@ gulp.task('g', function() {
   );
 
   hexo.init().then(function(){
-    return hexo.call('generate');
+    return hexo.call('clean').then(function(){
+      return hexo.call('generate');
+    });
   }).catch(function(err){
     console.log(err);
   });

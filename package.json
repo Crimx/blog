@@ -6,7 +6,7 @@
     "version": "3.2.0"
   },
   "dependencies": {
-    "hexo": "^3.1.0",
+    "hexo": "^3.2.0",
     "hexo-generator-archive": "^0.1.2",
     "hexo-generator-category": "^0.1.2",
     "hexo-generator-index": "^0.1.2",
@@ -19,6 +19,7 @@
   },
   "devDependencies": {
     "autoprefixer": "^6.3.3",
+    "breakpoint-sass": "^2.7.0",
     "browser-sync": "^2.11.1",
     "del": "^2.2.0",
     "gulp": "^3.9.1",
@@ -28,7 +29,7 @@
     "gulp-sass": "^2.2.0",
     "gulp-size": "^2.0.0",
     "gulp-sourcemaps": "^1.6.0",
-    "hexo": "^3.2.0",
-    "run-sequence": "^1.1.5"
+    "run-sequence": "^1.1.5",
+    "susy": "^2.2.12"
   }
 }

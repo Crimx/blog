@@ -9,7 +9,11 @@
   background: #1d1f21;
   color: #c5c8c6;
   padding: $global-spacing-unit--small;
-  font-size: 12px;
+  font-size: 14px;
+
+  @include breakpoint($breakpoint-single-column) {
+    font-size: 12px;
+  }
 
   .code,
   pre {
