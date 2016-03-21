@@ -7,6 +7,14 @@ menu:
   Search: /search
 rss: /atom.xml
 
+cover:
+  default: /images/cover-default.jpg
+  home: /images/cover-home.jpg
+  post: /images/cover-post.jpg
+  archives: /images/cover-archives.jpg
+  categories: /images/cover-categories.jpg
+  tags: /images/cover-tags.jpg
+
 # Content
 excerpt_link: Read More
 
