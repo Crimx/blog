@@ -30,4 +30,13 @@ html {
 
 a {
   color: $global-color-link;
+
+  &:hover,
+  &:active {
+    color: $global-color-link-hover;
+  }
+
+  &:visited {
+    color: lighten($global-color-link, 20%);
+  }
 }
