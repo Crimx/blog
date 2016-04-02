@@ -1,0 +1,19 @@
+/*------------------------------------*\
+    #PAGE
+\*------------------------------------*/
+
+$susy: (
+  columns: 12,
+  gutters: 0,
+);
+
+.wrapper {
+  @include container(1920px);
+
+  padding-left: $global-spacing-unit--small;
+  padding-right: $global-spacing-unit--small;
+
+  @include breakpoint($breakpoint-single-column) {
+    max-width: 1200px;
+  }
+}
