@@ -51,6 +51,7 @@ $wrapper-sematic-naming: false;
 //
 // #COMPONENTS
 //
+@import 'components.header';
 @import 'components.page';
 @import 'components.post';
 @import 'components.toc';
