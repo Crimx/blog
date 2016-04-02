@@ -31,12 +31,12 @@ html {
 a {
   color: $global-color-link;
 
+  &:visited {
+    color: lighten($global-color-link, 20%);
+  }
+
   &:hover,
   &:active {
     color: $global-color-link-hover;
-  }
-
-  &:visited {
-    color: lighten($global-color-link, 20%);
   }
 }

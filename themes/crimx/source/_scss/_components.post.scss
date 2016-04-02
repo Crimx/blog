@@ -4,33 +4,46 @@
 
 // 文章篇幅
 
-.article-inner {
+.article-entry {
   @extend %postify;
 
   background-color: #fff;
   text-align: justify;
+  padding: $global-spacing-unit--small;
+
 
 
   // 两侧边无缝贴合
-  padding-left: $global-spacing-unit--small;
-  padding-right: $global-spacing-unit--small;
-  // 充满两边
   &,
   hr,
+  > pre,
   .highlight {
     margin-left: -$global-spacing-unit--small;
     margin-right: -$global-spacing-unit--small;
   }
 
-  // 图片充满宽度
-  img {
-    display: block;
-    width: 100%;
+
+
+  // 居中
+  > p > img,
+  > table {
+    max-width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    word-break: break-all;
+    word-wrap: break-word;
   }
 
-}
+  > p > img {
+    display: block;
+  }
 
-// 标题
-.article-title {
-  text-align: center;
+
+
+  // markdown generated codeblock
+  > pre {
+    background: #1d1f21;
+    color: #c5c8c6;
+    border-radius: 0;
+  }
 }
