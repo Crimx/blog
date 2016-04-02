@@ -42,8 +42,6 @@ category_generator:
 
 # Miscellaneous
 google_analytics:
-favicon: images/favicon.ico
-apple_touch_icon: images/apple-touch-icon.png
 twitter: straybugs
 github: Crimx
 codepen: straybugs

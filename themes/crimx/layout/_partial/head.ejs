@@ -23,16 +23,10 @@
 
   <title><% if (title){ %><%= title %> | <% } %><%= config.title %></title>
 
+  <%- partial('favicon') %>
+
   <% if (theme.rss){ %>
     <link rel="alternate" href="<%- theme.rss %>" title="<%= config.title %>" type="application/atom+xml">
-  <% } %>
-
-  <% if (theme.favicon){ %>
-    <link rel="icon" href="<%- url_for(theme.favicon) %>">
-  <% } %>
-
-  <% if (theme.apple_touch_icon){ %>
-    <link rel="apple-touch-icon" href="<%- url_for(theme.apple_touch_icon) %>">
   <% } %>
 
   <%- open_graph({twitter_id: theme.twitter, google_plus: theme.google_plus, fb_admins: theme.fb_admins, fb_app_id: theme.fb_app_id}) %>
