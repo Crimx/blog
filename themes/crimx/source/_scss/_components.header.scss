@@ -39,16 +39,14 @@ $header-color-link: darken($header-color-text, 10%);
   }
 
   .social-nav {
-    display: none;
-    position: absolute;
-    z-index: 10;
-    top: -40px;
-    right: 0;
+    .svg-icon {
+      width: 48px;
+    }
   }
 
   .svg-logo {
     @include breakpoint($breakpoint-full-cover) {
-      height: 30vh;
+      height: 25vh;
     }
   }
 
@@ -57,7 +55,7 @@ $header-color-link: darken($header-color-text, 10%);
     margin: auto;
     left: $global-spacing-unit--small;
     right: $global-spacing-unit--small;
-    top: 45%;
+    top: 50%;
   }
 
     .site-title {

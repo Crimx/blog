@@ -21,7 +21,7 @@ if (is_post()) {
 
 <header class="site-header" style="background: #1e1d1d no-repeat url('<%- cover %>') center/cover;">
 
-  <%- partial('svg-logo') %>
+  <%- partial('svg-icons/logo') %>
 
   <nav class="site-nav">
     <a href="<%- url_for(theme.menu['Categories']) %>">Categories</a>
@@ -30,13 +30,11 @@ if (is_post()) {
     <a href="http://www.crimx.com/aboutme">About</a>
   </nav>
 
-  <%- partial('svg-menu') %>
-
   <nav class="social-nav">
-    <a href="https://twitter.com/<%- theme.tweeter %>/">Twitter</a>
-    <a href="https://github.com/<%- theme.github %>/">Github</a>
-    <a href="http://codepen.io/<%- theme.codepen %>/">Codepen</a>
-    <a href="#">Email</a>
+    <%- partial('svg-icons/twitter') %>
+    <%- partial('svg-icons/github') %>
+    <%- partial('svg-icons/codepen') %>
+    <%- partial('svg-icons/mail') %>
   </nav>
 
   <div class="title-wrapper">

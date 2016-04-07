@@ -21,3 +21,5 @@ $breakpoint-full-cover: screen (orientation portrait) (max-width 480px);
 // 调整稍微缩小宽度，竖起来的平板
 $breakpoint-medium-width: screen (orientation portrait) 481px 1024px;
 
+// PC
+$breakpoint-pc: screen 1025px (orientation landscape), screen (min-height 1025px) (orientation portrait);
