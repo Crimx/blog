@@ -44,9 +44,9 @@ if (is_post()) {
 
   <% if (is_post()) { %>
     <div class="article-meta">
+      <%- partial('post/category', {post: page, prefix: true}) %>
       <%- partial('post/date', {class_name: 'article-date', date_format: null, post: page}) %>
       <%- partial('post/date-updated', {class_name: 'article-date', date_format: null, post: page}) %>
-      <%- partial('post/category', {post: page, prefix: true}) %>
     </div>
   <% } %>
 
