@@ -25,6 +25,7 @@
 @import 'breakpoint';
 
 
+
 //
 // #GENERIC
 //
@@ -41,12 +42,6 @@
 @import 'base.page';
 
 
-//
-// #OBJECTS
-//
-$wrapper-sematic-naming: false;
-// @import 'objects.wrappers';
-
 
 //
 // #COMPONENTS
@@ -56,10 +51,10 @@ $wrapper-sematic-naming: false;
 @import 'components.post';
 @import 'components.toc';
 @import 'components.codeblock';
+@import 'components.svg-icons';
 
 
 //
 // #TRUMPS
 //
-@import 'trumps.svg-icons';
 

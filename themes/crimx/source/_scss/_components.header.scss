@@ -24,29 +24,26 @@ $header-color-link: darken($header-color-text, 10%);
   }
 }
 
-  .svg-menu {
-    position: absolute;
-    z-index: 20;
-    top: $global-spacing-unit--small;
-    right: $global-spacing-unit--small;
-    height: 48px;
-    width: 48px;
+  .svg-crimx-logo {
+    @include breakpoint($breakpoint-full-cover) {
+      height: 25vh;
+    }
+  }
 
-    &:hover + .social-nav {
-      display: block;
-      top: 0;
+  .site-nav {
+    a {
+      margin-right: $global-spacing-unit--tiny;
     }
   }
 
   .social-nav {
     .svg-icon {
       width: 48px;
-    }
-  }
+      margin-right: $global-spacing-unit--tiny;
 
-  .svg-logo {
-    @include breakpoint($breakpoint-full-cover) {
-      height: 25vh;
+      @include breakpoint($breakpoint-full-cover) {
+        width: 32px;
+      }
     }
   }
 
@@ -67,12 +64,12 @@ $header-color-link: darken($header-color-text, 10%);
       // half pixel hr
       &:after {
         display: block;
-        width: 30%;
+        width: 40%;
         min-width: 4em;
         margin: $global-spacing-unit--small auto;
         height: 1px;
         content: '';
-        background: repeat-x top left url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='1' height='1'><rect fill='#fff' x='0' y='0' width='1' height='0.5'/></svg>");
+        background: repeat-x center url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='1' height='1'><rect fill='#fff' x='0' y='0' width='1' height='0.5'/></svg>");
       }
     }
 
