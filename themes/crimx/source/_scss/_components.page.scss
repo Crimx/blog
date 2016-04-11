@@ -7,7 +7,7 @@ $susy: (
   gutters: 0,
 );
 
-.wrapper {
+.main-content {
   @include container(1920px);
 
   padding-left: $global-spacing-unit--small;

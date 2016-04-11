@@ -46,4 +46,10 @@
     color: #c5c8c6;
     border-radius: 0;
   }
+
+
+  // codeblock
+  .highlight {
+    @extend %highlight;
+  }
 }
