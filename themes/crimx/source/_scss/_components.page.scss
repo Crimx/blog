@@ -12,6 +12,7 @@ $susy: (
 
   padding-left: $global-spacing-unit--small;
   padding-right: $global-spacing-unit--small;
+  background-color: $global-color-background;
 
   @include breakpoint($breakpoint-single-column) {
     max-width: 1200px;

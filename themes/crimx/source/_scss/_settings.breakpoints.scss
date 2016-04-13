@@ -23,3 +23,6 @@ $breakpoint-medium-width: screen (orientation portrait) 481px 1024px;
 
 // PC
 $breakpoint-pc: screen 1025px (orientation landscape), screen (min-height 1025px) (orientation portrait);
+
+// phones & tablets
+$breakpoint-handheld: screen (max-width 1024px) (orientation landscape), screen (max-height 1024px) (orientation portrait);

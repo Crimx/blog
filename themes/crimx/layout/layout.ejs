@@ -14,17 +14,15 @@
 
   <%- partial('_partial/header', null, {cache: !config.relative_link}) %>
 
-  <div class="wrapper">
-    <div class="main-content">
-      <%- body %>
-      <% if (is_post()) {  %>
-          <%- partial('_partial/toc', null, {cache: !config.relative_link}) %>
-      <% } %>
-      <%- partial('_partial/disqus') %>
-      <%- partial('_partial/footer', null, {cache: !config.relative_link}) %>
-    </div>
+  <div class="main-content">
+    <%- body %>
+    <% if (is_post()) {  %>
+        <%- partial('_partial/toc', null, {cache: !config.relative_link}) %>
+    <% } %>
+    <%- partial('_partial/disqus') %>
+  </div> <!-- .main-content -->
 
-  </div> <!-- .wrapper -->
+  <%- partial('_partial/footer', null, {cache: !config.relative_link}) %>
 
   <%- js('js/script') %>
   <%- partial('_partial/google-analytics') %>

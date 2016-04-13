@@ -19,7 +19,7 @@
 html {
   font-size: ($global-font-size / 16px) * 1em; /* [1] */
   line-height: $global-line-height; /* [1] */
-  background-color: $global-color-background;
+  background-color: $global-color-background-dark;
   color: $global-color-text;
   overflow-y: scroll; /* [2] */
   min-height: 100%; /* [3] */

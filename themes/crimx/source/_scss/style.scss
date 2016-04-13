@@ -19,7 +19,6 @@
 //
 // #TOOLS
 //
-@import 'tools.functions';
 @import 'tools.mixins';
 @import 'susy';
 @import 'breakpoint';
@@ -50,6 +49,7 @@
 @import 'components.header';
 @import 'components.page';
 @import 'components.post';
+@import 'components.footer';
 @import 'components.toc';
 @import 'components.svg-icons';
 
@@ -57,4 +57,3 @@
 //
 // #TRUMPS
 //
-
