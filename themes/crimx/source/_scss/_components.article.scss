@@ -2,7 +2,9 @@
     #POST
 \*------------------------------------*/
 
-// 文章篇幅
+/*
+ * 文章篇幅
+ */
 
 .article-entry {
   @extend %postify;
@@ -53,3 +55,55 @@
     @extend %highlight;
   }
 }
+
+
+/*
+ * 文章页脚
+ */
+
+#article-nav {
+  text-align: center;
+  margin-bottom: $global-spacing-unit--small;
+}
+
+.article-nav-link-wrap {
+  display: inline-block;
+  width: 45%;
+  text-decoration: none;
+  text-shadow: 0 1px #fff;
+  color: #999;
+  vertical-align: top;
+
+  @include breakpoint($breakpoint-full-cover) {
+    display: block;
+    width: initial;
+  }
+}
+
+#article-nav-newer {
+  text-align: right;
+  margin-right: 1.5em;
+
+  @include breakpoint($breakpoint-full-cover) {
+    text-align: center;
+    margin: 0 0 $global-spacing-unit--tiny;
+  }
+}
+
+#article-nav-older {
+  text-align: left;
+
+  @include breakpoint($breakpoint-full-cover) {
+    text-align: center;
+  }
+}
+
+  .article-nav-caption {
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: #ddd;
+    line-height: 1em;
+    font-weight: bold;
+  }
+
+
