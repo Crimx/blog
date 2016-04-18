@@ -28,7 +28,6 @@
       border: 1px solid $global-color-link;
       padding: $global-spacing-unit--small;
       margin-bottom: $global-spacing-unit--small;
-      overflow: hidden;
 
       @include breakpoint($breakpoint-handheld) {
         display: block;
@@ -42,6 +41,10 @@
           border-color: $global-color-link-hover;
         }
       }
+    }
+
+    .new-articles__link {
+      overflow: hidden;
     }
 
       .new-articles__title {

@@ -1,0 +1,31 @@
+<ul class="new-articles">
+  <%
+    var allPosts = site.posts.sort('-date');
+    if (!allPosts.length) {
+      return;
+    }
+
+    // show 4 new articles
+    var postCount = 0;
+    allPosts.each(function(post) {
+      if (!post.published) {
+        return true;
+      }
+
+      postCount += 1;
+      if (postCount > 4) {
+        return false;
+      }
+  %>
+      <li class="new-articles__item">
+        <a class="new-articles__link" href="<%- url_for(post.path) %>">
+          <div class="new-articles__cover" <% if (post.cover) { %> style="background: no-repeat url('<%- url_for(post.path) + post.cover %>') center/cover;" <% } %> >
+          </div>
+          <h1 class="new-articles__title"><%- titlecase(post.title) %></h1>
+        </a>
+      </li>
+  <%
+    });
+  %>
+</ul>
+<!-- /.new-articles -->
