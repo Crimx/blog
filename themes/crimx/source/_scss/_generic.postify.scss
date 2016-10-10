@@ -7,7 +7,6 @@
 
 // scss-lint:disable SelectorDepth, PropertySpelling, MergeableSelector, DeclarationOrder
 
-$postify-semantic-naming: $global-semantic-naming !default;
 $postify-font-size:       $global-font-size !default;
 $postify-line-height:     $global-line-height !default;
 
@@ -15,8 +14,6 @@ $postify-color-hr:             #999 !default;
 $postify-color-link-hover:     #333 !default;
 $postify-color-link:           #3187db !default;
 $postify-color-header-counter: #888 !default;
-
-@include sematic-fallback($postify-semantic-naming, postify, underline-fix);
 
 %postify {
   margin-left: auto;

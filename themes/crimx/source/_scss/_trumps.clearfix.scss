@@ -8,11 +8,15 @@
  * over and over in your markup.
  */
 
-$clearfix-semantic-naming: $global-semantic-naming !default;
-
-@include sematic-fallback($clearfix-semantic-naming, clearfix);
-
 %clearfix {
+  &:after {
+    content: '';
+    display: table;
+    clear: both;
+  }
+}
+
+@mixin clearfix {
   &:after {
     content: '';
     display: table;
