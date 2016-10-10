@@ -1,0 +1,111 @@
+/*------------------------------------*\
+    #COVER
+\*------------------------------------*/
+
+$cover-color-text: #fff !default;
+$cover-color-link: #fff !default;
+$cover-opacity: .8 !default;
+$cover-article-meta-font-size: 12px !default;
+$cover-article-meta-line-height: $global-line-height !default;
+
+.site-cover {
+  position: relative;
+  // padding: $global-spacing-unit $global-spacing-unit--small;
+  min-height: 100vh;
+  background: #1e1d1d no-repeat center/cover;
+
+  a:link,
+  a:visited {
+    color: $cover-color-link;
+  }
+
+  &:after {
+    content: '';
+    display: block;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: black;
+    opacity: .1;
+    z-index: -1;
+  }
+}
+
+  #cover-logo {
+    position: absolute;
+    width: 60%;
+    margin: auto;
+    top: 12%;
+    left: 0;
+    right: 0;
+    fill: #fff;
+    opacity: $cover-opacity;
+  }
+
+  .title-wrapper {
+    position: absolute;
+    margin: auto;
+    padding: 0 $global-spacing-unit--small;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    opacity: $cover-opacity;
+    background: linear-gradient(to bottom, transparent, rgba(0, 0, 0, .4));
+  }
+
+    .site-title {
+      font-size: 2.5em;
+      // font-weight: bold;
+      line-height: 1.2;
+      letter-spacing: 1px;
+      word-wrap: break-word;
+      color: $cover-color-text;
+      margin-bottom: $global-spacing-unit;
+    }
+
+    
+    .article-meta {
+      font-size: 0;
+      color: $cover-color-link;
+      margin-bottom: $global-spacing-unit + $global-spacing-unit--tiny;
+    }
+
+      .article-category {
+        display: inline-block;
+
+        &:after {
+          content: '|';
+          font-size: $cover-article-meta-font-size * .95;
+          vertical-align: top;
+          margin: 0 4px;
+        }
+      }
+        .article-category-link {
+          font-size: $cover-article-meta-font-size;
+        }
+
+      .article-date {
+        margin-right: .5em;
+        font-size: $cover-article-meta-font-size;
+      }
+
+      .cc-license-wrapper {
+        position: relative;
+        display: inline-block;
+        vertical-align: top;
+
+        &:after {
+          content: ""; 
+          position: absolute; 
+          top: 0; 
+          right: 0; 
+          bottom: 0; 
+          left: 0;
+        }
+      }
+
+        #cc-license {
+          height: $cover-article-meta-font-size * $cover-article-meta-line-height * .95;
+          fill: #fff;
+          opacity: $cover-opacity;
+        }

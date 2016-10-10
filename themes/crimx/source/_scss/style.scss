@@ -20,8 +20,38 @@
 // #TOOLS
 //
 @import 'tools.mixins';
-@import 'susy';
 @import 'breakpoint';
+@import 'susy';
+$susy: (
+  columns: 12
+);
+// default settings
+// $susy: (
+//   flow: ltr,
+//   math: fluid,
+//   output: float,
+//   gutter-position: after,
+//   container: auto,
+//   container-position: center,
+//   columns: 4,
+//   gutters: .25,
+//   column-width: false,
+//   global-box-sizing: content-box,
+//   last-flow: to,
+//   debug: (
+//     image: hide,
+//     color: rgba(#66f, .25),
+//     output: background,
+//     toggle: top right,
+//   ),
+//   use-custom: (
+//     background-image: true,
+//     background-options: false,
+//     box-sizing: true,
+//     clearfix: false,
+//     rem: true,
+//   )
+// );
 
 
 
@@ -46,7 +76,8 @@
 //
 // #COMPONENTS
 //
-@import 'components.header';
+// @import 'components.header';
+@import 'components.cover';
 @import 'components.page';
 @import 'components.article';
 @import 'components.footer';
@@ -57,3 +88,5 @@
 //
 // #TRUMPS
 //
+@import 'trumps.clearfix';
+@import 'trumps.page';

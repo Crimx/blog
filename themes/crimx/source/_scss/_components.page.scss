@@ -2,11 +2,6 @@
     #PAGE
 \*------------------------------------*/
 
-$susy: (
-  columns: 12,
-  gutters: 0,
-);
-
 .main-content {
   @include container(1920px);
 
@@ -18,3 +13,37 @@ $susy: (
     max-width: 1200px;
   }
 }
+
+.menu-icon {
+  position: fixed;
+  top: 20px;
+  left: 0;
+  width: 80px;
+  height: 40px;
+  transition: all 0.3s;
+
+  &:before,
+  &:after {
+    content: '';
+    display: block;
+    width: 36px;
+    height: 40px;
+    position: absolute;
+    top: 0;
+    z-index: -1;
+    border-radius: 0px 3px 3px 0px;
+    background: #fff;
+  }
+
+  &:after {
+    width: 40px;
+    z-index: -2;
+    background: $global-color-theme;
+    box-shadow: rgba(0, 0, 0, 0.2) 0px 4px 10px;
+  }
+}
+
+  .menu-icon__logo {
+    fill: $global-color-theme;
+    height: 90%;
+  }
