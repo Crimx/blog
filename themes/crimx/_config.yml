@@ -8,8 +8,8 @@ menu:
 rss: /atom.xml
 
 cover:
-  default: /images/cover-default.jpg
-  home: /images/cover-home.jpg
+  default: /images/cover/nature-forest-trees-fog-2-portrait.jpg
+  home: /images/cover/nature-forest-trees-fog-2-portrait.jpg
   post: /images/cover-post.jpg
   archives: /images/cover-archives.jpg
   categories: /images/cover-categories.jpg

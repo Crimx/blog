@@ -18,17 +18,6 @@ $cover-article-meta-line-height: $global-line-height !default;
   a:visited {
     color: $cover-color-link;
   }
-
-  &:after {
-    content: '';
-    display: block;
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    background: black;
-    opacity: .1;
-    z-index: -1;
-  }
 }
 
   #cover-logo {
@@ -39,7 +28,7 @@ $cover-article-meta-line-height: $global-line-height !default;
     left: 0;
     right: 0;
     fill: #fff;
-    opacity: $cover-opacity;
+    opacity: $cover-opacity * .9;
   }
 
   .title-wrapper {
@@ -50,7 +39,6 @@ $cover-article-meta-line-height: $global-line-height !default;
     right: 0;
     bottom: 0;
     opacity: $cover-opacity;
-    background: linear-gradient(to bottom, transparent, rgba(0, 0, 0, .4));
   }
 
     .site-title {
