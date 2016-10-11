@@ -48,5 +48,22 @@ $(document).ready(function() {
     }
   })
 
+
+  /*------------------------------------*\
+    LOGO FITS IN
+  \*------------------------------------*/
+
+  var $logo = $('#cover-logo')
+  var logoOffset = $logo.offset()
+  var logoFavHeight = $('.site-cover').offset().height - $('.title-wrapper').offset().height
+  var logoCss = {}
+  if (logoOffset.height >= logoFavHeight) {
+    logoCss.height = logoFavHeight * .8 + 'px';
+  }
+  logoCss.top = (logoFavHeight - logoOffset.height) * .4 + 'px'
+  $logo.css(logoCss)
+
+
+  
 })
 ;
