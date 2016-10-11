@@ -24,11 +24,13 @@
     "del": "latest",
     "gulp": "latest",
     "gulp-clean-css": "latest",
+    "gulp-concat": "^2.6.0",
     "gulp-load-plugins": "latest",
     "gulp-postcss": "latest",
     "gulp-sass": "latest",
     "gulp-size": "latest",
     "gulp-sourcemaps": "latest",
+    "gulp-uglify": "^2.0.0",
     "gulp-util": "^3.0.7",
     "run-sequence": "latest",
     "susy": "latest"

@@ -12,7 +12,7 @@ var browserSync = require('browser-sync').create();
 
 
 gulp.task('clean', function() {
-  return del(['./themes/crimx/source/css/*']);
+  return del(['./themes/crimx/source/css/*', './themes/crimx/source/js/*']);
 });
 
 
@@ -51,10 +51,46 @@ gulp.task('sass', function () {
     .pipe($.size({title: 'sass'}));
 });
 
+gulp.task('js-debug', function () {
+  return gulp.src([
+    './themes/crimx/source/_js/lib/*.js',
+    '!./themes/crimx/source/_js/lib/*.min.js',
+    './themes/crimx/source/_js/*.js',
+    ])
+    .pipe($.sourcemaps.init({loadMaps: true}))
+    .pipe($.concat('script.js'))
+    .pipe($.uglify({
+      // preserveComments: 'license',
+      mangle: true
+    }))
+    .pipe($.sourcemaps.write('./'))
+    .pipe(gulp.dest('./themes/crimx/source/js/'))
+    .pipe($.size({title: 'js'}));
+});
+
+gulp.task('js', function () {
+  return gulp.src([
+    './themes/crimx/source/_js/lib/*.min.js',
+    './themes/crimx/source/_js/*.js',
+    ])
+    .pipe($.concat('script.js'))
+    .pipe($.uglify({
+      // preserveComments: 'license',
+      mangle: true
+    }))
+    .pipe(gulp.dest('./themes/crimx/source/js/'))
+    .pipe($.size({title: 'js'}));
+});
+
 
 gulp.task('watch', function() {
   gulp.watch(['./themes/crimx/source/_scss/**/*.scss'], ['sass-debug']);
-  gulp.watch(['./themes/**/*', './source/**/*', '!./themes/crimx/source/_scss/**/*']).on('change', browserSync.reload);
+  gulp.watch(['./themes/crimx/source/_js/**/*.js'], ['js-debug']);
+  gulp.watch([
+    './themes/**/*',
+    './source/**/*',
+    '!./themes/crimx/source/_scss/**/*',
+    '!./themes/crimx/source/_js/**/*']).on('change', browserSync.reload);
 });
 
 
@@ -74,26 +110,30 @@ gulp.task('default', function() {
     runSequence(
       'clean',
       'sass-debug',
+      'js-debug',
       'watch'
     );
   });
 
-  
-
 });
 
 
-gulp.task('g', function() {
-  runSequence(
-    'clean',
-    'sass'
-  );
-
+gulp.task('g-clean', function() {
   hexo.init().then(function(){
     return hexo.call('clean').then(function(){
       return hexo.call('generate');
     });
   }).catch(function(err){
     console.log(err);
+  }).then(function() {
+    runSequence(
+      'clean',
+      'sass',
+      'js'
+    );
   });
+});
+
+gulp.task('g', function() {
+  return hexo.call('generate')
 });
