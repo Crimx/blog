@@ -11,7 +11,7 @@ $cover-article-meta-line-height: $global-line-height !default;
 .site-cover {
   position: relative;
   // padding: $global-spacing-unit $global-spacing-unit--small;
-  min-height: 100vh;
+  min-height: 100%;
   background: #1e1d1d no-repeat center/cover;
 
   a:link,
@@ -29,6 +29,7 @@ $cover-article-meta-line-height: $global-line-height !default;
     right: 0;
     fill: #fff;
     opacity: $cover-opacity * .9;
+    transition: all 0.3s;
   }
 
   .title-wrapper {

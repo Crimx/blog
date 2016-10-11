@@ -22,10 +22,14 @@ html {
   background-color: $global-color-background-dark;
   color: $global-color-text;
   overflow-y: scroll; /* [2] */
-  min-height: 100%; /* [3] */
+  height: 100%; /* [3] */
   text-size-adjust: 100%; /* [4] */
   -moz-osx-font-smoothing: grayscale; /* [5] */
   -webkit-font-smoothing: antialiased; /* [5] */
+}
+
+body {
+  height: 100%;
 }
 
 a {

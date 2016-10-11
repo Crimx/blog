@@ -4,9 +4,9 @@
 
 
 .menu-icon--disappear {
-  left: -45px;
+  left: -$menu-icon-width - $menu-icon-border;
 }
 
 .menu-icon--hide {
-  left: -36px;
+  left: -$menu-icon-width + $menu-icon-border;
 }

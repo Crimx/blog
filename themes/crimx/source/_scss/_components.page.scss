@@ -2,6 +2,10 @@
     #PAGE
 \*------------------------------------*/
 
+$menu-icon-width: 45px;
+$menu-icon-border: 4px;
+
+
 .main-content {
   @include container(1920px);
 
@@ -16,30 +20,32 @@
 
 .menu-icon {
   position: fixed;
+  z-index: 900;
   top: 20px;
   left: 0;
-  width: 80px;
-  height: 40px;
+  width: $menu-icon-width * 3;
+  height: $menu-icon-width;
+  opacity: .9;
   transition: all 0.3s;
 
   &:before,
   &:after {
     content: '';
     display: block;
-    width: 36px;
-    height: 40px;
+    width: $menu-icon-width - $menu-icon-border;
+    height: $menu-icon-width;
     position: absolute;
     top: 0;
     z-index: -1;
-    border-radius: 0px 3px 3px 0px;
+    border-radius: 0 $menu-icon-border $menu-icon-border 0;
     background: #fff;
   }
 
   &:after {
-    width: 40px;
+    width: $menu-icon-width;
     z-index: -2;
     background: $global-color-theme;
-    box-shadow: rgba(0, 0, 0, 0.2) 0px 4px 10px;
+    box-shadow: rgba(0, 0, 0, 0.2) 0 $menu-icon-border $menu-icon-border*2.5;
   }
 }
 
