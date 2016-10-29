@@ -8,12 +8,12 @@ menu:
 rss: /atom.xml
 
 cover:
-  default: /images/cover/nature-forest-trees-fog-2-portrait.jpg
-  home: /images/cover/nature-forest-trees-fog-2-portrait.jpg
-  post: /images/cover-post.jpg
-  archives: /images/cover-archives.jpg
-  categories: /images/cover-categories.jpg
-  tags: /images/cover-tags.jpg
+  default: nature-forest-trees-fog-2-portrait.jpg
+  home: nature-forest-trees-fog-2-portrait.jpg
+  post: nature-forest-trees-fog-2-portrait.jpg
+  archives: nature-forest-trees-fog-2-portrait.jpg
+  categories: nature-forest-trees-fog-2-portrait.jpg
+  tags: nature-forest-trees-fog-2-portrait.jpg
 
 # Content
 excerpt_link: Read More

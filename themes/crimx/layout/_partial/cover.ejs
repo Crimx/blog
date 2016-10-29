@@ -1,13 +1,16 @@
-<% 
-var cover = url_for(theme.cover.default);;
+<%
+var cover = theme.cover.default;
 
 if (is_post()) {
   if (page.cover) {
-    cover = url_for(page.path + page.cover);
+    cover = page.cover;
   } else {
-    cover = url_for(theme.cover.post);
+    cover = theme.cover.post;
   }
 }
+
+var focus = config.cover_focus[cover] || 'center';
+var path_to_cover = '/images/cover/' + cover;
 
 /*
  *  else if (is_home()) {
@@ -23,7 +26,7 @@ if (is_post()) {
 
 %>
 
-<header class="site-cover" style="background-image:linear-gradient(transparent 60%,rgba(0,0,0,.6) 100%),linear-gradient(rgba(0,0,0,.1),rgba(0,0,0,.1)),url('<%- cover %>');">
+<header class="site-cover" style="background-image:linear-gradient(transparent 60%,rgba(0,0,0,.6) 100%),linear-gradient(rgba(0,0,0,.1),rgba(0,0,0,.1)),url('<%- path_to_cover %>');background-position:0,0,<%- focus %>;background-size:auto,auto,cover">
 
   <%- partial('svg-icons/logo', {id_name: 'cover-logo'}) %>
 
