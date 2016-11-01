@@ -10,7 +10,7 @@ if (is_post()) {
 }
 
 var focus = config.cover_focus[cover] || 'center';
-var path_to_cover = '/images/cover/' + cover;
+var path_to_cover = theme.cover.path + cover;
 
 /*
  *  else if (is_home()) {
@@ -26,7 +26,7 @@ var path_to_cover = '/images/cover/' + cover;
 
 %>
 
-<header class="site-cover" style="background-image:linear-gradient(transparent 60%,rgba(0,0,0,.6) 100%),linear-gradient(rgba(0,0,0,.1),rgba(0,0,0,.1)),url('<%- path_to_cover %>');background-position:0,0,<%- focus %>;background-size:auto,auto,cover">
+<header class="site-cover" style="background-image:linear-gradient(transparent 80%,rgba(0,0,0,.4) 90%,rgba(0,0,0,.7) 100%),linear-gradient(rgba(0,0,0,.3),rgba(0,0,0,.3)),url('<%- path_to_cover %>');background-position:0,0,<%- focus %>;background-size:auto,auto,cover">
 
   <%- partial('svg-icons/logo', {id_name: 'cover-logo'}) %>
 

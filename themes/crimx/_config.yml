@@ -8,6 +8,7 @@ menu:
 rss: /atom.xml
 
 cover:
+  path: /images/cover/
   default: nature-forest-trees-fog-2-portrait.jpg
   home: nature-forest-trees-fog-2-portrait.jpg
   post: nature-forest-trees-fog-2-portrait.jpg
