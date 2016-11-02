@@ -29,7 +29,7 @@ $cover-article-meta-line-height: $global-line-height !default;
     right: 0;
     fill: #fff;
     opacity: $cover-opacity * .9;
-    transition: all 0.3s;
+    transition: all 0.5s;
   }
 
   .title-wrapper {
@@ -52,7 +52,7 @@ $cover-article-meta-line-height: $global-line-height !default;
       margin-bottom: $global-spacing-unit;
     }
 
-    
+
     .article-meta {
       font-size: 0;
       color: $cover-color-link;
@@ -84,11 +84,11 @@ $cover-article-meta-line-height: $global-line-height !default;
         vertical-align: top;
 
         &:after {
-          content: ""; 
-          position: absolute; 
-          top: 0; 
-          right: 0; 
-          bottom: 0; 
+          content: "";
+          position: absolute;
+          top: 0;
+          right: 0;
+          bottom: 0;
           left: 0;
         }
       }
