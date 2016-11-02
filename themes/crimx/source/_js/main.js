@@ -1,11 +1,10 @@
 /*!
  * SCRIPT
  */
-;
-$(document).ready(function() {
+
+$(document).ready(function () {
   var $window = $(window)
   var mainContentTop = $('.main-content').offset().top
-
 
   /*------------------------------------*\
     MENU ICON SHOWS & HIDES
@@ -15,24 +14,24 @@ $(document).ready(function() {
   var isMenuDisappear = true
   var isMenuHide = false
 
-  $menuIcon.on('tap swipeRight', function(evt) {
+  $menuIcon.on('tap swipeRight', function (evt) {
     evt.preventDefault()
     evt.stopPropagation()
     $menuIcon.removeClass('menu-icon--hide menu-icon--disappear')
     isMenuDisappear = isMenuHide = false
   })
 
-  $window.scroll(function() {
+  $window.scroll(function () {
     // main content shows
     if ($window.scrollTop() >= mainContentTop) {
       if (isMenuDisappear) {
         isMenuDisappear = false
         $menuIcon.removeClass('menu-icon--disappear')
         isMenuHide = true
-        setTimeout(function() {
+        setTimeout(function () {
           $menuIcon.addClass('menu-icon--hide')
         }, 700)
-      } else if (!isMenuHide){
+      } else if (!isMenuHide) {
         isMenuHide = true
         $menuIcon.addClass('menu-icon--hide')
       }
@@ -48,7 +47,6 @@ $(document).ready(function() {
     }
   })
 
-
   /*------------------------------------*\
     LOGO FITS IN
   \*------------------------------------*/
@@ -56,14 +54,11 @@ $(document).ready(function() {
   var $logo = $('#cover-logo')
   var logoOffset = $logo.offset()
   var logoFavHeight = $('.site-cover').offset().height - $('.title-wrapper').offset().height
-  var logoCss = {}
-  if (logoOffset.height >= logoFavHeight) {
-    logoCss.height = logoFavHeight * .8 + 'px';
+  var logoCss = {
+    // shrink logo if necessery
+    height: (logoOffset.height >= logoFavHeight ? logoFavHeight * .8 : logoOffset.height) + 'px'
   }
-  logoCss.top = (logoFavHeight - logoOffset.height) * .4 + 'px'
+  // center logo within the remain space
+  logoCss.top = (logoFavHeight - logoCss.height) * .4 + 'px'
   $logo.css(logoCss)
-
-
-  
 })
-;
