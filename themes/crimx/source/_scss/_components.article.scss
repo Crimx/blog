@@ -6,13 +6,17 @@
  * 文章篇幅
  */
 
+.main-content {
+  border-bottom: 1px solid transparent;
+  margin-bottom: -1px;
+}
+
 .article-entry {
   @extend %postify;
 
   background-color: #fff;
   text-align: justify;
   padding: $global-spacing-unit--small;
-
 
 
   // 两侧边无缝贴合
@@ -61,41 +65,69 @@
  * 文章页脚
  */
 
+$article-tag-gutter: $global-spacing-unit--small / 2;
+$article-tag-font-size:12px; //$global-font-size * .8;
+$article-tag-color: #aaa;
+
+.article-footer {
+  margin: 0 (-$global-spacing-unit--small) $global-spacing-unit--small;
+  padding: $article-tag-gutter $global-spacing-unit--small 0;
+  background: #fff;
+  font-size: 0;
+  border-top: 1px lighten(#ddd, 10%) solid;
+}
+
+  .article-tag-list-item {
+    display: inline-block;
+    font-size: 0;
+  }
+
+  .article-tag-list-link {
+    display: inline-block;
+    margin-right: $article-tag-gutter;
+    margin-bottom: $article-tag-gutter;
+    padding: 0 ($global-spacing-unit--small * .8);
+    font-size: $article-tag-font-size;
+    vertical-align: middle;
+    color: $article-tag-color;
+    border: 1px $article-tag-color solid;
+    border-radius: $article-tag-font-size * $global-line-height;
+    transition: all 0.5s;
+
+    &:hover {
+      border-color: $global-color-theme;
+      color: $global-color-theme;
+    }
+  }
+
+
+// post nav
 #article-nav {
   text-align: center;
   margin-bottom: $global-spacing-unit--small;
 }
 
 .article-nav-link-wrap {
-  display: inline-block;
-  width: 45%;
+  display: block;
+  width: initial;
+  // display: inline-block;
+  // width: 45%;
   text-decoration: none;
   text-shadow: 0 1px #fff;
   color: #999;
   vertical-align: top;
-
-  @include breakpoint($breakpoint-full-cover) {
-    display: block;
-    width: initial;
-  }
 }
 
 #article-nav-newer {
-  text-align: right;
-  margin-right: 1.5em;
-
-  @include breakpoint($breakpoint-full-cover) {
-    text-align: center;
-    margin: 0 0 $global-spacing-unit--tiny;
-  }
+  text-align: center;
+  margin: 0 0 $global-spacing-unit--tiny;
+  // text-align: right;
+  // margin-right: 1.5em;
 }
 
 #article-nav-older {
-  text-align: left;
-
-  @include breakpoint($breakpoint-full-cover) {
-    text-align: center;
-  }
+  text-align: center;
+  // text-align: left;
 }
 
   .article-nav-caption {
@@ -106,4 +138,6 @@
     font-weight: bold;
   }
 
-
+#comments {
+  margin-bottom: $global-spacing-unit--small;
+}
