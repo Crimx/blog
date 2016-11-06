@@ -6,6 +6,9 @@
  * 文章篇幅
  */
 
+// handles bottom margin collapsing
+// not using overflow:hidden to create a new BFC
+// because I want both sides to overflow
 .main-content {
   border-bottom: 1px solid transparent;
   margin-bottom: -1px;
@@ -101,7 +104,14 @@ $article-tag-color: #aaa;
   }
 
 
-// post nav
+/*
+ * post nav
+ */
+
+$nav-cap-font-size: $global-font-size;
+$nav-cap-line-height: $global-line-height;
+$nav-cap-height: $nav-cap-font-size * $nav-cap-line-height;
+
 #article-nav {
   text-align: center;
   margin-bottom: $global-spacing-unit--small;
@@ -109,33 +119,48 @@ $article-tag-color: #aaa;
 
 .article-nav-link-wrap {
   display: block;
-  width: initial;
+  position: relative;
   // display: inline-block;
   // width: 45%;
+  margin-bottom: $global-spacing-unit--small;
+  padding: $nav-cap-height / 2;
   text-decoration: none;
-  text-shadow: 0 1px #fff;
   color: #999;
-  vertical-align: top;
+  @include border-hairline(solid #ddd);
 }
 
 #article-nav-newer {
-  text-align: center;
-  margin: 0 0 $global-spacing-unit--tiny;
+  // text-align: center;
   // text-align: right;
   // margin-right: 1.5em;
 }
 
 #article-nav-older {
-  text-align: center;
+  // text-align: center;
   // text-align: left;
 }
 
   .article-nav-caption {
+    display: block;
+    position: absolute;
+    z-index: 0;
+    top: 0;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 0 $global-spacing-unit--tiny;
+    font-size: $nav-cap-font-size;
+    line-height: $nav-cap-line-height;
+    font-weight: bold;
     text-transform: uppercase;
     letter-spacing: 2px;
     color: #ddd;
-    line-height: 1em;
-    font-weight: bold;
+    text-shadow: 0 1px #fff;
+    background: $global-color-background;
+  }
+
+  .article-nav-title {
+    position: relative;
+    z-index: 1;
   }
 
 #comments {
