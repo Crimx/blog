@@ -2,20 +2,18 @@
     #FOOTER
 \*------------------------------------*/
 
-// 文章页脚
+// 页面页脚
 
 .site-footer {
   background-color: $global-color-background-dark;
-  padding: $global-spacing-unit $global-spacing-unit--small 0;
+  padding: $global-spacing-unit--small $global-spacing-unit--small;
   color: lighten($global-color-link, 10%);
 
-  @include breakpoint($breakpoint-handheld) {
-    a:link,
-    a:visited,
-    a:active,
-    a:hover {
-      color: lighten($global-color-link, 20%);
-    }
+  a:link,
+  a:visited,
+  a:active,
+  a:hover {
+    color: lighten($global-color-link, 20%);
   }
 }
 
@@ -25,53 +23,42 @@
 
     .new-articles__item {
       position: relative;
-      border: 1px solid $global-color-link;
-      padding: $global-spacing-unit--small;
+      display: block;
+      height: $global-spacing-unit--huge;
       margin-bottom: $global-spacing-unit--small;
-
-      @include breakpoint($breakpoint-handheld) {
-        display: block;
-        height: $global-spacing-unit--huge;
-      }
-
-      @include breakpoint($breakpoint-pc) {
-        transition: border-color 0.5s;
-
-        &:hover {
-          border-color: $global-color-link-hover;
-        }
+      border: 1px solid $global-color-link;
+      transition: border-color 0.5s;
+      &:hover {
+        border-color: $global-color-link-hover;
       }
     }
 
     .new-articles__link {
+      display: block;
       overflow: hidden;
+      padding: $global-spacing-unit--small;
     }
 
       .new-articles__title {
+        position: absolute;
+        height: 50%;
+        top: $global-spacing-unit--small;
+        left: $global-spacing-unit--huge;
+        bottom: $global-spacing-unit--small;
+        right: $global-spacing-unit--small;
+        margin: auto 0;
+        overflow: hidden;
         font-size: 1.14rem;
-
-        @include breakpoint($breakpoint-handheld) {
-          position: absolute;
-          height: 50%;
-          top: $global-spacing-unit--small;
-          left: $global-spacing-unit--huge;
-          bottom: $global-spacing-unit--small;
-          right: $global-spacing-unit--small;
-          margin: auto 0;
-          overflow: hidden;
-        }
       }
 
       .new-articles__cover {
+        width: $global-spacing-unit--huge - $global-spacing-unit--small * 2;
+        height: $global-spacing-unit--huge - $global-spacing-unit--small * 2;
         background-color: lighten($global-color-background-dark, 5%);
-
-        @include breakpoint($breakpoint-handheld) {
-          height: $global-spacing-unit--huge - $global-spacing-unit--small * 2;
-          width: $global-spacing-unit--huge - $global-spacing-unit--small * 2;
-        }
       }
 
   .site-description {
+    margin-bottom: $global-spacing-unit--tiny;
     text-transform: uppercase;
 
     &:before {
@@ -96,7 +83,6 @@
   .site-description,
   .copyright {
     text-align: center;
-    margin-bottom: $global-spacing-unit--tiny;
 
     a:link,
     a:visited,
