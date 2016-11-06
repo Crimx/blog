@@ -9,17 +9,17 @@
 // handles bottom margin collapsing
 // not using overflow:hidden to create a new BFC
 // because I want both sides to overflow
-.main-content {
-  border-bottom: 1px solid transparent;
-  margin-bottom: -1px;
-}
+// .main-content {
+//   border-bottom: 1px solid transparent;
+//   margin-bottom: -1px;
+// }
 
 .article-entry {
   @extend %postify;
 
   background-color: #fff;
   text-align: justify;
-  padding: $global-spacing-unit--small;
+  padding: $global-spacing-unit--small $global-spacing-unit--small 0;
 
 
   // 两侧边无缝贴合
@@ -68,40 +68,47 @@
  * 文章页脚
  */
 
+.article-footer {
+  // border-top: 1px lighten(#ddd, 10%) solid;
+  margin: 0 (-$global-spacing-unit--small);
+}
+
+/*
+ * post tags
+ */
+
 $article-tag-gutter: $global-spacing-unit--small / 2;
 $article-tag-font-size:12px; //$global-font-size * .8;
 $article-tag-color: #aaa;
 
-.article-footer {
-  margin: 0 (-$global-spacing-unit--small) $global-spacing-unit--small;
+.article-tag-list {
   padding: $article-tag-gutter $global-spacing-unit--small 0;
-  background: #fff;
+  background: $global-color-background;
   font-size: 0;
-  border-top: 1px lighten(#ddd, 10%) solid;
 }
 
-  .article-tag-list-item {
-    display: inline-block;
-    font-size: 0;
-  }
+.article-tag-list-item {
+  display: inline-block;
+  font-size: 0;
+}
 
-  .article-tag-list-link {
-    display: inline-block;
-    margin-right: $article-tag-gutter;
-    margin-bottom: $article-tag-gutter;
-    padding: 0 ($global-spacing-unit--small * .8);
-    font-size: $article-tag-font-size;
-    vertical-align: middle;
-    color: $article-tag-color;
-    border: 1px $article-tag-color solid;
-    border-radius: $article-tag-font-size * $global-line-height;
-    transition: all 0.5s;
+.article-tag-list-link {
+  display: inline-block;
+  margin-right: $article-tag-gutter;
+  margin-bottom: $article-tag-gutter;
+  padding: 0 ($global-spacing-unit--small * .8);
+  font-size: $article-tag-font-size;
+  vertical-align: middle;
+  color: $article-tag-color;
+  border: 1px $article-tag-color solid;
+  border-radius: $article-tag-font-size * $global-line-height;
+  transition: all 0.5s;
 
-    &:hover {
-      border-color: $global-color-theme;
-      color: $global-color-theme;
-    }
+  &:hover {
+    border-color: $global-color-theme;
+    color: $global-color-theme;
   }
+}
 
 
 /*
@@ -111,10 +118,12 @@ $article-tag-color: #aaa;
 $nav-cap-font-size: $global-font-size;
 $nav-cap-line-height: $global-line-height;
 $nav-cap-height: $nav-cap-font-size * $nav-cap-line-height;
+$nav-color-background: #fff;
 
 #article-nav {
   text-align: center;
-  margin-bottom: $global-spacing-unit--small;
+  background: $nav-color-background;
+  padding: $global-spacing-unit--small;
 }
 
 .article-nav-link-wrap {
@@ -136,6 +145,7 @@ $nav-cap-height: $nav-cap-font-size * $nav-cap-line-height;
 }
 
 #article-nav-older {
+  margin-bottom: 0;
   // text-align: center;
   // text-align: left;
 }
@@ -155,7 +165,7 @@ $nav-cap-height: $nav-cap-font-size * $nav-cap-line-height;
     letter-spacing: 2px;
     color: #ddd;
     text-shadow: 0 1px #fff;
-    background: $global-color-background;
+    background: $nav-color-background;
   }
 
   .article-nav-title {
@@ -164,5 +174,7 @@ $nav-cap-height: $nav-cap-font-size * $nav-cap-line-height;
   }
 
 #comments {
-  margin-bottom: $global-spacing-unit--small;
+  margin: 0 (-$global-spacing-unit--small) $global-spacing-unit--small;
+  padding: 0 $global-spacing-unit--small;
+  background: #fff;
 }

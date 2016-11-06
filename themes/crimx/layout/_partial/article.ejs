@@ -20,10 +20,10 @@
   </div>
   <footer class="article-footer">
     <%- partial('post/tag') %>
+    <% if (!index){ %>
+      <%- partial('post/nav') %>
+    <% } %>
   </footer>
-  <% if (!index){ %>
-    <%- partial('post/nav') %>
-  <% } %>
 </article>
 
 <% if (!index && post.comments && config.disqus_shortname){ %>
