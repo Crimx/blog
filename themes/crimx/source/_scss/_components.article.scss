@@ -5,21 +5,12 @@
 /*
  * 文章篇幅
  */
-
-// handles bottom margin collapsing
-// not using overflow:hidden to create a new BFC
-// because I want both sides to overflow
-// .main-content {
-//   border-bottom: 1px solid transparent;
-//   margin-bottom: -1px;
-// }
-
 .article-entry {
   @extend %postify;
 
   background-color: #fff;
   text-align: justify;
-  padding: $global-spacing-unit--small $global-spacing-unit--small 0;
+  padding: $global-spacing-unit--small $global-spacing-unit--small;
 
 
   // 两侧边无缝贴合
@@ -85,6 +76,7 @@ $article-tag-color: #aaa;
   padding: $article-tag-gutter $global-spacing-unit--small 0;
   background: $global-color-background;
   font-size: 0;
+  box-shadow: inset 0 6px 6px -6px rgba(0,0,0,0.23);
 }
 
 .article-tag-list-item {
@@ -171,6 +163,14 @@ $nav-color-background: #fff;
   .article-nav-title {
     position: relative;
     z-index: 1;
+
+    &:before {
+      content: '《';
+    }
+
+    &:after {
+      content: '》';
+    }
   }
 
 #comments {
