@@ -104,25 +104,28 @@ gulp.task('watch', function() {
 
 
 gulp.task('default', function() {
-  hexo.init().then(function(){
-    return hexo.call('clean').then(function(){
-      return hexo.call('generate', {watch: true});
-    });
-  }).catch(function(err){
-    console.log(err);
-  }).then(function() {
-    browserSync.init({
-      server: './public',
-      reloadDelay: 2000
-    });
+  runSequence(
+    'clean',
+    'sass-debug',
+    'js-debug',
+    function() {
+      hexo.init().then(function() {
+        return hexo.call('clean').then(function(){
+          return hexo.call('generate', {watch: true});
+        });
+      }).catch(function(err){
+        console.log(err);
+      }).then(function() {
+        browserSync.init({
+          server: './public',
+          reloadDelay: 2000
+        });
 
-    runSequence(
-      'clean',
-      'sass-debug',
-      'js-debug',
-      'watch'
-    );
-  });
+        runSequence('watch');
+      });
+    }
+  );
+
 
 });
 
