@@ -14,7 +14,7 @@ $menu-icon-index: 900 !default;
   height: 0;
   background: rgba(0,0,0,.8);
   opacity: 0;
-  transition: opacity 0.3s, height 0 0.3s;
+  transition: opacity 0.3s, height 0s 0.3s;
 }
 
 .site-menu {
