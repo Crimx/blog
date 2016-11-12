@@ -76,17 +76,17 @@ $susy: (
 //
 // #COMPONENTS
 //
-// @import 'components.header';
-@import 'components.cover';
 @import 'components.page';
+@import 'components.cover';
 @import 'components.article';
 @import 'components.footer';
 @import 'components.toc';
 @import 'components.svg-icons';
+@import 'components.menu-icon';
 
 
 //
 // #TRUMPS
 //
 @import 'trumps.clearfix';
-@import 'trumps.page';
+@import 'trumps.menu-icon';
