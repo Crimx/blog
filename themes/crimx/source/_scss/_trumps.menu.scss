@@ -1,0 +1,13 @@
+/*------------------------------------*\
+    #MENU-ICON
+\*------------------------------------*/
+
+.site-menu--show {
+  left: 0;
+}
+
+.site-menu-mask--show {
+  opacity: 1;
+  height: 100%;
+  transition: opacity 0.3s, height 0;
+}

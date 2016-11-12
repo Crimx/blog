@@ -1,32 +1,4 @@
-<%
-var cover = theme.cover.default;
-
-if (is_post()) {
-  if (page.cover) {
-    cover = page.cover;
-  } else {
-    cover = theme.cover.post;
-  }
-}
-
-var focus = config.cover_focus[cover] || 'center';
-var path_to_cover = theme.cover.path + cover;
-
-/*
- *  else if (is_home()) {
- *   cover = url_for(theme.cover.home);
- * } else if (is_archive()) {
- *   cover = url_for(theme.cover.archive);
- * } else if (is_category()) {
- *   cover = url_for(theme.cover.category);
- * } else if (is_tag()) {
- *   cover = url_for(theme.cover.tag);
- * }
- */
-
-%>
-
-<header class="site-cover" style="background-image:linear-gradient(transparent 80%,rgba(0,0,0,.4) 90%,rgba(0,0,0,.7) 100%),linear-gradient(rgba(0,0,0,.3),rgba(0,0,0,.3)),url('<%- path_to_cover %>');background-position:0,0,<%- focus %>;background-size:auto,auto,cover">
+<header class="site-cover" style="background-image:linear-gradient(transparent 80%,rgba(0,0,0,.4) 90%,rgba(0,0,0,.7) 100%),linear-gradient(rgba(0,0,0,.3),rgba(0,0,0,.3)),url('<%- path_to_cover %>');background-position:0,0,<%- cover_position %>;background-size:auto,auto,cover">
 
   <img class="cover-logo" src="/images/logo.svg" alt="site logo">
 

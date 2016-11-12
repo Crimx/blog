@@ -79,6 +79,7 @@ $susy: (
 @import 'components.page';
 @import 'components.cover';
 @import 'components.article';
+@import 'components.menu';
 @import 'components.footer';
 @import 'components.toc';
 @import 'components.svg-icons';
@@ -90,3 +91,4 @@ $susy: (
 //
 @import 'trumps.clearfix';
 @import 'trumps.menu-icon';
+@import 'trumps.menu';

@@ -19,7 +19,7 @@
   %>
       <li class="new-articles__item">
         <a class="new-articles__link" href="<%- url_for(post.path) %>">
-          <div class="new-articles__cover" <% if (post.cover) { %> style="background: no-repeat url('<%- theme.cover.path + post.cover %>') <%- config.cover_focus[post.cover] || 'cover' %>/cover;" <% } %> >
+          <div class="new-articles__cover" <% if (post.cover) { %> style="background: no-repeat url('<%- theme.cover.path + post.cover %>') <%- config.cover_position[post.cover] || 'cover' %>/cover;" <% } %> >
           </div>
           <h1 class="new-articles__title"><%- titlecase(post.title) %></h1>
         </a>

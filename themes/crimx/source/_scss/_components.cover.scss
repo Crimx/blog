@@ -30,7 +30,7 @@ $cover-article-meta-line-height: $global-line-height !default;
     right: 0;
     opacity: $cover-opacity * .9;
 
-    @include breakpoint(max-height 500px) {
+    @include breakpoint(max-height 450px) {
       display: none;
     }
   }

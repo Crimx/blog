@@ -15,12 +15,6 @@ $(document).ready(function () {
 
   var isMenuSemiShow = false
 
-  $menuIcon.on('tap swipeRight', function (evt) {
-    evt.preventDefault()
-    evt.stopPropagation()
-    $menuIcon.removeClass('menu-icon--hide menu-icon--disappear')
-  })
-
   $window.scroll(function () {
     // main content shows
     if ($window.scrollTop() >= mainContentTop) {
@@ -37,5 +31,37 @@ $(document).ready(function () {
         isMenuSemiShow = false
       }
     }
+  })
+
+/* ------------------------------------ *\
+   MENU SHOWS & HIDES
+\* ------------------------------------ */
+  var $siteMenu = $('.site-menu')
+  var $siteMenuMask = $('.site-menu-mask')
+
+  // disables scrolling when menu shows up
+  $siteMenu.on('touchmove doubleTap', function (evt) {
+    evt.preventDefault()
+    evt.stopPropagation()
+  })
+
+  $siteMenuMask.on('touchmove', function (evt) {
+    evt.preventDefault()
+    evt.stopPropagation()
+  })
+  .on('tap', function (evt) {
+    evt.preventDefault()
+    evt.stopPropagation()
+    if (evt.target === evt.currentTarget) {
+      $siteMenuMask.removeClass('site-menu-mask--show')
+      $siteMenu.removeClass('site-menu--show')
+    }
+  })
+
+  $menuIcon.on('tap swipeRight', function (evt) {
+    evt.preventDefault()
+    evt.stopPropagation()
+    $siteMenuMask.addClass('site-menu-mask--show')
+    $siteMenu.addClass('site-menu--show')
   })
 })
