@@ -2,13 +2,15 @@
  * SCRIPT
  */
 
+/* global $ */
+
 $(document).ready(function () {
   var $window = $(window)
   var mainContentTop = $('.main-content').offset().top
 
-  /*------------------------------------*\
-    MENU ICON SHOWS & HIDES
-  \*------------------------------------*/
+/* ------------------------------------ *\
+   MENU ICON SHOWS & HIDES
+\* ------------------------------------ */
   var $menuIcon = $('.menu-icon')
 
   var isMenuDisappear = true
@@ -46,19 +48,4 @@ $(document).ready(function () {
       }
     }
   })
-
-  /*------------------------------------*\
-    LOGO FITS IN
-  \*------------------------------------*/
-
-  var $logo = $('#cover-logo')
-  var logoOffset = $logo.offset()
-  var logoFavHeight = $('.site-cover').offset().height - $('.title-wrapper').offset().height
-  var logoCss = {
-    // shrink logo if necessery
-    height: (logoOffset.height >= logoFavHeight ? logoFavHeight * .8 : logoOffset.height) + 'px'
-  }
-  // center logo within the remain space
-  logoCss.top = (logoFavHeight - logoCss.height) * .4 + 'px'
-  $logo.css(logoCss)
 })

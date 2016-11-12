@@ -20,16 +20,19 @@ $cover-article-meta-line-height: $global-line-height !default;
   }
 }
 
-  #cover-logo {
+  .cover-logo {
     position: absolute;
-    width: 60%;
+    max-width: 60%;
+    max-height: 60%;
     margin: auto;
     top: 12%;
     left: 0;
     right: 0;
-    fill: #fff;
     opacity: $cover-opacity * .9;
-    transition: all 0.5s;
+
+    @include breakpoint(max-height 500px) {
+      display: none;
+    }
   }
 
   .title-wrapper {
