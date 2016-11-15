@@ -71,3 +71,8 @@ $menu-icon-index: 900 !default;
       background: $menu-icon-hamburger-color;
     }
   }
+
+//
+// #STATES
+//
+@import 'menu-icon/states';

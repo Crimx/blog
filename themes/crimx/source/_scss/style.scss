@@ -10,16 +10,16 @@
 //
 // #SETTINGS
 //
-@import 'settings.defaults';
-@import 'settings.colors';
-@import 'settings.breakpoints';
-
+@import 'settings/defaults';
+@import 'settings/colors';
+@import 'settings/breakpoints';
 
 
 //
-// #TOOLS
+// #HELPERS
 //
-@import 'tools.mixins';
+@import 'helpers/clearfix';
+@import 'helpers/mixins';
 @import 'breakpoint';
 @import 'susy';
 $susy: (
@@ -54,41 +54,31 @@ $susy: (
 // );
 
 
-
-//
-// #GENERIC
-//
-@import 'generic.font-face';
-@import 'generic.reset';
-@import 'generic.box-sizing';
-@import 'generic.postify';
-@import 'generic.codeblock';
-
-
-
 //
 // #BASE
 //
-@import 'base.page';
+@import 'bases/reset';
+@import 'bases/page';
+@import 'bases/font-face';
+@import 'bases/box-sizing';
 
+
+//
+// #INTERFACES
+//
+@import 'interfaces/postify';
+@import 'interfaces/codeblock';
+@import 'interfaces/toc';
 
 
 //
 // #COMPONENTS
 //
-@import 'components.page';
-@import 'components.cover';
-@import 'components.article';
-@import 'components.menu';
-@import 'components.footer';
-@import 'components.toc';
-@import 'components.svg-icons';
-@import 'components.menu-icon';
-
-
-//
-// #TRUMPS
-//
-@import 'trumps.clearfix';
-@import 'trumps.menu-icon';
-@import 'trumps.menu';
+@import 'components/page';
+@import 'components/cover';
+@import 'components/article';
+@import 'components/footer';
+@import 'components/menu';
+@import 'components/toc';
+@import 'components/svg-icons';
+@import 'components/menu-icon';
