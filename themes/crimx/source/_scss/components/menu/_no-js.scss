@@ -1,0 +1,18 @@
+/*------------------------------------*\
+    #MENU
+\*------------------------------------*/
+
+html.no-js {
+  .site-menu {
+    position: relative;
+    left: 0;
+    right: 0;
+    margin: auto;
+    background: $global-color-background-dark !important;
+    box-shadow: none;
+  }
+
+  .menu-logo {
+    display: none;
+  }
+}

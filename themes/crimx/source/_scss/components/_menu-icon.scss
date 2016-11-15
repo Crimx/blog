@@ -2,7 +2,7 @@
     #MENU ICON
 \*------------------------------------*/
 
-$menu-icon-width: 45px;
+$menu-icon-width: 40px;
 $menu-icon-border: 5px;
 $menu-icon-index: 900 !default;
 
@@ -45,29 +45,32 @@ $menu-icon-index: 900 !default;
     left: 0;
     opacity: .7;
 
-    $menu-icon-hamburger-width: $menu-icon-border * 5;
-    $menu-icon-hamburger-padding: ($menu-icon-width - $menu-icon-hamburger-width) / 2;
+    $menu-icon-hamburger-line-height: 3px;
+    $menu-icon-hamburger-height: $menu-icon-hamburger-line-height * 5;
+    $menu-icon-hamburger-width: $menu-icon-hamburger-height * 1.3;
+    $menu-icon-hamburger-top: ($menu-icon-width - $menu-icon-hamburger-height) / 2;
+    $menu-icon-hamburger-left: ($menu-icon-width - $menu-icon-hamburger-width) / 2;
     $menu-icon-hamburger-color: #efefef;
 
     &:before {
       content: "";
       width: $menu-icon-hamburger-width;
-      height: $menu-icon-hamburger-width;
+      height: $menu-icon-hamburger-height;
       margin: auto;
       position: absolute;
-      top: $menu-icon-hamburger-padding;
-      left: $menu-icon-hamburger-padding;
-      border-top: $menu-icon-border solid $menu-icon-hamburger-color;
-      border-bottom: $menu-icon-border solid $menu-icon-hamburger-color;
+      top: $menu-icon-hamburger-top;
+      left: $menu-icon-hamburger-left;
+      border-top: $menu-icon-hamburger-line-height solid $menu-icon-hamburger-color;
+      border-bottom: $menu-icon-hamburger-line-height solid $menu-icon-hamburger-color;
     }
 
     &::after {
       content: "";
       width: $menu-icon-hamburger-width;
-      height: $menu-icon-border;
+      height: $menu-icon-hamburger-line-height;
       position: absolute;
-      top: $menu-icon-hamburger-padding + $menu-icon-border * 2;
-      left: $menu-icon-hamburger-padding;
+      top: $menu-icon-hamburger-top + $menu-icon-hamburger-line-height * 2;
+      left: $menu-icon-hamburger-left;
       background: $menu-icon-hamburger-color;
     }
   }
