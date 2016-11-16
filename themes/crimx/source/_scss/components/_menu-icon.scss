@@ -14,6 +14,7 @@ $menu-icon-index: 900 !default;
   width: $menu-icon-width * 3;
   height: $menu-icon-width * 2;
   transition: all 0.3s;
+  opacity: .9;
 
   &:before,
   &:after {
@@ -26,14 +27,12 @@ $menu-icon-index: 900 !default;
   &:before {
     width: $menu-icon-width;
     background: $global-color-background-dark;
-    opacity: .7;
   }
 
   &:after {
     left: $menu-icon-width;
     border-right: $menu-icon-border solid $global-color-theme;
     border-radius: 0 $menu-icon-border $menu-icon-border 0;
-    opacity: .8;
   }
 }
 
@@ -43,7 +42,6 @@ $menu-icon-index: 900 !default;
     height: $menu-icon-width;
     top: 0;
     left: 0;
-    opacity: .7;
 
     $menu-icon-hamburger-line-height: 3px;
     $menu-icon-hamburger-height: $menu-icon-hamburger-line-height * 5;
