@@ -6,3 +6,11 @@
   background-color: $global-color-text;
   border-top: 1px solid $global-color-theme;
 }
+
+.toc--semi-show {
+  transform: translate(-$global-spacing-unit--small*2, 0);
+}
+
+.toc--show {
+  transform: translate(-100%, 0);
+}

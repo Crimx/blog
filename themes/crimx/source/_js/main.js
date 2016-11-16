@@ -76,6 +76,40 @@ $(document).ready(function () {
   })
 
 /* ------------------------------------ *\
+   TOC SHOWS & HIDES
+\* ------------------------------------ */
+  var $tocWrapper = $('.toc-wrapper')
+
+  var isTocShowCase = false
+  $window.scroll(function () {
+    // main content shows
+    if ($window.scrollTop() >= mainContentTop) {
+      if (!isTocShowCase) {
+        isTocShowCase = true
+        $tocWrapper.addClass('toc--semi-show')
+        window.setTimeout(function () {
+          $tocWrapper.removeClass('toc--semi-show')
+        }, 500)
+      }
+    } else {
+      isTocShowCase = false
+    }
+  })
+
+  var isTocShow = false
+  $window.on('tap click swipeLeft', function (evt) {
+    isTocShow = true
+    $tocWrapper.addClass('toc--show')
+  })
+
+  $window.on('tap click', function (evt) {
+    if (isTocShow === true && evt.target !== $tocWrapper[0]) {
+      isTocShow = false
+      $tocWrapper.removeClass('toc--show')
+    }
+  })
+
+/* ------------------------------------ *\
    TOC SCROLLING
 \* ------------------------------------ */
   var $tocLink = $('.toc-link')
@@ -83,7 +117,7 @@ $(document).ready(function () {
   var changeActiveTocLink = (function () {
     var $currentActive = $()
     return function changeActiveTocLink ($newActive) {
-      if ($newActive !== $currentActive) {
+      if ($newActive[0] !== $currentActive[0]) {
         $currentActive.removeClass('toc-link--current')
         $newActive.addClass('toc-link--current')
         $currentActive = $newActive
