@@ -14,10 +14,8 @@ var path_to_cover = theme.cover.path + post_cover;
 %>
 
 <div class="main-content">
+  <%- partial('_partial/toc', null, {cache: !config.relative_link}) %>
   <%- partial('_partial/article', {post: page, index: false}) %>
-  <% if (is_post()) {  %>
-      <%- partial('_partial/toc', null, {cache: !config.relative_link}) %>
-  <% } %>
   <%- partial('_partial/disqus') %>
 </div> <!-- .main-content -->
 

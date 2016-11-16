@@ -4,6 +4,16 @@
 
 /* global $ */
 
+// Detect request animation frame
+var requestAnimationFrame =
+  window.requestAnimationFrame ||
+  window.webkitRequestAnimationFrame ||
+  window.mozRequestAnimationFrame ||
+  window.msRequestAnimationFrame ||
+  window.oRequestAnimationFrame ||
+  // IE Fallback, you can even fallback to onscroll
+  function (callback) { window.setTimeout(callback, 1000 / 60) }
+
 $(document).ready(function () {
   var $window = $(window)
   var mainContentTop = $('.main-content').offset().top
@@ -58,10 +68,68 @@ $(document).ready(function () {
     }
   })
 
-  $menuIcon.on('tap swipeRight', function (evt) {
+  $menuIcon.on('tap click swipeRight', function (evt) {
     evt.preventDefault()
     evt.stopPropagation()
     $siteMenuMask.addClass('site-menu-mask--show')
     $siteMenu.addClass('site-menu--show')
+  })
+
+/* ------------------------------------ *\
+   TOC SCROLLING
+\* ------------------------------------ */
+  var $tocLink = $('.toc-link')
+
+  var changeActiveTocLink = (function () {
+    var $currentActive = $()
+    return function changeActiveTocLink ($newActive) {
+      if ($newActive !== $currentActive) {
+        $currentActive.removeClass('toc-link--current')
+        $newActive.addClass('toc-link--current')
+        $currentActive = $newActive
+      }
+    }
+  }())
+
+  function smoothScroll (endPoint, $newActive) {
+    var $window = $(window)
+    var scrollTop = $window.scrollTop()
+    var direction = endPoint < scrollTop ? -1 : 1
+    var distance = Math.abs(endPoint - scrollTop)
+    var distancePerTick = distance < 200 ? 40 : 80
+
+    if (distance < 40) {
+      $window.scrollTop(scrollTop + direction * distance)
+      changeActiveTocLink($newActive)
+    } else {
+      $window.scrollTop(scrollTop + direction * distancePerTick)
+      requestAnimationFrame(function () {
+        smoothScroll(endPoint, $newActive)
+      })
+    }
+  }
+
+  $tocLink.on('tap click', function (evt) {
+    evt.preventDefault()
+    evt.stopPropagation()
+    var $newActive = $(evt.currentTarget)
+    smoothScroll($($newActive.attr('href')).offset().top, $newActive)
+  })
+
+  // listen to scrolling
+  var $tocTitles = $tocLink.map(function (titleList, linkItem) {
+    return $($(linkItem).attr('href'))
+  })
+
+  $window.scroll(function () {
+    var scrollTop = $window.scrollTop()
+    $tocTitles.each(function (index, item) {
+      var $title = $(item)
+      if ($title.position().top <= scrollTop &&
+          $title.position().top + $title.height() > scrollTop) {
+        changeActiveTocLink($($tocLink[index]))
+        return false
+      }
+    })
   })
 })

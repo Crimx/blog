@@ -1,0 +1,55 @@
+/*------------------------------------*\
+    #TOC
+\*------------------------------------*/
+
+/*
+ * Table of Contents
+ */
+$menu-icon-index: 900 !default;
+
+.toc-wrapper {
+  position: fixed;
+  // menu mask on +1
+  z-index: $menu-icon-index + 2;
+  top: 10%;
+  right: 0;
+  max-width: 300px;
+  max-height: 100%;
+  padding: $global-spacing-unit 0;
+  background: $global-color-background-dark;
+  // background: rgba(30, 29, 29, .8);
+  box-shadow: 1px 4px 11px 0 rgba(0, 0, 0, 0.4);
+  opacity: .9;
+}
+
+.toc {
+  overflow: hidden;
+
+  ol {
+    margin-left: $global-spacing-unit--small;
+  }
+
+  a,
+  a:visited,
+  a:hover,
+  a:active,
+  a:focus {
+    color: $global-color-background;
+    outline: 0;
+  }
+}
+
+.toc-child {
+  font-size: 0.86em;
+}
+
+.toc-link {
+  display: block;
+  overflow: hidden;
+  padding: 0 $global-spacing-unit 0 $global-spacing-unit--small;
+  white-space: nowrap;
+  border-top: 1px solid transparent;
+  -webkit-tap-highlight-color: transparent;
+}
+
+@import 'toc/states';
