@@ -1,1 +1,40 @@
-<%- partial('_partial/article', {post: page, index: false}) %>
+<%
+// partial('_partial/article', {post: page, index: false})
+%>
+
+
+<% if (page.path === "categories/index.html") {
+  let colors = theme.color_palette.concat()
+%>
+  <ul class="site-categories">
+
+  <% let i = -1
+      site.categories.forEach(function (category) {
+      i += 1
+      let posts = category.posts.data
+      let post_cover = ''
+      let viewbox_y = '0'
+      for (let j = 0; j < posts.length; j += 1) {
+        if (posts[j].cover) {
+          post_cover = posts[j].cover
+          viewbox_y = (256-81)*config.cover_position[post_cover].split(' ')[1].slice(0,-1)/100
+          break
+        }
+      }
+  %>
+    <li class="category-item">
+      <a class="category-link" href="<%- url_for(category.path) %>"></a>
+      <svg class="svg" width="100%" height="100%" viewBox="0 0 144 81">
+        <pattern id="mask-<%- i %>" patternUnits="userSpaceOnUse" width="100%" height="100%" viewBox="0 <%- viewbox_y %> 144 81">
+          <image xlink:href="<%- theme.cover.path + post_cover %>" x="0" y="0" width="144" height="256" preserveAspectRatio="xMidYMid slice"/>
+        </pattern>
+        <svg viewBox="0 <%- viewbox_y %> 144 81">
+          <image xlink:href="<%- theme.cover.path + post_cover %>" x="0" y="0" width="144" height="256" preserveAspectRatio="xMidYMid slice"/>
+        </svg>
+        <rect x="20" y="20" fill="<%- colors[i%colors.length] %>" width="104" height="41"/>
+        <text x="50%" y="50%" textLength="90" font-weight="bolder" text-anchor="middle" dy="7" fill="url(#mask-<%- i %>)" font-size="20"><%- category.name %></text>
+      </svg>
+    </li>
+  <% }) %>
+  </ul> <!-- site-categories -->
+<% } %>
