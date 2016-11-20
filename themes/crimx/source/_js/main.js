@@ -15,14 +15,19 @@ var requestAnimationFrame =
   function (callback) { window.setTimeout(callback, 1000 / 60) }
 
 $(document).ready(function () {
+  siteMenuHandler()
+  siteTocHandler()
+})
+
+function siteMenuHandler () {
+  var $menuIcon = $('.menu-icon')
+  if ($menuIcon.length <= 0) { return }
+
+  /* ------------------------------------ *\
+     MENU ICON SHOWS & HIDES
+  \* ------------------------------------ */
   var $window = $(window)
   var mainContentTop = $('.main-content').offset().top
-
-/* ------------------------------------ *\
-   MENU ICON SHOWS & HIDES
-\* ------------------------------------ */
-  var $menuIcon = $('.menu-icon')
-
   var isMenuSemiShow = false
 
   $window.scroll(function () {
@@ -43,9 +48,9 @@ $(document).ready(function () {
     }
   })
 
-/* ------------------------------------ *\
-   MENU SHOWS & HIDES
-\* ------------------------------------ */
+  /* ------------------------------------ *\
+     MENU SHOWS & HIDES
+  \* ------------------------------------ */
   var $siteMenu = $('.site-menu')
   var $siteMenuMask = $('.site-menu-mask')
 
@@ -74,11 +79,17 @@ $(document).ready(function () {
     $siteMenuMask.addClass('site-menu-mask--show')
     $siteMenu.addClass('site-menu--show')
   })
+}
 
-/* ------------------------------------ *\
-   TOC SHOWS & HIDES
-\* ------------------------------------ */
+function siteTocHandler () {
   var $tocWrapper = $('.toc-wrapper')
+  if ($tocWrapper.length <= 0) { return }
+
+  /* ------------------------------------ *\
+     TOC SHOWS & HIDES
+  \* ------------------------------------ */
+  var $window = $(window)
+  var mainContentTop = $('.main-content').offset().top
 
   var isTocShowCase = false
   $window.scroll(function () {
@@ -109,9 +120,9 @@ $(document).ready(function () {
     }
   })
 
-/* ------------------------------------ *\
-   TOC SCROLLING
-\* ------------------------------------ */
+  /* ------------------------------------ *\
+     TOC SCROLLING
+  \* ------------------------------------ */
   var $tocLink = $('.toc-link')
 
   var changeActiveTocLink = (function () {
@@ -126,7 +137,6 @@ $(document).ready(function () {
   }())
 
   function smoothScroll (endPoint, $newActive) {
-    var $window = $(window)
     var scrollTop = $window.scrollTop()
     var direction = endPoint < scrollTop ? -1 : 1
     var distance = Math.abs(endPoint - scrollTop)
@@ -166,4 +176,4 @@ $(document).ready(function () {
       }
     })
   })
-})
+}
