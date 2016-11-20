@@ -3,7 +3,7 @@
 ## Source: https://github.com/hexojs/hexo/
 
 # Site
-title: CrimX
+title: CRIMX
 subtitle:
 description:
 author: StrayBugs
@@ -71,7 +71,7 @@ theme: crimx
 deploy:
   type:
 
-# Hexo Html Min-beautify 
+# Hexo Html Min-beautify
 html_min_beautify:
   enable: true
   exclude:
@@ -85,10 +85,10 @@ html_min_beautify:
     'max_preserve_newlines': 0
     'end_with_newline': true
     'extra_liners': false
-    # More Options (https://github.com/beautify-web/js-beautify/blob/master/README.md#css--html) 
+    # More Options (https://github.com/beautify-web/js-beautify/blob/master/README.md#css--html)
   minify:
     'collapseWhitespace': true
     'preserveLineBreaks': true
     'minifyJS': true
     'minifyCSS': true
-    # More Options (https://github.com/kangax/html-minifier#options-quick-reference) 
+    # More Options (https://github.com/kangax/html-minifier#options-quick-reference)
