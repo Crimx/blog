@@ -1,6 +1,6 @@
 <%
 var post_cover = page.cover? page.cover : theme.cover.post;
-var cover_position = config.cover_position[post_cover] || 'center';
+var cover_position = get_cover_position(post_cover)
 var path_to_cover = theme.cover.path + post_cover;
 %>
 
