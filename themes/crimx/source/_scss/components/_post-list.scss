@@ -1,0 +1,21 @@
+/*------------------------------------*\
+    #POST LIST
+\*------------------------------------*/
+
+.post-list {
+  a,
+  a:visited,
+  a:hover,
+  a:active,
+  a:focus {
+    color: #fff;
+  }
+}
+
+.post-list-title {
+  text-align: center;
+  font-size: 1.2em;
+  font-size: 8vw;
+  padding: $global-spacing-unit;
+  padding: 15vw $global-spacing-unit;
+}

@@ -1,1 +1,12 @@
-<%- partial('_partial/archive', {pagination: config.category, index: true}) %>
+<%
+var colors = theme.color_palette
+page.posts.sort('-date').each((post) => {
+  var post_cover = post.cover || ''
+  var bg_position = config.cover_position[post_cover] || ''
+%>
+  <ul class="post-list">
+    <li class="post-list-item" style="background-image:linear-gradient(rgba(0,0,0,.3),rgba(0,0,0,.3)),url('<%- theme.cover.path+post_cover %>');background-position:0,<%- bg_position %>;background-size:auto,cover"><a class="post-list-link" href="<%- url_for(post.path) %>"><h1 class="post-list-title"><%- post.title %></h1></a></li>
+  </ul>
+<%
+})
+%>
