@@ -1,10 +1,5 @@
-<%
-// partial('_partial/article', {post: page, index: false})
-%>
-
-
 <% if (page.path === "categories/index.html") {
-  let colors = theme.color_palette
+  let colors = rainbow_color_templatte()
 %>
   <ul class="site-categories">
 
@@ -16,7 +11,13 @@
       category.posts.sort('-date').some((post) => {
         if (post.cover) {
           post_cover = post.cover
-          viewbox_y = (256-81)*config.cover_position[post_cover].split(' ')[1].slice(0,-1)/100
+          let p = get_cover_position(post_cover)
+          if (p === 'center') {
+            p = 50
+          } else {
+            p = p.split(' ')[1].slice(0,-1)
+          }
+          viewbox_y = (256-81)*p/100
           return true
         }
       })
@@ -31,6 +32,56 @@
         <rect x="20" y="20" fill="<%- colors[i%colors.length] %>" width="104" height="41"/>
         <text x="50%" y="50%" textLength="90" font-weight="bolder" text-anchor="middle" dy="7" fill="url(#mask-<%- i %>)" font-size="20"><%- category.name %></text>
       </svg>
+    </li>
+  <% }) %>
+  </ul> <!-- site-categories -->
+<% } %>
+
+
+
+<% if (page.path === "tags/index.html") {
+  let colors = random_color_templatte(60, 200)
+  let i = 0
+  let tags = site.tags.map((tag) => {
+    return {
+      phonetic: pinyin(tag.name, {
+        style: pinyin.STYLE_NORMAL
+      }).join(' ').toLowerCase(),
+      data: tag
+    }
+  }).sort((a, b) => {
+    return a.phonetic < b.phonetic ? -1 : a.phonetic === b.phonetic ? 0 : 1
+  }).reduce((list, item) => {
+    let phonetic = item.phonetic
+    // stats with letter, index 1~26
+    if (/[a-z]/i.test(phonetic[0])) {
+      let i = phonetic.charCodeAt(0) - 96
+      list[i].tags.push(item.data)
+    }
+    // starts with number, index 0
+    else if (/\d/i.test(phonetic[0])) {
+      list[0].tags.push(item.data)
+    }
+    else {
+      list[27].tags.push(item.data)
+    }
+    return list
+  }, [
+    '0~9',
+    'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z',
+    '#'
+  ].map((item) => { return { index: item, tags: [] } }))
+%>
+  <ul class="site-tags">
+  <% tags.forEach((cate) => { %>
+    <% if (cate.tags.length <= 0) { return } %>
+    <li>
+      <h1 class="tag-index"><%- cate.index %></h1>
+      <ul class="tag-list">
+      <% cate.tags.forEach((tag) => { %>
+        <li class="tag-item" style="background-color:<%- colors[i++%colors.length] %>"><a class="tag-link" href="<%- url_for(tag.path) %>"><%- tag.name %></a></li>
+      <% }) %>
+      </ul>
     </li>
   <% }) %>
   </ul> <!-- site-categories -->

@@ -1,0 +1,26 @@
+/*------------------------------------*\
+    #TAGS
+\*------------------------------------*/
+
+.site-tags {
+  font-size: 0;
+  padding: 0 $global-spacing-unit--small;
+}
+
+.tag-item {
+  display: inline-block;
+  margin-bottom: $global-spacing-unit--tiny;
+}
+
+.tag-link {
+  display: inline-block;
+  padding: $global-spacing-unit--tiny;
+  font-size: 1rem;
+  &,
+  &:visited,
+  &:hover,
+  &:active,
+  &:focus {
+    color: #fff;
+  }
+}
