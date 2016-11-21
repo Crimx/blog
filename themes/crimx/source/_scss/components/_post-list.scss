@@ -12,10 +12,22 @@
   }
 }
 
-.post-list-title {
+%post-list-text {
   text-align: center;
   font-size: 1.2em;
   font-size: 8vw;
   padding: $global-spacing-unit;
   padding: 15vw $global-spacing-unit;
+
+}
+
+.post-list-header {
+  @extend %post-list-text;
+  color: $global-color-link;
+  font-size: 6vw;
+  padding: .5vw $global-spacing-unit;
+}
+
+.post-list-title {
+  @extend %post-list-text;
 }
