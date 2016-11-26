@@ -7,15 +7,6 @@ menu:
   Search: /search
 rss: /atom.xml
 
-cover:
-  path: /images/cover/
-  default: nature-forest-trees-fog-2-portrait.jpg
-  home: nature-forest-trees-fog-2-portrait.jpg
-  post: nature-forest-trees-fog-2-portrait.jpg
-  archives: nature-forest-trees-fog-2-portrait.jpg
-  categories: nature-forest-trees-fog-2-portrait.jpg
-  tags: nature-forest-trees-fog-2-portrait.jpg
-
 # Content
 excerpt_link: Read More
 

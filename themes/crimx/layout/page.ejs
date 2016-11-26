@@ -26,7 +26,7 @@
       <a class="category-link" href="<%- url_for(category.path) %>"></a>
       <svg class="svg" width="100%" height="100%" viewBox="0 0 144 81">
         <pattern id="mask-<%- i %>" patternUnits="userSpaceOnUse" width="100%" height="100%" viewBox="0 <%- viewbox_y %> 144 81">
-          <image xlink:href="<%- theme.cover.path + post_cover %>" width="144" height="256" preserveAspectRatio="xMidYMid slice"/>
+          <image xlink:href="<%- config.cover.path + post_cover %>" width="144" height="256" preserveAspectRatio="xMidYMid slice"/>
         </pattern>
         <rect width="100%" height="100%" fill="url(#mask-<%- i %>)" />
         <rect x="20" y="20" fill="<%- colors[i%colors.length] %>" width="104" height="41"/>
