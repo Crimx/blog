@@ -71,6 +71,11 @@ theme: crimx
 deploy:
   type:
 
+archive_generator:
+  per_page: 0
+  yearly: false
+  monthly: false
+
 # Hexo Html Min-beautify
 html_min_beautify:
   enable: true

@@ -1,0 +1,42 @@
+/*------------------------------------*\
+    #ARCHIVES
+\*------------------------------------*/
+
+.site-archives {
+  padding: 0 $global-spacing-unit--small;
+}
+
+.archives-item-year {
+  margin-bottom: $global-spacing-unit--small;
+}
+
+.archives-item-year-title {
+  text-align: center;
+}
+
+.archives-item-post {
+  position: relative;
+  padding-left: $global-spacing-unit--small;
+
+  &:before {
+    content: '';
+    display: block;
+    position: absolute;
+    top: .5em;
+    left: 0;
+    border-color: transparent $global-color-theme;
+    border-style: solid;
+    border-width: 0.35em 0 0.35em 0.45em;
+  }
+
+  a:link,
+  a:visited {
+    color: lighten($global-color-link, 20%);
+  }
+
+  a:focus,
+  a:hover,
+  a:active {
+    color: $global-color-link-hover;
+  }
+}

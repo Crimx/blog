@@ -1,1 +1,63 @@
-<%- partial('_partial/archive', {pagination: config.archive, index: true}) %>
+<%
+var archivelist =
+page.posts
+.sort('-date')
+.reduce((years, post) => {
+  var year = post.date.year()
+  var month = post.date.format('MMMM')
+  if (years.length <= 0 || years[years.length-1].year !== year) {
+    years.push({
+      year: year,
+      months: [{
+        month: month,
+        posts: [post]
+      }]
+    })
+  } else {
+    let months = years[years.length-1].months
+    if (months[months.length-1].month !== month) {
+      months.push({
+        month: month,
+        posts: [post]
+      })
+    } else {
+      months[months.length-1].posts.push(post)
+    }
+  }
+  return years
+}, [])
+%>
+
+
+<ul class="site-archives">
+<%
+archivelist.forEach((itemyear) => {
+  var year = itemyear.year
+%>
+  <li class="archives-item-year">
+    <h1 class="archives-item-year-title" id="year-<%- year %>"><a href="#year-<%- year %>"><%- year %></a></h1>
+    <ul>
+<%
+    itemyear.months.forEach((itemmonth) => {
+      var month = itemmonth.month
+%>
+      <li class="archives-item-month">
+        <h3 class="archives-item-month" id="month-<%- month.toLowerCase() %>"><a href="#month-<%- month.toLowerCase() %>"><%- month %></a></h3>
+        <ul>
+<%
+        itemmonth.posts.forEach((post) => {
+%>
+          <li class="archives-item-post"><a href="<%- url_for(post.path) %>"><%- post.title %></a></li>
+<%
+        })
+%>
+        </ul>
+      </li>
+<%
+    })
+%>
+    </ul>
+  </li>
+<%
+})
+%>
