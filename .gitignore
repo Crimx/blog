@@ -6,5 +6,4 @@ node_modules/
 public/
 .deploy*/
 
-/themes/crimx/source/css/
-/themes/crimx/source/js/
+/themes/crimx/source/static/

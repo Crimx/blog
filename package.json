@@ -21,9 +21,10 @@
     "autoprefixer": "latest",
     "breakpoint-sass": "latest",
     "browser-sync": "latest",
+    "browserify": "^13.1.1",
     "del": "latest",
     "gulp": "latest",
-    "gulp-clean-css": "latest",
+    "gulp-clean-css": "^2.0.13",
     "gulp-concat": "^2.6.0",
     "gulp-load-plugins": "latest",
     "gulp-postcss": "latest",
@@ -34,6 +35,9 @@
     "gulp-util": "^3.0.7",
     "pinyin": "^2.8.0",
     "run-sequence": "latest",
-    "susy": "latest"
+    "susy": "latest",
+    "vinyl-buffer": "^1.0.0",
+    "vinyl-source-stream": "^1.1.0",
+    "watchify": "^3.7.0"
   }
 }
