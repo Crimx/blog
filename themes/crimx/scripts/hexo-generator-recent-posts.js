@@ -8,7 +8,7 @@ hexo.extend.generator.register('recent-posts', function (locals) {
     if (i >= 10) { return false }
     return {
       title: post.title,
-      url: post.path,
+      url: '/' + post.path,
       cover: post.cover ? hexo.config.cover.path + post.cover : '',
       position: coverPositions[post.cover] || ''
     }
