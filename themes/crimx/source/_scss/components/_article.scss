@@ -107,15 +107,13 @@ $article-tag-color: #aaa;
  * post nav
  */
 
-$nav-cap-font-size: $global-font-size;
-$nav-cap-line-height: $global-line-height;
-$nav-cap-height: $nav-cap-font-size * $nav-cap-line-height;
 $nav-color-background: #fff;
 
 #article-nav {
   text-align: center;
   background: $nav-color-background;
-  padding: $global-spacing-unit--small;
+  padding: $global-spacing-unit--small $global-spacing-unit--small 0;
+  overflow: hidden;
 }
 
 .article-nav-link-wrap {
@@ -123,11 +121,22 @@ $nav-color-background: #fff;
   position: relative;
   // display: inline-block;
   // width: 45%;
-  margin-bottom: 0;
-  padding: $nav-cap-height / 2;
+  margin-bottom: $global-spacing-unit;
+  padding: 1em;
   text-decoration: none;
   color: #999;
   @include border-hairline(solid #ddd);
+
+  // &:after {
+  //   content: '';
+  //   position: absolute;
+  //   z-index: 0;
+  //   left: 1em;
+  //   right: 1em;
+  //   bottom: -1px;
+  //   height: 1em;
+  //   background: $nav-color-background;
+  // }
 }
 
 #article-nav-newer {
@@ -143,15 +152,12 @@ $nav-color-background: #fff;
 }
 
   .article-nav-caption {
-    display: block;
     position: absolute;
     z-index: 0;
     top: 0;
     left: 50%;
     transform: translate(-50%, -50%);
     padding: 0 $global-spacing-unit--tiny;
-    font-size: $nav-cap-font-size;
-    line-height: $nav-cap-line-height;
     font-weight: bold;
     text-transform: uppercase;
     letter-spacing: 2px;
@@ -161,10 +167,14 @@ $nav-color-background: #fff;
   }
 
   .article-nav-title {
-    position: relative;
+    position: absolute;
     z-index: 1;
+    left: 50%;
+    bottom: 0;
+    transform: translate(-50%, 50%);
+    padding: 0 $global-spacing-unit--tiny;
     white-space: nowrap;
-    overflow: hidden;
+    background: $nav-color-background;
 
     &:before {
       content: '《';
