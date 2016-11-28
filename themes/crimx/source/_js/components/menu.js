@@ -1,6 +1,11 @@
 'use strict'
 /* global $ */
 
+/* ------------------------------------ *\
+   HELPERS
+\* ------------------------------------ */
+var block = require('../helpers/block-event')
+
 var $menuIcon = $('.menu-icon')
 if ($menuIcon.length > 0) {
   /* ------------------------------------ *\
@@ -36,17 +41,14 @@ if ($menuIcon.length > 0) {
 
   // disables scrolling when menu shows up
   $siteMenu.on('touchmove doubleTap', function (evt) {
-    evt.preventDefault()
-    evt.stopPropagation()
+    block(evt)
   })
 
   $siteMenuMask.on('touchmove', function (evt) {
-    evt.preventDefault()
-    evt.stopPropagation()
+    block(evt)
   })
   .on('tap click', function (evt) {
-    evt.preventDefault()
-    evt.stopPropagation()
+    block(evt)
     if (evt.target === evt.currentTarget) {
       $siteMenuMask.removeClass('site-menu-mask--show')
       $siteMenu.removeClass('site-menu--show')
@@ -54,8 +56,7 @@ if ($menuIcon.length > 0) {
   })
 
   $menuIcon.on('tap click swipeRight', function (evt) {
-    evt.preventDefault()
-    evt.stopPropagation()
+    block(evt)
     $siteMenuMask.addClass('site-menu-mask--show')
     $siteMenu.addClass('site-menu--show')
   })
