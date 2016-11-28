@@ -40,5 +40,6 @@ if ($newArticles.length > 0) {
     })
 
     $newArticles.empty().append(articles)
+    $newArticles.addClass('new-articles--added')
   })
 }

@@ -19,6 +19,9 @@
 
   .new-articles {
     margin-bottom: $global-spacing-unit--large;
+    transform: scaleY(0);
+    transform-origin: top;
+    transition: transform 0.3s;
   }
 
     .new-articles__item {
@@ -91,3 +94,5 @@
       color: lighten($global-color-link-hover, 20%);
     }
   }
+
+@import 'footer/states';
