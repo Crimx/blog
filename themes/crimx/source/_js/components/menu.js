@@ -55,9 +55,14 @@ if ($menuIcon.length > 0) {
     }
   })
 
-  $menuIcon.on('tap click swipeRight', function (evt) {
+  var showMenu = function showMenu (evt) {
     block(evt)
     $siteMenuMask.addClass('site-menu-mask--show')
     $siteMenu.addClass('site-menu--show')
-  })
+  }
+
+  $menuIcon.on('tap click swipeRight', showMenu)
+
+  // swip right on cover
+  $('.site-cover').swipeRight(showMenu)
 }
