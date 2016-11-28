@@ -1,7 +1,7 @@
 <% if (page.path === "categories/index.html") {
   let colors = rainbow_color_templatte()
 %>
-  <ul class="site-categories">
+  <ul class="site-categories js-swap-menu">
 
   <% let i = -1
     site.categories.sort('name').each((category) => {
@@ -72,7 +72,7 @@
     '#'
   ].map((item) => { return { index: item, tags: [] } }))
 %>
-  <ul class="site-tags">
+  <ul class="site-tags js-swap-menu">
   <% tags.forEach((cate) => { %>
     <% if (cate.tags.length <= 0) { return } %>
     <li>

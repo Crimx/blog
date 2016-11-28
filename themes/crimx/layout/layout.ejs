@@ -14,6 +14,23 @@
 
   <%- body %>
 
+  <%
+    var post_cover = page.cover? page.cover :
+      is_post() ? config.cover.post :
+      is_category() ? config.cover.categories:
+      is_archive() ? config.cover.archives:
+      is_tag() ? config.cover.tags:
+      is_home() ? config.cover.home: config.cover.default
+    var cover_position = get_cover_position(post_cover)
+    var path_to_cover = config.cover.path + post_cover
+  %>
+
+  <%- partial('_partial/menu', {
+      cover_position: cover_position,
+      path_to_cover: path_to_cover
+    })
+  %>
+
   <%- partial('_partial/footer', null, {cache: !config.relative_link}) %>
 
   <%- partial('_partial/hairline-border') %>

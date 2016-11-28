@@ -10,7 +10,7 @@ $menu-icon-index: 900 !default;
 .toc-wrapper {
   position: fixed;
   // menu mask on +1
-  z-index: $menu-icon-index + 2;
+  z-index: $menu-icon-index - 10;
   top: 10%;
   left: 100%;
   max-width: 300px;

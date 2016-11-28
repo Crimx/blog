@@ -6,6 +6,37 @@
 \* ------------------------------------ */
 var block = require('../helpers/block-event')
 
+/* ------------------------------------ *\
+   MENU SHOWS & HIDES
+\* ------------------------------------ */
+var $siteMenu = $('.site-menu')
+var $siteMenuMask = $('.site-menu-mask')
+
+// disables scrolling when menu shows up
+$siteMenu.on('touchmove doubleTap', function (evt) {
+  block(evt)
+})
+
+$siteMenuMask.on('touchmove', function (evt) {
+  block(evt)
+})
+.on('tap click', function (evt) {
+  block(evt)
+  if (evt.target === evt.currentTarget) {
+    $siteMenuMask.removeClass('site-menu-mask--show')
+    $siteMenu.removeClass('site-menu--show')
+  }
+})
+
+var showMenu = function showMenu (evt) {
+  block(evt)
+  $siteMenuMask.addClass('site-menu-mask--show')
+  $siteMenu.addClass('site-menu--show')
+}
+
+// swip right on cover
+$('.js-swap-menu').swipeRight(showMenu)
+
 var $menuIcon = $('.menu-icon')
 if ($menuIcon.length > 0) {
   /* ------------------------------------ *\
@@ -33,36 +64,5 @@ if ($menuIcon.length > 0) {
     }
   })
 
-  /* ------------------------------------ *\
-     MENU SHOWS & HIDES
-  \* ------------------------------------ */
-  var $siteMenu = $('.site-menu')
-  var $siteMenuMask = $('.site-menu-mask')
-
-  // disables scrolling when menu shows up
-  $siteMenu.on('touchmove doubleTap', function (evt) {
-    block(evt)
-  })
-
-  $siteMenuMask.on('touchmove', function (evt) {
-    block(evt)
-  })
-  .on('tap click', function (evt) {
-    block(evt)
-    if (evt.target === evt.currentTarget) {
-      $siteMenuMask.removeClass('site-menu-mask--show')
-      $siteMenu.removeClass('site-menu--show')
-    }
-  })
-
-  var showMenu = function showMenu (evt) {
-    block(evt)
-    $siteMenuMask.addClass('site-menu-mask--show')
-    $siteMenu.addClass('site-menu--show')
-  }
-
-  $menuIcon.on('tap click swipeRight', showMenu)
-
-  // swip right on cover
-  $('.site-cover').swipeRight(showMenu)
+  $menuIcon.on('tap click', showMenu)
 }
