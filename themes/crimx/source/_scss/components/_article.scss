@@ -126,6 +126,7 @@ $nav-color-background: #fff;
   text-decoration: none;
   color: #999;
   @include border-hairline(solid #ddd);
+  -webkit-tap-highlight-color: transparent;
 
   // &:after {
   //   content: '';
