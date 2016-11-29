@@ -22,10 +22,12 @@ $cover-article-meta-line-height: $global-line-height !default;
 
   .cover-logo {
     position: absolute;
+    width: 100%;
+    height: 100%;
     max-width: 60%;
     max-height: 60%;
     margin: auto;
-    top: 12%;
+    top: 6%;
     left: 0;
     right: 0;
     opacity: $cover-opacity * .9;

@@ -9,13 +9,15 @@
     "hexo": "latest",
     "hexo-generator-archive": "latest",
     "hexo-generator-category": "latest",
+    "hexo-generator-feed": "^1.2.0",
     "hexo-generator-index": "latest",
     "hexo-generator-tag": "latest",
     "hexo-html-min-beautify": "latest",
     "hexo-renderer-ejs": "latest",
     "hexo-renderer-marked": "latest",
     "hexo-renderer-stylus": "latest",
-    "hexo-server": "latest"
+    "hexo-server": "latest",
+    "svgxuse": "^1.1.23"
   },
   "devDependencies": {
     "autoprefixer": "latest",

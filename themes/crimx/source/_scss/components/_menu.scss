@@ -12,7 +12,7 @@ $menu-icon-index: 900 !default;
   left: 0;
   width: 100%;
   height: 0;
-  background: rgba(0,0,0,.8);
+  background: rgba(0,0,0,0.8);
   opacity: 0;
   transition: opacity 0.3s, height 0s 0.3s;
 }
@@ -25,7 +25,7 @@ $menu-icon-index: 900 !default;
   width: 50%;
   height: 100%;
   max-width: 300px;
-  box-shadow: -2px 0 10px 4px rgba(0,0,0,.9);
+  box-shadow: -2px 0 10px 4px rgba(0,0,0,0.9);
   transition: all 0.3s;
 }
 
@@ -40,11 +40,18 @@ $menu-icon-index: 900 !default;
 }
 
 .menu-logo {
-  display: block;
-  max-width: 70%;
-  max-height: 70%;
-  margin: 0 auto 10%;
-  opacity: .9;
+  position: relative;
+  width: 70%;
+  height: 0;
+  padding-top: 70%;
+  margin: 0 auto 15%;
+  opacity: 0.9;
+
+  svg {
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
 
   @include breakpoint(max-height 450px) {
     display: none;
@@ -52,20 +59,43 @@ $menu-icon-index: 900 !default;
 }
 
 .menu-social-icons {
-  margin-bottom: 5%;
+  font-size: 0;
+  margin-bottom: 10%;
+  margin-left: 4%;
 
-  .svg-icon {
-    fill: #fff;
-    width: 16%;
+  li {
+    display: inline-block;
+    position: relative;
+    text-align: center;
+    vertical-align: middle;
+    margin-right: 7%;
+    width: 1.5rem;
+    height: 1.5rem;
+  }
+
+  a {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+  }
+
+  .icon-mail {
+    width: 1.2rem;
+  }
+  .icon-rss {
+    width: 1.2rem;
+    margin-left: 3%;
   }
 }
 
 .menu-navs {
   a {
-    font-size: 1.1em;
+    display: block;
+    font-size: 1.1rem;
     letter-spacing: 1px;
     margin-bottom: 3%;
-    display: block;
   }
 
   a,

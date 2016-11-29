@@ -101,3 +101,9 @@ html_min_beautify:
     'minifyJS': true
     'minifyCSS': true
     # More Options (https://github.com/kangax/html-minifier#options-quick-reference)
+
+# hexo-generator-feed
+feed:
+  type: atom
+  path: atom.xml
+  limit: 20

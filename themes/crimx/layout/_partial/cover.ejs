@@ -1,6 +1,8 @@
 <header class="site-cover js-swap-menu" style="background-image:linear-gradient(transparent 80%,rgba(0,0,0,.4) 90%,rgba(0,0,0,.7) 100%),linear-gradient(rgba(0,0,0,.3),rgba(0,0,0,.3)),url('<%- path_to_cover %>');background-position:0,0,<%- cover_position %>;background-size:auto,auto,cover">
 
-  <img class="cover-logo" src="/images/logo.svg" alt="site logo">
+  <svg class="cover-logo" fill="#fff">
+    <use xlink:href="<%- theme.icon_symbols %>#icon-crimx"></use>
+  </svg>
 
   <div class="title-wrapper">
     <%- partial('post/title', {class_name: 'site-title', post: page}) %>

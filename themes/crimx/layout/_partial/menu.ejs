@@ -1,12 +1,26 @@
 <div class="site-menu" style="background-image:linear-gradient(rgba(0,0,0,.4),rgba(0,0,0,.4)),url('<%- path_to_cover %>');background-position:0,<%- cover_position %>;background-size:auto,cover">
   <div class="site-menu-inner-wrapper">
-    <img class="menu-logo" src="/images/logo.svg" alt="site logo">
-    <div class="menu-social-icons">
-      <%- partial('_partial/svg-icons/twitter') %>
-      <%- partial('_partial/svg-icons/github') %>
-      <%- partial('_partial/svg-icons/codepen') %>
-      <%- partial('_partial/svg-icons/mail') %>
+    <div class="menu-logo">
+      <svg><use xlink:href="<%- theme.icon_symbols %>#icon-crimx"></use></svg>
     </div>
+    <ul class="menu-social-icons">
+      <li class="icon-weibo">
+        <a target="_blank" href="http://www.weibo.com/<%- theme.weibo %>"></a>
+        <svg><use xlink:href="<%- theme.icon_symbols %>#icon-weibo"></use></svg>
+      </li>
+      <li class="icon-github">
+        <a target="_blank" href="https://github.com/<%- theme.github %>"></a>
+        <svg><use xlink:href="<%- theme.icon_symbols %>#icon-github"></use></svg>
+      </li>
+      <li class="icon-mail">
+        <a target="_blank" href="mailto:<%- theme.mail %>"></a>
+        <svg><use xlink:href="<%- theme.icon_symbols %>#icon-mail"></use></svg>
+      </li>
+      <li class="icon-rss">
+        <a target="_blank" href="<%- url_for(theme.rss) %>"></a>
+        <svg><use xlink:href="<%- theme.icon_symbols %>#icon-rss"></use></svg>
+      </li>
+    </ul>
     <ul class="menu-navs">
       <li><a href="/categories/">Categories</a></li>
       <li><a href="/archives/">Archives</a></li>
