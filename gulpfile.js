@@ -30,7 +30,7 @@ gulp.task('sass-debug', function () {
           './node_modules/susy/sass' //required for sass
         ]
       }).on('error', $.sass.logError))
-      .pipe($.cleanCss())
+      // .pipe($.cleanCss())
       .pipe($.postcss([
         autoprefixer({browsers: [
           'Android 2.3',
