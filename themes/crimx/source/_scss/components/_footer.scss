@@ -60,9 +60,21 @@
         background-color: lighten($global-color-background-dark, 5%);
       }
 
+  %footer-text {
+    text-align: center;
+
+    a:link,
+    a:visited,
+    a:active,
+    a:hover {
+      color: lighten($global-color-link-hover, 20%);
+    }
+  }
+
   .site-description {
     margin-bottom: $global-spacing-unit--tiny;
     text-transform: uppercase;
+    @extend %footer-text;
 
     &:before {
       content: '';
@@ -83,15 +95,14 @@
     }
   }
 
-  .site-description,
   .copyright {
-    text-align: center;
+    @extend %footer-text;
 
-    a:link,
-    a:visited,
-    a:active,
-    a:hover {
-      color: lighten($global-color-link-hover, 20%);
+    .icon-heart {
+      fill: #dd4b39;
+      display: inline-block;
+      width: 1em;
+      height: 1em;
     }
   }
 
