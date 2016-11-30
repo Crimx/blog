@@ -1,5 +1,5 @@
 'use strict'
-/* global $ */
+/* global $ requestAnimationFrame */
 
 var $tocWrapper = $('.toc-wrapper')
 if ($tocWrapper.length > 0) {
@@ -80,7 +80,6 @@ if ($tocWrapper.length > 0) {
 }
 
 function smoothScroll (endPoint, $newActive) {
-  var requestAnimationFrame = require('../polyfills/requestAnimationFrame')
   var scrollTop = $window.scrollTop()
   var direction = endPoint < scrollTop ? -1 : 1
   var distance = Math.abs(endPoint - scrollTop)
