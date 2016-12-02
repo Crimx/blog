@@ -9,7 +9,7 @@
   @extend %postify;
 
   background-color: #fff;
-  text-align: justify;
+  // text-align: justify;
   padding: $global-spacing-unit--small $global-spacing-unit--small;
 
 
@@ -125,7 +125,8 @@ $nav-color-background: #fff;
   padding: 1em;
   text-decoration: none;
   color: #999;
-  @include border-hairline(solid #ddd);
+  border: 1px solid #ddd;
+  @include border-hairline;
   -webkit-tap-highlight-color: transparent;
 
   // &:after {
