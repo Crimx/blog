@@ -35,7 +35,8 @@ var showMenu = function showMenu (evt) {
 }
 
 // swip right on cover
-$('.js-swap-menu').swipeRight(showMenu)
+$('.js-no-wrap-menu').swipeRight(block)
+$(window).swipeRight(showMenu)
 
 var $menuIcon = $('.menu-icon')
 if ($menuIcon.length > 0) {
