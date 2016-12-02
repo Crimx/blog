@@ -3,9 +3,7 @@
 // \*------------------------------------*/
 
 
-@mixin border-hairline($args...) {
-  border: 1px $args;
-
+@mixin border-hairline {
   .hairline & {
     border-width: 0.5px;
   }
