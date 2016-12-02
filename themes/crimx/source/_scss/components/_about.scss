@@ -1,0 +1,96 @@
+/*------------------------------------*\
+    #ABOUT
+\*------------------------------------*/
+
+.site-about {
+  padding-top: $global-spacing-unit--small;
+  background-color: #fff;
+}
+
+.about-intro {
+  @extend %postify;
+  padding: 0 $global-spacing-unit--small;
+}
+
+.my-social-media {
+  .title {
+    padding: 0 $global-spacing-unit--small 10px;
+  }
+}
+
+// about page
+.my-social-media-list {
+  padding: $global-spacing-unit--small 0;
+  font-size: 0;
+  text-align: center;
+  background: $global-color-background;
+  @include box-shadow-top-inset;
+
+  li {
+    position: relative;
+    display: inline-block;
+    width: 3rem;
+    height: 3rem;
+    margin: 0 $global-spacing-unit--tiny;
+  }
+
+  a {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+  }
+
+  img {
+    max-height: 100%;
+  }
+
+  hr {
+    margin: $global-spacing-unit--tiny 0;
+    border: 0 none;
+    border-bottom: 1px solid #ddd;
+    @include border-hairline;
+  }
+}
+
+$douban-r-item-width: $global-spacing-unit--large;
+$douban-r-item-height: $douban-r-item-width * 100 / 65;
+$douban-r-item-padding: $global-spacing-unit--tiny / 2;
+.douban-recommendation {
+  overflow: hidden;
+
+  .title {
+    padding: $global-spacing-unit--small $global-spacing-unit--small 6px;
+  }
+
+  table {
+    table-layout: fixed;
+    width: 20 * ($douban-r-item-width + $douban-r-item-padding * 2);
+    height: $douban-r-item-height + $douban-r-item-padding * 2;
+
+    td {
+      width: $douban-r-item-width;
+      height: $douban-r-item-height;
+      padding: $douban-r-item-padding;
+      border: none;
+    }
+  }
+}
+
+.douban-books,
+.douban-movies {
+  height: $douban-r-item-height + $douban-r-item-padding * 2;
+  overflow-y: hidden;
+  overflow-x: scroll;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+.netease-music-playlist {
+  .title {
+    padding: $global-spacing-unit--small $global-spacing-unit--small 0;
+  }
+}
