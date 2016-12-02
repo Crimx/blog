@@ -100,7 +100,8 @@ $postify-color-header-counter: #888 !default;
   u + em,
   em + em,
   em + u,
-  a + a {
+  // a + a
+  {
     margin-left: .25em; /* 1 */
   }
 
