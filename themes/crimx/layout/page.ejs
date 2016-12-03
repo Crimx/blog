@@ -29,8 +29,7 @@
 
 
 <% if (page.path === "tags/index.html") {
-  let colors = random_color_templatte(60, 200)
-  let i = 0
+  let colors = flat_color_templatte()
   let tags = site.tags.map((tag) => {
     return {
       phonetic: pinyin(tag.name, {
@@ -67,8 +66,10 @@
     <li>
       <h1 class="tag-index"><%- cate.index %></h1>
       <ul class="tag-list">
+      <% let i = hash_code(cate.tags[0].name) % colors.length %>
       <% cate.tags.forEach((tag) => { %>
-        <li class="tag-item" style="background-color:<%- colors[i++%colors.length] %>"><a class="tag-link" href="<%- url_for(tag.path) %>"><%- tag.name %></a></li>
+        <% let b = hash_code(tag.name) % 2 === 0 ? 'dark' : 'light' %>
+        <li class="tag-item" style="background-color:<%- colors[i++%colors.length][b] %>"><a class="tag-link" href="<%- url_for(tag.path) %>"><%- tag.name %></a></li>
       <% }) %>
       </ul>
     </li>
