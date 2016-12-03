@@ -47,7 +47,7 @@ hexo.extend.helper.register('hash_code', function (str) {
   for (var i = 0; i < str.length; i++) {
     hash = str.charCodeAt(i) + ((hash << 5) - hash)
   }
-  return hash
+  return Math.abs(hash)
 })
 
 function shuffle (array) {
