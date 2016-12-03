@@ -1,5 +1,5 @@
 <% if (page.path === "categories/index.html") {
-  let colors = rainbow_color_templatte()
+  let colors = flat_color_templatte()
 %>
   <ul class="site-categories">
 
@@ -7,31 +7,20 @@
     site.categories.sort('name').each((category) => {
       i += 1
       let post_cover = ''
-      let viewbox_y = '0'
+      let cover_position = 'center'
       category.posts.sort('-date').some((post) => {
         if (post.cover) {
           post_cover = post.cover
-          let p = get_cover_position(post_cover)
-          if (p === 'center') {
-            p = 50
-          } else {
-            p = p.split(' ')[1].slice(0,-1)
-          }
-          viewbox_y = (256-81)*p/100
+          cover_position = get_cover_position(post_cover) || 'center'
           return true
         }
       })
   %>
-    <li class="category-item">
-      <a class="category-link" href="<%- url_for(category.path) %>"></a>
-      <svg class="svg" width="100%" height="100%" viewBox="0 0 144 81">
-        <pattern id="mask-<%- i %>" patternUnits="userSpaceOnUse" width="100%" height="100%" viewBox="0 <%- viewbox_y %> 144 81">
-          <image xlink:href="<%- config.cover.path + post_cover %>" width="144" height="256" preserveAspectRatio="xMidYMid slice"/>
-        </pattern>
-        <rect width="100%" height="100%" fill="url(#mask-<%- i %>)" />
-        <rect x="20" y="20" fill="<%- colors[i%colors.length] %>" width="104" height="41"/>
-        <text x="50%" y="50%" textLength="90" font-weight="bolder" text-anchor="middle" dy="7" fill="url(#mask-<%- i %>)" font-size="20"><%- category.name %></text>
-      </svg>
+    <li class="category-item" style="background: <%- colors[i%colors.length].dark %> url(<%- config.cover.path + post_cover %>) <%- cover_position %>/cover">
+      <a class="category-link" href="<%- url_for(category.path) %>">
+        <h1 class="category-title"><%- category.name %></h1>
+        <span class="color-mask" style="background-color: <%- colors[i%colors.length].dark %>;"></span>
+      </a>
     </li>
   <% }) %>
   </ul> <!-- site-categories -->
