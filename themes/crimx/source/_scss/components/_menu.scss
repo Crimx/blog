@@ -25,6 +25,7 @@ $menu-icon-index: 900 !default;
   width: 50%;
   height: 100%;
   max-width: 300px;
+  min-width: 125px;
   box-shadow: -2px 0 10px 4px rgba(0,0,0,0.9);
   transition: all 0.3s;
 }
@@ -44,7 +45,7 @@ $menu-icon-index: 900 !default;
   width: 70%;
   height: 0;
   padding-top: 70%;
-  margin: 0 auto 15%;
+  margin: 0 auto $global-spacing-unit;
   opacity: 0.9;
 
   a {
@@ -53,7 +54,7 @@ $menu-icon-index: 900 !default;
 
   svg {
     position: absolute;
-    top: 0;
+    bottom: 0;
     left: 0;
   }
 
@@ -64,7 +65,7 @@ $menu-icon-index: 900 !default;
 
 .menu-social-icons {
   font-size: 0;
-  margin-bottom: 10%;
+  margin-bottom: $global-spacing-unit--small;
   margin-left: 4%;
 
   li {
@@ -72,7 +73,7 @@ $menu-icon-index: 900 !default;
     position: relative;
     text-align: center;
     vertical-align: middle;
-    margin-right: 7%;
+    margin-right: $global-spacing-unit--tiny;
     width: 1.5rem;
     height: 1.5rem;
   }
@@ -86,7 +87,7 @@ $menu-icon-index: 900 !default;
   }
   .icon-rss {
     width: 1.2rem;
-    margin-left: 3%;
+    margin-left: $global-spacing-unit--tiny - 2px;
   }
 }
 
@@ -95,7 +96,7 @@ $menu-icon-index: 900 !default;
     display: block;
     font-size: 1.1rem;
     letter-spacing: 1px;
-    margin-bottom: 3%;
+    margin-bottom: $global-spacing-unit--tiny;
   }
 
   a,
