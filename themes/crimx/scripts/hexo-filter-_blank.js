@@ -19,5 +19,5 @@ hexo.extend.filter.register('after_render:html', source => {
 function isExternal (url) {
   var myhost = URL.parse(hexo.config.url).hostname
   var h = url.split('?')[0]
-  return !/^\/\w/.test(h) || h.indexOf(myhost) !== -1
+  return !/^((\/(\w|$))|#)/.test(h) || h.indexOf(myhost) !== -1
 }
