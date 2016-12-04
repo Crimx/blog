@@ -20,6 +20,7 @@
 //
 @import 'helpers/clearfix';
 @import 'helpers/mixins';
+@import 'helpers/absolute-blow-up';
 @import 'breakpoint';
 @import 'susy';
 $susy: (
@@ -82,6 +83,7 @@ $susy: (
 @import 'components/toc';
 @import 'components/svg-icons';
 @import 'components/menu-icon';
+@import 'components/home';
 @import 'components/categories';
 @import 'components/tags';
 @import 'components/archives';

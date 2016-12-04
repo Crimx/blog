@@ -1,5 +1,19 @@
-title: Hello World
-date: 2013/7/13 20:46:25
----
+<%- partial('_partial/cover', {
+    path_to_cover: config.cover.path + config.cover.home,
+    cover_position: get_cover_position(config.cover.home)
+  }, {
+    cache: !config.relative_link
+  })
+%>
 
-<%- partial('_partial/archive', {pagination: 2, index: true}) %>
+<div class="home-main">
+  <p>欢迎光临本博客！这里主要是记录 Web 前端相关的一些内容，偶尔涉及其它方面。</p>
+  <p>可以点击下面查看分类，移动设备上右滑即可出现菜单：</p>
+  <a class="home-entry-wrap" href="/categories"><h1 class="home-entry" style="background:url(<%- config.cover.path + config.cover.categories %>) <%- get_cover_position(config.cover.categories) %>/cover">Categories</h1></a>
+  <p>按标签查找也可以比较方便地找到相关内容：</p>
+  <a class="home-entry-wrap" href="/tags"><h1 class="home-entry" style="background:url(<%- config.cover.path + config.cover.tags %>) <%- get_cover_position(config.cover.tags) %>/cover">Tags</h1></a>
+  <p>查看全部文章的存档：</p>
+  <a class="home-entry-wrap" href="/archives"><h1 class="home-entry" style="background:url(<%- config.cover.path + config.cover.archives %>) <%- get_cover_position(config.cover.archives) %>/cover">Archives</h1></a>
+</div>
+
+<%- partial('about') %>

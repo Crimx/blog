@@ -1,0 +1,25 @@
+/*------------------------------------*\
+    #HOME
+\*------------------------------------*/
+
+.home-main {
+  @extend %postify;
+  padding: 0 $global-spacing-unit--small;
+  overflow: hidden;
+  background: #fff;
+
+  a:link,
+  a:visited,
+  a:hover,
+  a:active {
+    color: #fff;
+    text-decoration: none;
+    -webkit-tap-highlight-color: transparent;
+  }
+}
+
+.home-entry {
+  margin: 0 (-$global-spacing-unit--small);
+  padding: $global-spacing-unit $global-spacing-unit--small;
+  text-align: center;
+}
