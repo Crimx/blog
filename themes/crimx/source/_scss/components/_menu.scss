@@ -47,6 +47,10 @@ $menu-icon-index: 900 !default;
   margin: 0 auto 15%;
   opacity: 0.9;
 
+  a {
+    @extend %absolute-blow-up;
+  }
+
   svg {
     position: absolute;
     top: 0;
@@ -74,11 +78,7 @@ $menu-icon-index: 900 !default;
   }
 
   a {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
+    @extend %absolute-blow-up;
   }
 
   .icon-mail {
