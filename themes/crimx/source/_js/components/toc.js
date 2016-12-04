@@ -1,6 +1,11 @@
 'use strict'
 /* global $ requestAnimationFrame */
 
+/* ------------------------------------ *\
+   HELPERS
+\* ------------------------------------ */
+var block = require('../helpers/block-event')
+
 var $tocWrapper = $('.toc-wrapper')
 if ($tocWrapper.length > 0) {
   /* ------------------------------------ *\
@@ -37,6 +42,8 @@ if ($tocWrapper.length > 0) {
       $tocWrapper.removeClass('toc--show')
     }
   })
+
+  $('.highlight').swipeLeft(block)
 
   /* ------------------------------------ *\
      TOC SCROLLING
