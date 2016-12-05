@@ -13,6 +13,10 @@
           <a rel="license" class="cc-license-wrapper" href="http://creativecommons.org/licenses/by-nc/4.0/" target="_blank" title="This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License."><%- partial('svg-icons/cc-license', {id_name: 'cc-license'}) %></a>
         </div>
     </div>
+  <% } else { %>
+    <svg class="cover-icon-down" fill="#fff">
+      <use xlink:href="<%- theme.icon_symbols %>#icon-chevron-down"></use>
+    </svg>
   <% } %>
 
 </header>

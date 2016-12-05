@@ -37,6 +37,16 @@ $cover-article-meta-line-height: $global-line-height !default;
     }
   }
 
+  .cover-icon-down {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 10%;
+    margin: auto;
+    height: 6%;
+    opacity: $cover-opacity * .9;
+  }
+
   .title-wrapper {
     position: absolute;
     margin: auto;
