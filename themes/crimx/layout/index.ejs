@@ -1,3 +1,8 @@
+---
+tagline:
+  content: "\"How do you know I'm mad?\" said Alice.<br>\"You must be,\" said the Cat, \"or you wouldn't have come here.\""
+  cite: "Alice's Adventures in Wonderland"
+---
 <%- partial('_partial/cover', {
     path_to_cover: config.cover.path + config.cover.home,
     cover_position: get_cover_position(config.cover.home)
@@ -5,6 +10,8 @@
     cache: !config.relative_link
   })
 %>
+
+<%- partial('_partial/tagline') %>
 
 <div class="home-main">
   <p>欢迎光临本博客！这里主要是记录 Web 前端相关的一些内容，偶尔涉及其它方面。</p>

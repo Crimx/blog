@@ -13,6 +13,8 @@ var path_to_cover = config.cover.path + post_cover;
   })
 %>
 
+<%- partial('_partial/tagline') %>
+
 <div class="main-content">
   <%- partial('_partial/toc', null, {cache: !config.relative_link}) %>
   <%- partial('_partial/article', {post: page, index: false}) %>
