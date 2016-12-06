@@ -10,7 +10,8 @@
 
   background-color: #fff;
   // text-align: justify;
-  padding: $global-spacing-unit--small $global-spacing-unit--small;
+  padding: 0 $global-spacing-unit--small;
+  overflow: hidden;
 
 
   // 两侧边无缝贴合
