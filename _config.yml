@@ -108,3 +108,12 @@ feed:
   type: atom
   path: atom.xml
   limit: 20
+
+kramed:
+  gfm: true
+  pedantic: false
+  sanitize: false
+  tables: true
+  breaks: true
+  smartLists: true
+  smartypants: true
