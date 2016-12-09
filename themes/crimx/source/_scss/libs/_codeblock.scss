@@ -11,8 +11,16 @@
   padding: $global-spacing-unit--small;
   font-size: 14px;
 
+  .line {
+    height: 14px * 1.8;
+  }
+
   @include breakpoint($breakpoint-single-column) {
     font-size: 12px;
+
+    .line {
+      height: 12px * 1.8;
+    }
   }
 
   .code,
