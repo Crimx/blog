@@ -15,19 +15,31 @@ $menu-icon-index: 900 !default;
   background: rgba(0,0,0,0.8);
   opacity: 0;
   transition: opacity 0.3s, height 0s 0.3s;
+
+  @include breakpoint($breakpoint-monitor) {
+    display: none;
+  }
 }
 
 .site-menu {
   position: fixed;
   z-index: $menu-icon-index + 2;
   top: 0;
-  left: -60%;
-  width: 50%;
+  left: 0;
   height: 100%;
-  max-width: 300px;
-  min-width: 125px;
-  box-shadow: -2px 0 10px 4px rgba(0,0,0,0.9);
-  transition: all 0.3s;
+
+  @include breakpoint($breakpoint-handheld) {
+    left: -60%;
+    width: 50%;
+    max-width: 250px;
+    min-width: 145px;
+    box-shadow: -2px 0 10px 4px rgba(0,0,0,0.9);
+    transition: all 0.3s;
+  }
+
+  @include breakpoint($breakpoint-monitor) {
+    @include span(7 of 24);
+  }
 }
 
 .site-menu-inner-wrapper {
@@ -38,24 +50,31 @@ $menu-icon-index: 900 !default;
   margin: auto;
   transform: translate(0, -50%);
   text-align: center;
+
+  svg {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    height: 100%;
+  }
 }
 
 .menu-logo {
-  position: relative;
-  width: 70%;
-  height: 0;
-  padding-top: 70%;
-  margin: 0 auto $global-spacing-unit;
+  @extend %responsive-square;
+  width: 50%;
+  margin: 0 auto 8%;
   opacity: 0.9;
+  // background: url(/images/logo.svg);
 
   a {
     @extend %absolute-blow-up;
   }
 
-  svg {
-    position: absolute;
-    bottom: 0;
-    left: 0;
+  @include breakpoint($breakpoint-handheld) {
+    margin: 0 auto 10%;
+    width: 65%;
   }
 
   @include breakpoint(max-height 450px) {
@@ -65,7 +84,7 @@ $menu-icon-index: 900 !default;
 
 .menu-social-icons {
   font-size: 0;
-  margin-bottom: $global-spacing-unit--small;
+  margin-bottom: 7%;
   margin-left: 4%;
 
   li {
@@ -73,21 +92,24 @@ $menu-icon-index: 900 !default;
     position: relative;
     text-align: center;
     vertical-align: middle;
-    margin-right: $global-spacing-unit--tiny;
-    width: 1.5rem;
-    height: 1.5rem;
+    margin-right: 3%;
+    width: 8%;
+    height: 0;
+    padding-top: 8%;
+  }
+
+  @include breakpoint($breakpoint-handheld) {
+    margin-bottom: 10%;
+
+    li {
+      width: 13%;
+      padding-top: 13%;
+      margin-right: $global-spacing-unit--tiny;
+    }
   }
 
   a {
     @extend %absolute-blow-up;
-  }
-
-  .icon-mail {
-    width: 1.2rem;
-  }
-  .icon-rss {
-    width: 1.2rem;
-    margin-left: $global-spacing-unit--tiny - 2px;
   }
 }
 
@@ -96,7 +118,7 @@ $menu-icon-index: 900 !default;
     display: block;
     font-size: 1.1rem;
     letter-spacing: 1px;
-    margin-bottom: $global-spacing-unit--tiny;
+    margin-bottom: 2%;
   }
 
   a,

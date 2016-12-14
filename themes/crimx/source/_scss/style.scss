@@ -21,6 +21,7 @@
 @import 'helpers/clearfix';
 @import 'helpers/mixins';
 @import 'helpers/absolute-blow-up';
+@import 'helpers/responsive-square';
 @import 'breakpoint';
 @import 'susy';
 $susy: (
@@ -70,6 +71,7 @@ $susy: (
 //
 @import 'libs/postify';
 @import 'libs/codeblock';
+@import 'libs/svg-icons';
 
 
 //
@@ -81,7 +83,6 @@ $susy: (
 @import 'components/footer';
 @import 'components/menu';
 @import 'components/toc';
-@import 'components/svg-icons';
 @import 'components/menu-icon';
 @import 'components/home';
 @import 'components/categories';

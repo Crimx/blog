@@ -1,0 +1,35 @@
+/*------------------------------------*\
+    #SVG-ICONS
+\*------------------------------------*/
+
+%icon-sprites {
+  background-image: url(/images/sprites.svg);
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+@mixin gen-icon-sprites($icons...) {
+  $num-icon-sprites: 0;
+  $i: 0;
+
+  // length
+  @each $icon in $icons {
+    $num-icon-sprites: $num-icon-sprites + 1;
+  }
+
+  @each $icon in $icons {
+    .icon-#{$icon} {
+      @extend %icon-sprites;
+      background-position: ($i / ($num-icon-sprites - 1) * 100%) 0;
+    }
+    $i: $i + 1;
+  }
+}
+
+@include gen-icon-sprites(
+  weibo,
+  github,
+  mail,
+  rss,
+  logo
+)

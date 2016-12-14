@@ -18,22 +18,28 @@ $cover-article-meta-line-height: $global-line-height !default;
   a:visited {
     color: $cover-color-link;
   }
+
+  @include breakpoint($breakpoint-monitor) {
+    display: none;
+  }
 }
 
   .cover-logo {
+    @extend %responsive-square;
     position: absolute;
-    width: 100%;
-    height: 100%;
-    max-width: 60%;
-    max-height: 60%;
+    width: 60%;
     margin: auto;
-    top: 6%;
+    top: 12%;
     left: 0;
     right: 0;
     opacity: $cover-opacity * .9;
 
     @include breakpoint(max-height 450px) {
       display: none;
+    }
+
+    a {
+      @extend %absolute-blow-up;
     }
   }
 

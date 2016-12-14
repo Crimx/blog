@@ -1,0 +1,14 @@
+// /*------------------------------------*\
+//     #SQUARE
+// \*------------------------------------*/
+
+// responsive square
+%responsive-square {
+  position: relative;
+
+  &:after {
+    content: '';
+    display: block;
+    padding-top: 100%;
+  }
+}
