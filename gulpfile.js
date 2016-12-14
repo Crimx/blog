@@ -113,8 +113,7 @@ gulp.task('watch', function() {
 gulp.task('default', function() {
   runSequence(
     'clean',
-    'sass-debug',
-    'js-debug',
+    ['sass-debug', 'js-debug'],
     function() {
       hexo.init().then(function() {
         return hexo.call('clean').then(function(){
