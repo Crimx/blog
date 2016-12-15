@@ -1,18 +1,13 @@
 'use strict'
 /* global $ requestAnimationFrame */
 
-/* ------------------------------------ *\
-   HELPERS
-\* ------------------------------------ */
-var block = require('../helpers/block-event')
-
 var $tocWrapper = $('.toc-wrapper')
 if ($tocWrapper.length > 0) {
   /* ------------------------------------ *\
      TOC SHOWS & HIDES
   \* ------------------------------------ */
   var $window = $(window)
-  var mainContentTop = $('.main-content').offset().top
+  var mainContentTop = $('.article--post').offset().top
 
   var isTocShowCase = false
   $window.scroll(function () {
@@ -43,7 +38,9 @@ if ($tocWrapper.length > 0) {
     }
   })
 
-  $('.highlight').swipeLeft(block)
+  $('.highlight').swipeLeft(function (evt) {
+    return false
+  })
 
   /* ------------------------------------ *\
      TOC SCROLLING

@@ -2,11 +2,6 @@
 /* global $ */
 
 /* ------------------------------------ *\
-   HELPERS
-\* ------------------------------------ */
-var block = require('../helpers/block-event')
-
-/* ------------------------------------ *\
    MENU SHOWS & HIDES
 \* ------------------------------------ */
 var $siteMenu = $('.site-menu')
@@ -14,28 +9,30 @@ var $siteMenuMask = $('.site-menu-mask')
 
 // disables scrolling when menu shows up
 $siteMenu.on('touchmove doubleTap', function (evt) {
-  block(evt)
+  return false
 })
 
 $siteMenuMask.on('touchmove', function (evt) {
-  block(evt)
+  return false
 })
-.on('tap click', function (evt) {
-  block(evt)
+.on('touchstart click', function (evt) {
   if (evt.target === evt.currentTarget) {
     $siteMenuMask.removeClass('site-menu-mask--show')
     $siteMenu.removeClass('site-menu--show')
   }
+  return false
 })
 
 var showMenu = function showMenu (evt) {
-  block(evt)
   $siteMenuMask.addClass('site-menu-mask--show')
   $siteMenu.addClass('site-menu--show')
+  return false
 }
 
 // swip right on cover
-$('.js-no-wrap-menu').swipeRight(block)
+$('.js-no-wrap-menu').swipeRight(function (evt) {
+  return false
+})
 $(window).swipeRight(showMenu)
 
 var $menuIcon = $('.menu-icon')
@@ -44,7 +41,7 @@ if ($menuIcon.length > 0) {
      MENU ICON SHOWS & HIDES
   \* ------------------------------------ */
   var $window = $(window)
-  var mainContentTop = $('.main-content').offset().top
+  var mainContentTop = $('.article--post').offset().top
   var isMenuSemiShow = false
 
   $window.scroll(function () {
