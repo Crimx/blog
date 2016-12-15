@@ -9,7 +9,7 @@ description:
 author: StrayBugs
 language:
 timezone:
-disqus_shortname: crimx
+# disqus_shortname: crimx
 
 # URL
 ## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'
