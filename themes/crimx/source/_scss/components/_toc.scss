@@ -5,12 +5,10 @@
 /*
  * Table of Contents
  */
-$menu-icon-index: 900 !default;
-
 .toc-wrapper {
   position: fixed;
   // menu mask on +1
-  z-index: $menu-icon-index - 10;
+  z-index: $global-z-index--toc;
   top: 10%;
   left: 100%;
   max-width: 300px;

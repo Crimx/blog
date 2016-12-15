@@ -4,17 +4,17 @@
 
 $menu-icon-width: 40px;
 $menu-icon-border: 5px;
-$menu-icon-index: 900 !default;
 
 .menu-icon {
   position: fixed;
-  z-index: $menu-icon-index;
+  z-index: $global-z-index--menu-icon;
   top: 20px;
   left: -($menu-icon-width + $menu-icon-border);
   width: $menu-icon-width * 3;
   height: $menu-icon-width * 2;
   transition: all 0.3s;
   opacity: .9;
+  -webkit-tap-highlight-color: transparent;
 
   &:before,
   &:after {

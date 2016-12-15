@@ -7,7 +7,7 @@ $menu-icon-index: 900 !default;
 .site-menu-mask {
   // display: none;
   position: fixed;
-  z-index: $menu-icon-index + 1;
+  z-index: $global-z-index--mask;
   top: 0;
   left: 0;
   width: 100%;
@@ -23,7 +23,7 @@ $menu-icon-index: 900 !default;
 
 .site-menu {
   position: fixed;
-  z-index: $menu-icon-index + 2;
+  z-index: $global-z-index--menu;
   top: 0;
   left: 0;
   height: 100%;
