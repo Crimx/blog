@@ -5,24 +5,8 @@
 
 // media queries
 
-// 单栏，所以竖放的设备，小型平板以下的横放，以及超大屏幕
-$breakpoint-single-column: screen (orientation portrait), screen (max-width 1023px), screen 1921px;
+// handheld
+$breakpoint-handheld: (orientation portrait), (max-width 768px);
 
-// 两栏，横放的平板到 13 寸屏
-$breakpoint-two-column: screen 1024px 1366px (orientation landscape);
-
-// 三栏，大于 13 寸屏
-$breakpoint-three-column: screen 1367px (orientation landscape);
-
-
-// 封面全屏，竖起来的手机
-$breakpoint-full-cover: screen (orientation portrait) (max-width 480px);
-
-// 调整稍微缩小宽度，竖起来的平板
-$breakpoint-medium-width: screen (orientation portrait) 481px 1024px;
-
-// PC
-$breakpoint-pc: screen 1025px (orientation landscape), screen (min-height 1025px) (orientation portrait);
-
-// phones & tablets
-$breakpoint-handheld: screen (max-width 1024px) (orientation landscape), screen (max-height 1024px) (orientation portrait);
+// monitor
+$breakpoint-monitor: (orientation landscape) (min-width 769px);
