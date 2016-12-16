@@ -4,11 +4,13 @@
 
 // responsive square
 %responsive-square {
-  position: relative;
-
   &:after {
     content: '';
     display: block;
     padding-top: 100%;
   }
+}
+
+@mixin responsive-square {
+  @extend %responsive-square;
 }

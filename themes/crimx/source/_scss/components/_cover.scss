@@ -25,7 +25,7 @@ $cover-article-meta-line-height: $global-line-height !default;
 }
 
   .cover-logo {
-    @extend %responsive-square;
+    @include responsive-square;
     position: absolute;
     width: 60%;
     margin: auto;
@@ -39,7 +39,7 @@ $cover-article-meta-line-height: $global-line-height !default;
     }
 
     a {
-      @extend %absolute-blow-up;
+      @include absolute-blow-up;
     }
   }
 

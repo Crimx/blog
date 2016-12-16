@@ -62,14 +62,15 @@ $menu-icon-index: 900 !default;
 }
 
 .menu-logo {
-  @extend %responsive-square;
+  @include responsive-square;
+  position: relative;
   width: 50%;
   margin: 0 auto 8%;
   opacity: 0.9;
   // background: url(/images/logo.svg);
 
   a {
-    @extend %absolute-blow-up;
+    @include absolute-blow-up;
   }
 
   @include breakpoint($breakpoint-handheld) {
@@ -109,7 +110,7 @@ $menu-icon-index: 900 !default;
   }
 
   a {
-    @extend %absolute-blow-up;
+    @include absolute-blow-up;
   }
 }
 
