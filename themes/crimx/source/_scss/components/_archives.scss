@@ -3,7 +3,16 @@
 \*------------------------------------*/
 
 .site-archives {
-  padding: 0 $global-spacing-unit--small;
+  padding: 0 $global-article-padding--small;
+
+  @include breakpoint($breakpoint-monitor) {
+    padding-left: $global-article-padding--large;
+    padding-right: $global-article-padding--large;
+
+    .archives-item-post {
+      margin-left: $global-spacing-unit--small;
+    }
+  }
 }
 
 .archives-item-year {

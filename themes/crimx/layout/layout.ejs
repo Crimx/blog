@@ -12,27 +12,30 @@
     <p class="browser-warning" style="position:fixed;top:0;left:0;right:0;padding:10px;text-align:center;color:red;background:yellow;">Why are you still using old version of IE??? Go and <a href="http://browsehappy.com/">upgrade your browser</a>.</p>
   <![endif]-->
 
-  <%- body %>
+  <div class="site-container">
+    <%
+      var post_cover = page.cover? page.cover :
+        is_post() ? config.cover.post :
+        is_category() || page.path === "categories/index.html" ? config.cover.categories:
+        is_archive() ? config.cover.archives:
+        is_tag() || page.path === "tags/index.html" ? config.cover.tags:
+        is_home() ? config.cover.home:
+        page.path === "about/index.html" ? config.cover.about : config.cover.default
+      var cover_position = get_cover_position(post_cover)
+      var path_to_cover = config.cover.path + post_cover
+    %>
 
-  <%
-    var post_cover = page.cover? page.cover :
-      is_post() ? config.cover.post :
-      is_category() || page.path === "categories/index.html" ? config.cover.categories:
-      is_archive() ? config.cover.archives:
-      is_tag() || page.path === "tags/index.html" ? config.cover.tags:
-      is_home() ? config.cover.home:
-      page.path === "about/index.html" ? config.cover.about : config.cover.default
-    var cover_position = get_cover_position(post_cover)
-    var path_to_cover = config.cover.path + post_cover
-  %>
+    <%- partial('_partial/menu', {
+        cover_position: cover_position,
+        path_to_cover: path_to_cover
+      })
+    %>
 
-  <%- partial('_partial/menu', {
-      cover_position: cover_position,
-      path_to_cover: path_to_cover
-    })
-  %>
-
-  <%- partial('_partial/footer', null, {cache: !config.relative_link}) %>
+    <div class="main-content">
+      <%- body %>
+      <%- partial('_partial/footer', null, {cache: !config.relative_link}) %>
+    </div>
+  </div>
 
   <%- js('static/bundle') %>
   <%- partial('_partial/google-analytics') %>

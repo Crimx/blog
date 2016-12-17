@@ -4,7 +4,17 @@
 
 .site-tags {
   font-size: 0;
-  padding: 0 $global-spacing-unit--small;
+  padding: 0 $global-article-padding--small;
+
+  @include breakpoint($breakpoint-monitor) {
+    padding: $global-spacing-unit $global-article-padding--large;
+  }
+}
+
+.tag-index {
+  @include breakpoint($breakpoint-monitor) {
+    margin-left: -$global-spacing-unit--small;
+  }
 }
 
 .tag-item {

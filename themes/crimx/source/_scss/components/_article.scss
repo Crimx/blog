@@ -9,37 +9,43 @@
   @extend %postify;
 
   background-color: #fff;
-  // text-align: justify;
-  padding: 0 $global-spacing-unit--small;
+  // padding: 0 $global-article-padding--small;
   overflow: hidden;
 
+  // @include breakpoint($breakpoint-monitor) {
+  //   padding-left: $global-article-padding--large;
+  //   padding-right: $global-article-padding--large;
+  // }
 
-  // 两侧边无缝贴合
-  &,
-  hr,
-  > pre,
-  .highlight {
-    margin-left: -$global-spacing-unit--small;
-    margin-right: -$global-spacing-unit--small;
+  // 两侧空白
+  > * {
+    margin-left: $global-spacing-unit--small;
+    margin-right: $global-spacing-unit--small;
+
+    @include breakpoint($breakpoint-monitor) {
+      margin-left: $global-article-padding--large;
+      margin-right: $global-article-padding--large;
+    }
   }
 
+  hr {
+    @include breakpoint($breakpoint-handheld) {
+      margin-left: 0;
+      margin-right: 0;
+    }
+  }
 
-
-  // 居中
-  > p > img,
   > table {
     max-width: 100%;
-    margin-left: auto;
-    margin-right: auto;
     word-break: break-all;
     word-wrap: break-word;
   }
 
   > p > img {
     display: block;
+    max-width: 100%;
+    margin: 0 auto;
   }
-
-
 
   // markdown generated codeblock
   > pre {
@@ -48,10 +54,19 @@
     border-radius: 0;
   }
 
-
   // codeblock
   .highlight {
     @extend %highlight;
+  }
+
+  // 代码两侧不留白
+  > pre, // markdown generated codeblock
+  .highlight {
+    margin-left: 0;
+    margin-right: 0;
+    @include breakpoint($breakpoint-monitor) {
+      padding-left: $global-article-padding--large;
+    }
   }
 }
 
@@ -60,10 +75,10 @@
  * 文章页脚
  */
 
-.article-footer {
-  // border-top: 1px lighten(#ddd, 10%) solid;
-  margin: 0 (-$global-spacing-unit--small);
-}
+// .article-footer {
+//   // border-top: 1px lighten(#ddd, 10%) solid;
+//   // margin: 0 (-$global-spacing-unit--small);
+// }
 
 /*
  * post tags
@@ -74,10 +89,15 @@ $article-tag-font-size:12px; //$global-font-size * .8;
 $article-tag-color: #aaa;
 
 .article-tag-list {
-  padding: $article-tag-gutter $global-spacing-unit--small 0;
+  padding: $article-tag-gutter $global-article-padding--small 0;
   background: $global-color-background;
   font-size: 0;
   @include box-shadow-top-inset;
+
+  @include breakpoint($breakpoint-monitor) {
+    text-align: center;
+    padding-top: $article-tag-gutter * 2;
+  }
 }
 
 .article-tag-list-item {
@@ -97,6 +117,15 @@ $article-tag-color: #aaa;
   border-radius: $article-tag-font-size * $global-line-height;
   transition: all 0.5s;
 
+  @include breakpoint($breakpoint-monitor) {
+    margin-bottom: $article-tag-gutter * 2;
+  }
+
+  &:link,
+  &:visited {
+    color: #808080;
+  }
+
   &:hover {
     border-color: $global-color-theme;
     color: $global-color-theme;
@@ -113,7 +142,7 @@ $nav-color-background: #fff;
 #article-nav {
   text-align: center;
   background: $nav-color-background;
-  padding: $global-spacing-unit--small $global-spacing-unit--small 0;
+  padding: $global-spacing-unit--small $global-article-padding--small 0;
   overflow: hidden;
 }
 
@@ -189,7 +218,7 @@ $nav-color-background: #fff;
   }
 
 #comments {
-  margin: 0 (-$global-spacing-unit--small) $global-spacing-unit--small;
   padding: 0 $global-spacing-unit--small;
   @include box-shadow-top-inset;
+  background-color: $global-color-background;
 }

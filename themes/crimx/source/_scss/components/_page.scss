@@ -2,14 +2,15 @@
     #PAGE
 \*------------------------------------*/
 
+.site-container {
+  @include container(100%);
+  @include layout(24 0 rtl);
+  height: 100%;
+}
+
 .main-content {
-  @include container(1920px);
-
-  padding-left: $global-spacing-unit--small;
-  padding-right: $global-spacing-unit--small;
-  background-color: $global-color-background;
-
-  @include breakpoint($breakpoint-single-column) {
-    max-width: 1200px;
+  @include breakpoint($breakpoint-monitor) {
+    @include span(17 of 24);
   }
+  height: 100%;
 }

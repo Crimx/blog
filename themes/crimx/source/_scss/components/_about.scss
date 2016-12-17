@@ -9,12 +9,22 @@
 
 .about-intro {
   @extend %postify;
-  padding: 0 $global-spacing-unit--small;
+  padding: 0 $global-article-padding--small;
+
+  @include breakpoint($breakpoint-monitor) {
+    padding-left: $global-article-padding--large;
+    padding-right: $global-article-padding--large;
+  }
 }
 
 .my-social-media {
   .title {
-    padding: 0 $global-spacing-unit--small 10px;
+    padding: 0 $global-article-padding--small 10px;
+
+    @include breakpoint($breakpoint-monitor) {
+      padding-left: $global-article-padding--large;
+      padding-right: $global-article-padding--large;
+    }
   }
 }
 
@@ -61,7 +71,12 @@ $douban-r-item-padding: $global-spacing-unit--tiny / 2;
   overflow: hidden;
 
   .title {
-    padding: $global-spacing-unit--small $global-spacing-unit--small 6px;
+    padding: $global-spacing-unit--small $global-article-padding--small 6px;
+
+    @include breakpoint($breakpoint-monitor) {
+      padding-left: $global-article-padding--large;
+      padding-right: $global-article-padding--large;
+    }
   }
 
   table {
@@ -78,19 +93,56 @@ $douban-r-item-padding: $global-spacing-unit--tiny / 2;
   }
 }
 
+.douban-books-wrap,
+.douban-movies-wrap {
+  position: relative;
+  overflow-y: hidden;
+
+  // hides scroll bar and shows when pointer hovering
+  @include breakpoint($breakpoint-monitor) {
+    &:after {
+      content: '';
+      position: absolute;
+      height: 100%;
+      top: $douban-r-item-height + $douban-r-item-padding * 2;
+      left: 0;
+      right: 0;
+      background: #fff;
+      transition: all 0.3s;
+    }
+
+    &:hover {
+      &:after {
+        opacity: 0;
+        height: 0;
+        transition: opacity 0.3s, height 0.3s 0.3s;
+      }
+    }
+  }
+}
+
 .douban-books,
 .douban-movies {
-  height: $douban-r-item-height + $douban-r-item-padding * 2;
-  overflow-y: hidden;
   overflow-x: scroll;
+  overflow-y: hidden;
 
-  &::-webkit-scrollbar {
-    display: none;
+  // hides scroll bar
+  @include breakpoint($breakpoint-handheld) {
+    height: $douban-r-item-height + $douban-r-item-padding * 2;
+
+    &::-webkit-scrollbar {
+      display: none;
+    }
   }
 }
 
 .netease-music-playlist {
   .title {
-    padding: $global-spacing-unit--small $global-spacing-unit--small 0;
+    padding: $global-spacing-unit--small $global-article-padding--small 0;
+  }
+
+  @include breakpoint($breakpoint-monitor) {
+    padding-left: $global-article-padding--large;
+    padding-right: $global-article-padding--large;
   }
 }

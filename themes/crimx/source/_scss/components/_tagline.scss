@@ -6,9 +6,14 @@ $tagline-icon-width: $global-spacing-unit--large - $global-spacing-unit--tiny * 
 
 .tagline {
   position: relative;
-  padding: $global-spacing-unit--small;
+  padding: $global-spacing-unit--small $global-article-padding--small;
   background: $global-color-background;
   box-shadow: inset 0 10px 6px -6px rgba(0, 0, 0, 0.23);
+
+  @include breakpoint($breakpoint-monitor) {
+    padding-left: $global-article-padding--large;
+    padding-right: $global-article-padding--large;
+  }
 }
 
 .tagline-content {
@@ -34,4 +39,8 @@ $tagline-icon-width: $global-spacing-unit--large - $global-spacing-unit--tiny * 
   width: $tagline-icon-width;
   height: $tagline-icon-width;
   fill: #bdc3c7;
+
+  @include breakpoint($breakpoint-monitor) {
+    left: $global-article-padding--large;
+  }
 }

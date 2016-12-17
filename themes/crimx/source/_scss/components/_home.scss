@@ -4,9 +4,14 @@
 
 .home-main {
   @extend %postify;
-  padding: 0 $global-spacing-unit--small;
+  padding: 0 $global-article-padding--small;
   overflow: hidden;
   background: #fff;
+
+  @include breakpoint($breakpoint-monitor) {
+    padding-left: $global-article-padding--large;
+    padding-right: $global-article-padding--large;
+  }
 
   a:link,
   a:visited,
@@ -19,7 +24,9 @@
 }
 
 .home-entry {
-  margin: 0 (-$global-spacing-unit--small);
   padding: $global-spacing-unit $global-spacing-unit--small;
   text-align: center;
+  @include breakpoint($breakpoint-handheld) {
+    margin: 0 (-$global-spacing-unit--small);
+  }
 }
