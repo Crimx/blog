@@ -62,6 +62,7 @@
 
     .new-articles__link {
       display: block;
+      overflow: hidden;
       padding: $global-spacing-unit--small;
 
       @include breakpoint($breakpoint-monitor) {
@@ -96,6 +97,7 @@
           left: $global-spacing-unit--tiny;
           right: $global-spacing-unit--tiny;
           bottom: 30%;
+          transform: translate(0, 30%);
           color: #fff;
         }
       }
