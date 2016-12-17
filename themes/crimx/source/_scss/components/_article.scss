@@ -47,11 +47,13 @@
 
   // markdown generated codeblock
   > pre {
-    background: #1d1f21;
-    color: #c5c8c6;
-    border-radius: 0;
+    overflow-x: auto;
+    white-space: pre;
     margin-top: 1.29em;
     margin-bottom: 1.29em;
+    border-radius: 0;
+    color: #c5c8c6;
+    background: #1d1f21;
   }
 
   // codeblock
@@ -187,6 +189,10 @@ $nav-color-background: #fff;
 
   @include breakpoint($breakpoint-monitor) {
     width: 50%;
+  }
+
+  &:focus {
+    outline: 0 none;
   }
 }
 
