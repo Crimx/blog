@@ -9,15 +9,15 @@
   background: #1d1f21;
   color: #c5c8c6;
   padding: $global-spacing-unit--small;
-  font-size: 14px;
+  margin-bottom: 1.29em;
 
+  font-size: 14px;
   .line {
     height: 14px * 1.8;
   }
 
   @include breakpoint($breakpoint-handheld) {
     font-size: 12px;
-
     .line {
       height: 12px * 1.8;
     }
@@ -30,6 +30,19 @@
     border: 0;
     padding: 0;
     margin: 0;
+  }
+
+  .code {
+    padding-left: 8px;
+  }
+
+  // 行数
+  .gutter {
+    padding-left: 0;
+    padding-right: 6px;
+    color: #555;
+    border: 0;
+    border-right: 1px #333 solid;
   }
 
 
