@@ -166,11 +166,12 @@ $nav-color-background: #fff;
 }
 
 .article-nav-link-wrap {
-  margin-bottom: $global-spacing-unit;
+  margin-bottom: $global-spacing-unit--small;
 
   @include breakpoint($breakpoint-handheld) {
     display: block;
     position: relative;
+    margin-bottom: $global-spacing-unit;
     padding: 1em;
     text-decoration: none;
     color: #999;
