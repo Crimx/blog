@@ -9,13 +9,11 @@
   @extend %postify;
 
   background-color: #fff;
-  // padding: 0 $global-article-padding--small;
   overflow: hidden;
 
-  // @include breakpoint($breakpoint-monitor) {
-  //   padding-left: $global-article-padding--large;
-  //   padding-right: $global-article-padding--large;
-  // }
+  @include breakpoint($breakpoint-monitor) {
+    padding-top: $global-spacing-unit;
+  }
 
   // 两侧空白
   > * {
@@ -69,6 +67,13 @@
     @include breakpoint($breakpoint-monitor) {
       padding-left: $global-article-padding--large;
     }
+  }
+}
+
+// 小屏幕标题显示在封面上
+.article-title {
+  @include breakpoint($breakpoint-handheld) {
+    display: none;
   }
 }
 
