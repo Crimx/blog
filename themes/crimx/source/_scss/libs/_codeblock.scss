@@ -34,16 +34,19 @@
   }
 
   .code {
-    padding-left: $global-spacing-unit--small;
+    padding-left: $global-spacing-unit;
   }
 
   // 行数
   .gutter {
     padding-left: 0;
-    padding-right: 6px;
     color: #555;
     border: 0;
     border-right: 1px #333 solid;
+
+    .line {
+      text-align: right;
+    }
   }
 
 
