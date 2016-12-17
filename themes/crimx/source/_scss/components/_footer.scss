@@ -24,13 +24,14 @@
 
 @include with-layout(ltr 4 1/8) {
   .new-articles {
-    @include container(100%);
+    overflow: hidden;
     margin-bottom: $global-spacing-unit--large;
     max-height: 0;
     opacity: 0;
     transition: max-height 1s 1s, opacity 0.3s 1.5s;
 
     @include breakpoint($breakpoint-monitor) {
+      @include container(100%);
       margin-top: $global-spacing-unit--large - $global-spacing-unit--small;
     }
   }
