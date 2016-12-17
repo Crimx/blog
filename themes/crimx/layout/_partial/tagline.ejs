@@ -1,14 +1,16 @@
 <% var tagline = locals.tagline || page.tagline %>
 <% if (tagline) { %>
-  <section class="tagline">
-    <svg class="tagline-icon-quote" fill="#bdc3c7">
-      <use xlink:href="<%- theme.icon_symbols %>#icon-quote"></use>
-    </svg>
-    <blockquote class="tagline-content"><%- tagline.content %></blockquote>
-    <% if (tagline.cite) { %>
-      <footer class="tagline-cite">
-        <cite><%- tagline.cite %></cite>
-      </footer>
-    <% } %>
-  </section>
+  <div class="tagline-wrap">
+    <section class="tagline">
+      <svg class="tagline-icon-quote" fill="#bdc3c7">
+        <use xlink:href="<%- theme.icon_symbols %>#icon-quote"></use>
+      </svg>
+      <blockquote class="tagline-content"><%- tagline.content %></blockquote>
+      <% if (tagline.cite) { %>
+        <footer class="tagline-cite">
+          <cite><%- tagline.cite %></cite>
+        </footer>
+      <% } %>
+    </section>
+  </div>
 <% } %>
