@@ -3,5 +3,6 @@
 \*------------------------------------*/
 
 .new-articles--added {
-  transform: scaleY(1);
+  max-height: 600px;
+  opacity: 1;
 }

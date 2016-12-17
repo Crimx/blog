@@ -6,8 +6,13 @@
 
 .site-footer {
   background-color: $global-color-background-dark;
-  padding: $global-spacing-unit--small $global-spacing-unit--small;
+  padding: $global-spacing-unit--small $global-article-padding--small;
   color: lighten($global-color-link, 10%);
+
+  @include breakpoint($breakpoint-monitor) {
+    padding-left: $global-spacing-unit--large;
+    padding-right: $global-spacing-unit--large;
+  }
 
   a:link,
   a:visited,
@@ -17,48 +22,97 @@
   }
 }
 
+@include with-layout(ltr 4 1/8) {
   .new-articles {
+    @include container(100%);
     margin-bottom: $global-spacing-unit--large;
-    transform: scaleY(0);
-    transform-origin: top;
-    transition: transform 0.3s;
+    max-height: 0;
+    opacity: 0;
+    transition: max-height 1s 1s, opacity 0.3s 1.5s;
+
+    @include breakpoint($breakpoint-monitor) {
+      margin-top: $global-spacing-unit--large - $global-spacing-unit--small;
+    }
   }
 
     .new-articles__item {
       position: relative;
-      display: block;
       height: $global-spacing-unit--huge;
       margin-bottom: $global-spacing-unit--small;
       border: 1px solid $global-color-link;
+      overflow: hidden;
       transition: border-color 0.5s;
       &:hover {
         border-color: $global-color-link-hover;
+      }
+
+      @include breakpoint($breakpoint-monitor) {
+        @include span(1 of 4);
+        height: auto;
+        &:after {
+          content: '';
+          display: block;
+          padding-top: 16/9*100%;
+        }
+        &:last-child {
+          margin-right: 0;
+        }
       }
     }
 
     .new-articles__link {
       display: block;
-      overflow: hidden;
       padding: $global-spacing-unit--small;
+
+      @include breakpoint($breakpoint-monitor) {
+        padding: 0;
+        position: absolute;
+        top: $global-spacing-unit--small;
+        left: $global-spacing-unit--small;
+        bottom: $global-spacing-unit--small;
+        right: $global-spacing-unit--small;
+
+        &:after {
+          content: '';
+          @include absolute-blow-up;
+          z-index: 2;
+          background: rgba(0,0,0,.4);
+        }
+      }
     }
 
       .new-articles__title {
         position: absolute;
-        height: 50%;
-        top: $global-spacing-unit--small;
+        z-index: 3;
         left: $global-spacing-unit--huge;
-        bottom: $global-spacing-unit--small;
         right: $global-spacing-unit--small;
-        margin: auto 0;
+        bottom: 50%;
+        transform: translate(0, 50%);
         overflow: hidden;
+        text-overflow: ellipsis;
         font-size: 1.14rem;
+
+        @include breakpoint($breakpoint-monitor) {
+          left: $global-spacing-unit--tiny;
+          right: $global-spacing-unit--tiny;
+          bottom: 30%;
+          color: #fff;
+        }
       }
 
       .new-articles__cover {
         width: $global-spacing-unit--huge - $global-spacing-unit--small * 2;
         height: $global-spacing-unit--huge - $global-spacing-unit--small * 2;
         background-color: lighten($global-color-background-dark, 5%);
+
+        @include breakpoint($breakpoint-monitor) {
+          position: absolute;
+          z-index: 1;
+          height: 100%;
+          width: 100%;
+        }
       }
+} // with-layout
 
   %footer-text {
     text-align: center;
