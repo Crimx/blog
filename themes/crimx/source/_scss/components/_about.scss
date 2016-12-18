@@ -64,7 +64,7 @@
   }
 }
 
-$douban-r-item-width: $global-spacing-unit--large;
+$douban-r-item-width: $global-spacing-unit--large * 1.5;
 $douban-r-item-height: $douban-r-item-width * 100 / 65;
 $douban-r-item-padding: $global-spacing-unit--tiny / 2;
 .douban-recommendation {

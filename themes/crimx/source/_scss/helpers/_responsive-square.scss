@@ -12,5 +12,9 @@
 }
 
 @mixin responsive-square {
-  @extend %responsive-square;
+  &:after {
+    content: '';
+    display: block;
+    padding-top: 100%;
+  }
 }

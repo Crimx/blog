@@ -20,6 +20,10 @@
 .tag-item {
   display: inline-block;
   margin-bottom: $global-spacing-unit--tiny;
+
+  @include breakpoint($breakpoint-monitor) {
+    margin-right: $global-spacing-unit--tiny;
+  }
 }
 
 .tag-link {

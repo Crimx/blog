@@ -17,7 +17,7 @@
 }
 
 .color-mask {
-  @include absolute-blow-up;
+  @extend %absolute-blow-up;
   z-index: 1;
   opacity: 0.8;
 }

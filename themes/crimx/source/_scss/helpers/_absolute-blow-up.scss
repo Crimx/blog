@@ -16,5 +16,18 @@
 }
 
 @mixin absolute-blow-up {
-  @extend %absolute-blow-up;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+
+  &:link,
+  &:visited,
+  &:hover,
+  &:active,
+  &:focus {
+    outline: 0 none;
+    -webkit-tap-highlight-color: transparent;
+  }
 }
