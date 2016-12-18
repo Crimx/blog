@@ -9,35 +9,60 @@ if ($tocWrapper.length > 0) {
   var $window = $(window)
   var mainContentTop = $('.article--post').offset().top
 
-  var isTocShowCase = false
+  var isTocSemiShow = false
   $window.scroll(function () {
     // main content shows
     if ($window.scrollTop() >= mainContentTop) {
-      if (!isTocShowCase) {
-        isTocShowCase = true
+      if (!isTocSemiShow) {
+        isTocSemiShow = true
         $tocWrapper.addClass('toc--semi-show')
         window.setTimeout(function () {
           $tocWrapper.removeClass('toc--semi-show')
         }, 500)
       }
     } else {
-      isTocShowCase = false
+      isTocSemiShow = false
     }
   })
 
+  var $tocMousearea = $('.toc-mousearea').addClass('toc-mousearea--show')
   var isTocShow = false
-  $window.on('tap click swipeLeft', function (evt) {
-    isTocShow = true
-    $tocWrapper.addClass('toc--show')
-  })
 
-  $window.on('tap click', function (evt) {
-    if (isTocShow === true && evt.target !== $tocWrapper[0]) {
+  var showMenu = function showMenu () {
+    if (isTocShow === false) {
+      isTocShow = true
+      $tocWrapper.addClass('toc--show')
+    }
+  }
+
+  var hideMenu = function hideMenu () {
+    if (isTocShow === true) {
       isTocShow = false
       $tocWrapper.removeClass('toc--show')
     }
+  }
+
+  $window.on('swipeLeft', showMenu)
+
+  $window.on('tap click', function (evt) {
+    if (isTocShow === true && evt.target !== $tocWrapper[0]) {
+      hideMenu()
+    }
   })
 
+  $tocWrapper.on('tap click', showMenu).mouseleave(function () {
+    hideMenu()
+    setTimeout(function () {
+      $tocMousearea.addClass('toc-mousearea--show')
+    }, 500)
+  })
+
+  $tocMousearea.mouseover(function () {
+    $tocMousearea.removeClass('toc-mousearea--show')
+    showMenu()
+  })
+
+  // block event
   $('.highlight').swipeLeft(function (evt) {
     return false
   })

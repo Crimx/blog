@@ -9,14 +9,27 @@
   position: fixed;
   // menu mask on +1
   z-index: $global-z-index--toc;
-  top: 10%;
-  left: 100%;
+  top: 12%;
+  left: 101%;
   max-width: 300px;
   max-height: 100%;
   padding-left: $global-spacing-unit--small;
   padding-bottom: $global-spacing-unit;
   transition: all 0.3s;
   transform: translate(-$global-spacing-unit--small, 0);
+}
+
+.toc-mousearea {
+  position: fixed;
+  z-index: -1;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  width: $global-article-padding--large;
+
+  @include breakpoint($breakpoint-handheld) {
+    display: none;
+  }
 }
 
 .toc {
@@ -51,6 +64,10 @@
   white-space: nowrap;
   border-top: 1px solid transparent;
   -webkit-tap-highlight-color: transparent;
+
+  @include breakpoint($breakpoint-monitor) {
+    padding-right: $global-spacing-unit--large;
+  }
 }
 
 @import 'toc/states';

@@ -14,3 +14,7 @@
 .toc--show {
   transform: translate(-100%, 0);
 }
+
+.toc-mousearea--show {
+  z-index: $global-z-index--toc;
+}
