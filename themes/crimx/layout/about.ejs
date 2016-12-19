@@ -1,7 +1,7 @@
 <article class="site-about">
   <section class="about-intro">
     <h1>关于</h1>
-    <p>这个博客是我独自设计和手工编写的，基于 <a href="//hexo.io/" target="_blank">Hexo</a> 深度定制。Sass 的设计借鉴了 <a href="//itcss.io/" target="_blank">ITCSS</a> 思想。JavaScript 使用了 <a href="//browserify.org/" target="_blank">Browserify</a> 打包。LOGO 设计使用了 illustrator ，社交图案采用了 <a href="//github.com/nullice/NViconsLib_Silhouette" target="_blank">NViconsLib 2</a> ，利用 <a href="//icomoon.io/" target="_blank">IcoMoon</a> 合并。</p>
+    <p>这个博客是我独自设计和手工编写的，基于 <a href="//hexo.io/" target="_blank">Hexo</a> 深度定制。Sass 模块的设计借鉴了 <a href="//itcss.io/" target="_blank">ITCSS</a> 思想。JavaScript 模块使用 <a href="//browserify.org/" target="_blank">Browserify</a> 打包。LOGO 使用 illustrator 设计，社交图案采用 <a href="//github.com/nullice/NViconsLib_Silhouette" target="_blank">NViconsLib 2</a> ，使用 <a href="//boxy-svg.com" target="_blank">Boxy SVG</a> 以及手工编辑，利用 <a href="//icomoon.io/" target="_blank">IcoMoon</a> 合并。</p>
   </section>
   <section class="my-social-media">
     <p class="title">可以在以下平台找到我：</p>
@@ -27,8 +27,8 @@
         } else {
 %>
           <li>
+            <a href="<%- icon.url %>" target="_blank"></a>
             <svg>
-              <a href="<%- icon.url %>" target="_blank"></a>
               <use xlink:href="<%- theme.icon_symbols %>#<%- icon.svg %>"></use>
             </svg>
           </li>
@@ -39,7 +39,7 @@
     </ul>
   </section>
   <section class="douban-recommendation js-no-wrap-menu">
-    <p class="title">觉得不错的一些书和影视作品：</p>
+    <p class="title">最近觉得不错的一些书和影视作品：</p>
     <div class="douban-books-wrap">
       <div class="douban-books">
         <script type="text/javascript" src="http://www.douban.com/service/badge/jaward/?selection=favorite&amp;picsize=medium&amp;hideself=on&amp;show=collection&amp;n=40&amp;hidelogo=on&amp;cat=book&amp;columns=40"></script>
