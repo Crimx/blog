@@ -153,6 +153,11 @@ $postify-color-header-counter: #888 !default;
     font-size: 1em;
   }
 
+  h1, h2, h3, h4, h5, h6 {
+    margin-top: 1.29rem;
+    margin-bottom: 1.29rem;
+  }
+
   blockquote {
     margin: 2.29em 2em;
     padding-left: 1em;
