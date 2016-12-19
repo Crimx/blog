@@ -1,8 +1,6 @@
 <header class="site-cover" style="background:linear-gradient(transparent 80%,rgba(0,0,0,.4) 90%,rgba(0,0,0,.7) 100%),linear-gradient(rgba(0,0,0,.3),rgba(0,0,0,.3)),url('<%- path_to_cover %>') <%- cover_position %>/cover">
 
-  <div class="cover-logo">
-    <a class="icon-logo" href="/"></a>
-  </div>
+  <a class="cover-logo" href="/"></a>
 
   <% if (is_post()) { %>
     <div class="title-wrapper">
@@ -10,7 +8,11 @@
         <div class="article-meta">
           <%- partial('post/category', {post: page, prefix: false}) %>
           <%- partial('post/date', {class_name: 'article-date', date_format: null, post: page}) %>
-          <a rel="license" class="cc-license-wrapper" href="http://creativecommons.org/licenses/by-nc/4.0/" target="_blank" title="This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License."><%- partial('svg-icons/cc-license', {id_name: 'cc-license'}) %></a>
+          <a rel="license" class="cc-license-wrapper" href="http://creativecommons.org/licenses/by-nc/4.0/" target="_blank" title="This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.">
+            <svg class="cc-license" fill="#fff">
+              <use xlink:href="<%- theme.icon_symbols %>#icon-cc-license"></use>
+            </svg>
+          </a>
         </div>
     </div>
   <% } else { %>

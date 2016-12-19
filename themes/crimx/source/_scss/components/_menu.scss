@@ -89,14 +89,11 @@ $menu-icon-index: 900 !default;
   margin-left: 4%;
 
   li {
+    @extend %responsive-square;
     display: inline-block;
     position: relative;
-    text-align: center;
-    vertical-align: middle;
     margin-right: 3%;
     width: 8%;
-    height: 0;
-    padding-top: 8%;
   }
 
   @include breakpoint($breakpoint-handheld) {
@@ -104,7 +101,6 @@ $menu-icon-index: 900 !default;
 
     li {
       width: 13%;
-      padding-top: 13%;
       margin-right: $global-spacing-unit--tiny;
     }
   }

@@ -26,6 +26,7 @@ $cover-article-meta-line-height: $global-line-height !default;
 
   .cover-logo {
     @extend %responsive-square;
+    @extend .icon-logo;
     position: absolute;
     width: 60%;
     margin: auto;
@@ -36,10 +37,6 @@ $cover-article-meta-line-height: $global-line-height !default;
 
     @include breakpoint(max-height 450px) {
       display: none;
-    }
-
-    a {
-      @extend %absolute-blow-up;
     }
   }
 
@@ -100,22 +97,12 @@ $cover-article-meta-line-height: $global-line-height !default;
       }
 
       .cc-license-wrapper {
-        position: relative;
         display: inline-block;
         vertical-align: top;
-
-        &:after {
-          content: "";
-          position: absolute;
-          top: 0;
-          right: 0;
-          bottom: 0;
-          left: 0;
-        }
       }
 
-        #cc-license {
-          height: $cover-article-meta-font-size * $cover-article-meta-line-height * .95;
-          fill: #fff;
+        .cc-license {
+          height: 16px;
+          width: 14px / 32 * 110;
           opacity: $cover-opacity;
         }
