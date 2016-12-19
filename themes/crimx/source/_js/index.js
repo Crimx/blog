@@ -15,6 +15,7 @@ $(document).ready(function () {
   require('./components/menu')
   require('./components/toc')
   require('./components/footer')
+  require('./components/search')
 
   /* ------------------------------------ *\
      POLYFILLs

@@ -1,0 +1,15 @@
+<%
+  var bg_cover = 'starry-night-1149815_1920.jpg'
+  // var cover_position = get_cover_position(bg_cover)
+  var cover_position = 'center'
+  var path_to_cover = config.cover.path + bg_cover
+%>
+
+<section class="site-search" style="/*background-image:linear-gradient(rgba(0,0,0,.4),rgba(0,0,0,.4)),url('<%- path_to_cover %>');background-position:0,<%- cover_position %>;background-size:auto,cover*/ background: url('<%- path_to_cover %>') <%- cover_position %>/cover;">
+  <div class="search-box">
+    <div class="search-input-wrap">
+      <input type="text" class="search-input" />
+    </div>
+    <div class="search-submit"></div>
+  </div>
+</section>

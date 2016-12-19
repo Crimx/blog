@@ -1,0 +1,114 @@
+/*------------------------------------*\
+  #SEARCH
+\*------------------------------------*/
+
+$search-box-height: 14px + 2px + $global-spacing-unit--tiny * 2 + 2px; // font+padding+border
+
+.site-search {
+  position: relative;
+  min-height: 100%;
+  // filter: blur(6px);
+}
+
+.search-box {
+  position: absolute;
+  top: 35%;
+  left: 0;
+  right: 0;
+  margin: auto;
+  width: 40%;
+  height: $search-box-height;
+  opacity: 0.9;
+}
+
+.search-input-wrap {
+  display: inline-block;
+  position: relative;
+  width: 70%;
+  margin-right: $global-spacing-unit--tiny + $search-box-height;
+
+  &:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -$search-box-height / $SQRT2;
+    width: $search-box-height / $SQRT2;
+    height: $search-box-height / $SQRT2;
+    border-left: 1px #fff solid;
+    border-top: 1px #fff solid;
+    transform: rotate(-45deg);
+    transform-origin: top right;
+  }
+
+  &:after {
+    content: '';
+    position: absolute;
+    z-index: -1;
+    top: 0;
+    right: 0;
+    width: $search-box-height;
+    height: $search-box-height;
+    border-right: 1px #fff solid;
+    border-top: 1px #fff solid;
+    transform: skewx(-30deg);
+    transform-origin: bottom right;
+  }
+}
+
+.search-input {
+  width: 100%;
+  padding: $global-spacing-unit--tiny;
+  border: 0 none;
+  border-top: 1px #fff solid;
+  border-bottom: 1px #fff solid;
+  color: #fff;
+  background: transparent;
+
+  &:focus {
+    outline: 0 none;
+  }
+}
+
+.search-submit {
+  display: inline-block;
+  position: relative;
+  height: 100%;
+  width: 10%;
+  border: 0;
+  vertical-align: top;
+  background: #fff;
+
+  &:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -$search-box-height;
+    width: $search-box-height;
+    height: $search-box-height;
+    background: #fff;
+    transform: skewx(-30deg);
+    transform-origin: bottom left;
+  }
+
+  &:after {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: -$search-box-height / $SQRT2;
+    width: $search-box-height / $SQRT2;
+    height: $search-box-height / $SQRT2;
+    background: #fff;
+    transform: rotate(45deg);
+    transform-origin: top left;
+  }
+
+  &:hover {
+    cursor: pointer;
+    background: darken(#fff, 10%);
+
+    &:before,
+    &:after {
+      background: darken(#fff, 10%);
+    }
+  }
+}

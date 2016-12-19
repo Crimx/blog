@@ -24,8 +24,9 @@
 @import 'helpers/mixins';
 @import 'helpers/absolute-blow-up';
 @import 'helpers/responsive-square';
-@import 'breakpoint';
-@import 'susy';
+@import 'mathsass/dist/math';
+@import 'breakpoint-sass/stylesheets/breakpoint';
+@import 'susy/sass/susy';
 $susy: (
   columns: 12
 );
@@ -80,16 +81,19 @@ $susy: (
 // #COMPONENTS
 //
 @import 'components/page';
-@import 'components/cover';
-@import 'components/article';
-@import 'components/footer';
-@import 'components/menu';
-@import 'components/toc';
-@import 'components/menu-icon';
+
 @import 'components/home';
 @import 'components/categories';
-@import 'components/tags';
 @import 'components/archives';
-@import 'components/post-list';
+@import 'components/tags';
+@import 'components/search';
 @import 'components/about';
+
+@import 'components/cover';
 @import 'components/tagline';
+@import 'components/article';
+@import 'components/toc';
+@import 'components/menu';
+@import 'components/menu-icon';
+@import 'components/footer';
+@import 'components/post-list';

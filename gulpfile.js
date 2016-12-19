@@ -26,8 +26,7 @@ gulp.task('sass-debug', function () {
     .pipe($.sourcemaps.init({loadMaps: true}))
       .pipe($.sass({
         includePaths: [
-          './node_modules/breakpoint-sass/stylesheets',
-          './node_modules/susy/sass' //required for sass
+          './node_modules' //required for sass
         ]
       }).on('error', $.sass.logError))
       // .pipe($.cleanCss())
@@ -47,24 +46,6 @@ gulp.task('sass-debug', function () {
     .pipe(gulp.dest('./themes/crimx/source/static/'))
     .pipe($.size({title: 'sass'}));
 });
-
-
-gulp.task('sass', function () {
-  return gulp.src('./themes/crimx/source/_scss/style.scss')
-    .pipe($.sass({
-      includePaths: [
-        './node_modules/breakpoint-sass/stylesheets',
-        './node_modules/susy/sass' //required for sass
-      ]
-    }).on('error', $.sass.logError))
-    .pipe($.postcss([
-      autoprefixer({browsers: ['last 1 version']})
-    ]))
-    .pipe($.cleanCSS())
-    .pipe(gulp.dest('./themes/crimx/source/static/'))
-    .pipe($.size({title: 'sass'}));
-});
-
 
 (function () {
   // add custom browserify options here

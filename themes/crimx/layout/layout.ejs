@@ -20,6 +20,7 @@
         is_archive() ? config.cover.archives:
         is_tag() || page.path === "tags/index.html" ? config.cover.tags:
         is_home() ? config.cover.home:
+        page.path === "search/index.html" ?  config.cover.search:
         page.path === "about/index.html" ? config.cover.about : config.cover.default
       var cover_position = get_cover_position(post_cover)
       var path_to_cover = config.cover.path + post_cover
