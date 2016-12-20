@@ -38,7 +38,7 @@ $menu-icon-index: 900 !default;
   }
 
   @include breakpoint($breakpoint-monitor) {
-    @include span(7 of 24);
+    width: span(7 of 24);
   }
 }
 

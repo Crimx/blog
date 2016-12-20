@@ -10,7 +10,7 @@
 
 .main-content {
   @include breakpoint($breakpoint-monitor) {
-    @include span(17 of 24);
+    margin-left: span(7 of 24);
   }
   height: 100%;
 }
