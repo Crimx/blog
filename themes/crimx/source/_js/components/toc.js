@@ -32,6 +32,7 @@ if ($tocWrapper.length > 0) {
     if (isTocShow === false) {
       isTocShow = true
       $tocWrapper.addClass('toc--show')
+      $tocMousearea.removeClass('toc-mousearea--show')
     }
   }
 
@@ -39,6 +40,7 @@ if ($tocWrapper.length > 0) {
     if (isTocShow === true) {
       isTocShow = false
       $tocWrapper.removeClass('toc--show')
+      $tocMousearea.addClass('toc-mousearea--show')
     }
   }
 
@@ -50,17 +52,9 @@ if ($tocWrapper.length > 0) {
     }
   })
 
-  $tocWrapper.on('tap click', showMenu).mouseleave(function () {
-    hideMenu()
-    setTimeout(function () {
-      $tocMousearea.addClass('toc-mousearea--show')
-    }, 500)
-  })
+  $tocWrapper.on('tap click', showMenu).mouseleave(hideMenu)
 
-  $tocMousearea.mouseover(function () {
-    $tocMousearea.removeClass('toc-mousearea--show')
-    showMenu()
-  })
+  $tocMousearea.mouseover(showMenu)
 
   // block event
   $('.highlight').swipeLeft(function (evt) {

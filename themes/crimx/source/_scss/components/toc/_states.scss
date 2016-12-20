@@ -17,4 +17,5 @@
 
 .toc-mousearea--show {
   z-index: $global-z-index--toc;
+  transition: z-index 0s 500ms;
 }
