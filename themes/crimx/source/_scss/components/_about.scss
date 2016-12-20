@@ -116,18 +116,19 @@ $douban-r-item-padding: $global-spacing-unit--tiny / 2;
       content: '';
       position: absolute;
       height: 100%;
-      top: $douban-r-item-height + $douban-r-item-padding * 2;
+      top: 0;
       left: 0;
       right: 0;
+      transform: translateY($douban-r-item-height + $douban-r-item-padding * 2);
       background: #fff;
-      transition: all 0.3s;
+      transition: opacity 0.3s;
     }
 
     &:hover {
       &:after {
         opacity: 0;
-        height: 0;
-        transition: opacity 0.3s, height 0.3s 0.3s;
+        transform: translateY(100%);
+        transition: opacity 0.3s, transform 0s 0.3s;
       }
     }
   }
