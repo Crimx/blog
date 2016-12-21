@@ -33,6 +33,10 @@
     max-width: 100%;
     word-break: break-all;
     word-wrap: break-word;
+
+    @include breakpoint($breakpoint-monitor) {
+      width: 100% - $global-article-padding--large * 2;
+    }
   }
 
   > p > img {
