@@ -18,6 +18,11 @@ $(document).ready(function () {
   require('./components/search')
 
   /* ------------------------------------ *\
+     TOOLs
+  \* ------------------------------------ */
+  require('./tools/iframe-defer')
+
+  /* ------------------------------------ *\
      POLYFILLs
   \* ------------------------------------ */
   require('svgxuse')
