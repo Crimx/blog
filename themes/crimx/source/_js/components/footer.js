@@ -8,7 +8,7 @@ var $newArticles = $('.new-articles')
 if ($newArticles.length > 0) {
   $.getJSON('/recent-posts.json', function (posts) {
     var articles = $.map(posts, function (post, i) {
-      if (i > 4) { return false }
+      if (i >= 4) { return }
       //  <li class="new-articles__item">
       //    <a class="new-articles__link" href="[url]">
       //      <div class="new-articles__cover" style="background:no-repeat url([cover]) [position]/cover">
