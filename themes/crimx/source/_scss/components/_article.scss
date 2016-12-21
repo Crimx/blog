@@ -66,6 +66,38 @@
       padding-left: $global-article-padding--large;
     }
   }
+
+  > blockquote {
+    position: relative;
+    overflow: hidden;
+    margin: 1.29em 0;
+    padding: 0 $global-article-padding--small;
+    border: 0;
+    background: $global-color-background;
+    @include box-shadow-top-inset;
+
+    > * {
+      margin-left: 14px + 3px;
+    }
+
+    &:after {
+      content: '';
+      position: absolute;
+      width: 3px;
+      top: 1.29em;
+      bottom: 1.29em;
+      left: $global-article-padding--small;
+      background: #ccc;
+    }
+
+    @include breakpoint($breakpoint-monitor) {
+      padding: 0 $global-article-padding--large;
+
+      &:after {
+        left: $global-article-padding--large;
+      }
+    }
+  }
 }
 
 // 小屏幕标题显示在封面上
