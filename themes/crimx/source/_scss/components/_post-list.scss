@@ -2,32 +2,39 @@
     #POST LIST
 \*------------------------------------*/
 
-.post-list {
-  a,
-  a:visited,
-  a:hover,
-  a:active,
-  a:focus {
-    color: #fff;
+.post-list-header {
+  padding: $global-spacing-unit--tiny $global-spacing-unit;
+  text-align: center;
+  color: $global-color-link;
+
+  @include breakpoint($breakpoint-handheld) {
+    font-size: 1.2em;
   }
 }
 
-%post-list-text {
+.post-list {
   text-align: center;
-  font-size: 1.2em;
-  font-size: 8vw;
-  padding: $global-spacing-unit;
-  padding: 15vw $global-spacing-unit;
 
-}
+  a,
+  a:visited,
+  a:hover,
+  a:active {
+    color: #fff;
+  }
 
-.post-list-header {
-  @extend %post-list-text;
-  color: $global-color-link;
-  font-size: 6vw;
-  padding: .5vw $global-spacing-unit;
+  a:focus {
+    outline: 0 none;
+  }
 }
 
 .post-list-title {
-  @extend %post-list-text;
+  padding: $global-spacing-unit--huge $global-spacing-unit;
+  font-weight: bolder;
+
+  @include breakpoint($breakpoint-handheld) {
+    padding: $global-spacing-unit--large $global-spacing-unit;
+    font-size: 1.8em;
+    font-weight: normal;
+  }
 }
+
