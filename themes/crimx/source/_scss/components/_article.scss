@@ -29,20 +29,25 @@
     }
   }
 
-  > table {
+  table {
     max-width: 100%;
+    margin-top: 1.29em;
+    margin-bottom: 1.29em;
     word-break: break-all;
     word-wrap: break-word;
-
-    @include breakpoint($breakpoint-monitor) {
-      width: 100% - $global-article-padding--large * 2;
-    }
   }
 
-  > p > img {
+  img {
     display: block;
-    max-width: 100%;
     margin: 0 auto;
+  }
+
+  .github-emoji {
+    &,
+    & img {
+      display: inline;
+      margin: 0;
+    }
   }
 
   // markdown generated codeblock
@@ -82,6 +87,14 @@
 
     > * {
       margin-left: 14px + 3px;
+
+      &:first-child {
+        margin-top: 1.29em;
+      }
+
+      &:last-child {
+        margin-bottom: 1.29em;
+      }
     }
 
     &:after {
