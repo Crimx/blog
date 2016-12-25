@@ -40,6 +40,7 @@ hexo.extend.processor.register(/^images\/cover\/.+\.(gif|jpg|jpeg|png)$/i, funct
 
   gm(coverAbsPath)
     .resize(resizeWidth, resizeHeight)
+    .blur(5)
     .noProfile()
     .write(thumbnailAbsPath, function (err) {
       if (err) { console.warn(err) }

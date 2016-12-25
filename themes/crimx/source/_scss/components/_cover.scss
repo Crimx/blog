@@ -9,6 +9,7 @@ $cover-article-meta-font-size: 12px !default;
 $cover-article-meta-line-height: $global-line-height !default;
 
 .site-cover {
+  @include progressive-bg-container;
   position: relative;
   // padding: $global-spacing-unit $global-spacing-unit--small;
   overflow: hidden;
@@ -25,9 +26,24 @@ $cover-article-meta-line-height: $global-line-height !default;
   @include breakpoint($breakpoint-monitor) {
     background: #fff !important;
   }
+
+  &:before {
+    @extend %progressive-bg-mask;
+    content: '';
+  }
+
+  &:after {
+    @extend %progressive-bg-mask--bottom;
+    content: '';
+  }
 }
 
+  .site-cover-bg-thumb {
+    @extend %progressive-bg-thumbnail;
+  }
+
   .cover-logo {
+    @include progressive-bg-content;
     @extend %responsive-square;
     @extend .icon-logo;
     position: absolute;
@@ -44,6 +60,7 @@ $cover-article-meta-line-height: $global-line-height !default;
   }
 
   .cover-icon-down {
+    @include progressive-bg-content;
     position: absolute;
     left: 0;
     right: 0;
@@ -54,6 +71,7 @@ $cover-article-meta-line-height: $global-line-height !default;
   }
 
   .title-wrapper {
+    @include progressive-bg-content;
     position: absolute;
     margin: auto;
     margin-bottom: $global-spacing-unit + $global-spacing-unit--tiny;

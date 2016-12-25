@@ -22,6 +22,7 @@ $(document).ready(function () {
      TOOLs
   \* ------------------------------------ */
   require('./tools/iframe-defer')
+  require('./tools/progressive-background-image')()
 
   /* ------------------------------------ *\
      POLYFILLs

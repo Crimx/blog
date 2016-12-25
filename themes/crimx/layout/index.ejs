@@ -5,6 +5,7 @@ tagline:
 ---
 <%- partial('_partial/cover', {
     path_to_cover: config.cover.path + config.cover.home,
+    path_to_thumbnail: config.cover.thumbnailpath + config.cover.home,
     cover_position: get_cover_position(config.cover.home)
   }, {
     cache: !config.relative_link

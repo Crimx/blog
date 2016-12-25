@@ -24,11 +24,13 @@
         page.path === "about/index.html" ? config.cover.about : config.cover.default
       var cover_position = get_cover_position(post_cover)
       var path_to_cover = config.cover.path + post_cover
+      var path_to_thumbnail = config.cover.thumbnailpath + post_cover
     %>
 
     <%- partial('_partial/menu', {
         cover_position: cover_position,
-        path_to_cover: path_to_cover
+        path_to_cover: path_to_cover,
+        path_to_thumbnail: path_to_thumbnail
       })
     %>
 
