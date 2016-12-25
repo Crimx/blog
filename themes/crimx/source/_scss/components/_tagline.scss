@@ -36,6 +36,7 @@ $tagline-icon-width: $global-spacing-unit--large - $global-spacing-unit--tiny * 
 .tagline-cite {
   font-size: 0.86em;
   text-align: right;
+  margin-left: 50%;
   color: #bfaa7b;
 
   &:before {
