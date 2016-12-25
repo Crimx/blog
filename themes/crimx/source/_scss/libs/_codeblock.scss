@@ -63,10 +63,13 @@
     color: #969896;
   }
 
+  // tag is white
+  // .tag {
+  // }
+
   /* Tomorrow Red */
   .variable,
   .template-variable,
-  .tag,
   .name,
   .selector-id,
   .selector-class,
@@ -90,6 +93,11 @@
   /* Tomorrow Yellow */
   .attribute {
     color: #f0c674;
+  }
+
+  /* Seti_ui Green */
+  .attr {
+    color: #9fca56;
   }
 
   /* Tomorrow Green */
