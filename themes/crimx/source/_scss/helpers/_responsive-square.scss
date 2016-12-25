@@ -3,7 +3,7 @@
 // \*------------------------------------*/
 
 // responsive square
-%responsive-square {
+@mixin responsive-square {
   &:after {
     content: '';
     display: block;
@@ -11,10 +11,6 @@
   }
 }
 
-@mixin responsive-square {
-  &:after {
-    content: '';
-    display: block;
-    padding-top: 100%;
-  }
+%responsive-square {
+  @include responsive-square;
 }

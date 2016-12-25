@@ -8,7 +8,7 @@
  * over and over in your markup.
  */
 
-%clearfix {
+@mixin clearfix {
   &:after {
     content: '';
     display: table;
@@ -16,10 +16,6 @@
   }
 }
 
-@mixin clearfix {
-  &:after {
-    content: '';
-    display: table;
-    clear: both;
-  }
+%clearfix {
+  @include clearfix;
 }
