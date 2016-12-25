@@ -8,7 +8,7 @@
   "dependencies": {
     "gm": "^1.23.0",
     "hexo": "latest",
-    "hexo-filter-github-emojis": "^1.1.0",
+    "hexo-filter-github-emojis": "^1.1.1",
     "hexo-generator-archive": "latest",
     "hexo-generator-category": "latest",
     "hexo-generator-feed": "^1.2.0",
