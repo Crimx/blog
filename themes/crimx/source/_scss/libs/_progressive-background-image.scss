@@ -10,7 +10,7 @@
 @mixin progressive-bg-thumbnail {
   @extend %absolute-blow-up;
   z-index: 10;
-  transition: opacity 2.5s;
+  transition: opacity .4s .6s;
 }
 
 @mixin progressive-bg-mask {
