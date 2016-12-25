@@ -23,10 +23,6 @@ $cover-article-meta-line-height: $global-line-height !default;
     }
   }
 
-  @include breakpoint($breakpoint-monitor) {
-    background: #fff !important;
-  }
-
   &:before {
     @extend %progressive-bg-mask;
     content: '';
@@ -36,10 +32,23 @@ $cover-article-meta-line-height: $global-line-height !default;
     @extend %progressive-bg-mask--bottom;
     content: '';
   }
+
+  @include breakpoint($breakpoint-monitor) {
+    background: #fff !important;
+
+    &:before,
+    &:after {
+      display: none;
+    }
+  }
 }
 
   .site-cover-bg-thumb {
     @extend %progressive-bg-thumbnail;
+
+    @include breakpoint($breakpoint-monitor) {
+      display: none;
+    }
   }
 
   .cover-logo {
@@ -55,6 +64,10 @@ $cover-article-meta-line-height: $global-line-height !default;
     opacity: $cover-opacity * .9;
 
     @include breakpoint(max-height 450px) {
+      display: none;
+    }
+
+    @include breakpoint($breakpoint-monitor) {
       display: none;
     }
   }
