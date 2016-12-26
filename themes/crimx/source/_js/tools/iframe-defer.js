@@ -18,8 +18,8 @@ function scrollHandler () {
     })
   } else {
     // all added, detached listener
-    $window.off('scroll', scrollHandler)
+    window.removeEventListener('scroll', scrollHandler, window.passiveEvents)
   }
 }
 
-$window.scroll(scrollHandler)
+window.addEventListener('scroll', scrollHandler, window.passiveEvents)

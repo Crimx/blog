@@ -10,7 +10,7 @@ if ($tocWrapper.length > 0) {
   var mainContentTop = $('.article--post').offset().top
 
   var isTocSemiShow = false
-  $window.scroll(function () {
+  window.addEventListener('scroll', function () {
     // main content shows
     if ($window.scrollTop() >= mainContentTop) {
       if (!isTocSemiShow) {
@@ -23,7 +23,7 @@ if ($tocWrapper.length > 0) {
     } else {
       isTocSemiShow = false
     }
-  })
+  }, window.passiveEvents)
 
   var $tocMousearea = $('.toc-mousearea').addClass('toc-mousearea--show')
   var isTocShow = false
@@ -84,12 +84,12 @@ if ($tocWrapper.length > 0) {
     smoothScroll($($newActive.attr('href')).offset().top, $newActive)
   })
 
-  // listen to scrolling
+  // listen to scrolling and update titles
   var $tocTitles = $tocLink.map(function (titleList, linkItem) {
     return $($(linkItem).attr('href'))
   })
 
-  $window.scroll(function () {
+  window.addEventListener('scroll', function () {
     var scrollTop = $window.scrollTop()
     $tocTitles.each(function (index, item) {
       var $title = $(item)
@@ -99,7 +99,7 @@ if ($tocWrapper.length > 0) {
         return false
       }
     })
-  })
+  }, window.passiveEvents)
 }
 
 function smoothScroll (endPoint, $newActive) {

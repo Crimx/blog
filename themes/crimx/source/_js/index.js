@@ -10,6 +10,7 @@
 \* ------------------------------------ */
 require('./fallbacks/requestAnimationFrame')
 require('./fallbacks/hairline-border')
+require('./fallbacks/passive-events')
 
 $(document).ready(function () {
   require('./components/menu')

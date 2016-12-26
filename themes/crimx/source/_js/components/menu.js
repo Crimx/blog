@@ -44,7 +44,7 @@ if ($menuIcon.length > 0) {
   var mainContentTop = $('.article--post').offset().top
   var isMenuSemiShow = false
 
-  $window.scroll(function () {
+  window.addEventListener('scroll', function () {
     // main content shows
     if ($window.scrollTop() >= mainContentTop) {
       if (!isMenuSemiShow) {
@@ -60,7 +60,7 @@ if ($menuIcon.length > 0) {
         isMenuSemiShow = false
       }
     }
-  })
+  }, window.passiveEvents)
 
   $menuIcon.on('tap click', showMenu)
 }
