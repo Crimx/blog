@@ -8,19 +8,19 @@
 }
 
 @mixin progressive-bg-thumbnail {
-  @extend %absolute-blow-up;
+  @include absolute-blow-up;
   z-index: 10;
   transition: opacity .4s .6s;
 }
 
 @mixin progressive-bg-mask {
-  @extend %absolute-blow-up;
+  @include absolute-blow-up;
   z-index: 20;
   background: rgba(0,0,0,.4);
 }
 
 @mixin progressive-bg-mask--bottom {
-  @extend %absolute-blow-up;
+  @include absolute-blow-up;
   z-index: 25;
   background: linear-gradient(transparent 80%, rgba(0,0,0,.4) 90%, rgba(0,0,0,.7) 100%);
 }
@@ -35,15 +35,21 @@
 }
 
 %progressive-bg-thumbnail {
-  @include progressive-bg-thumbnail;
+  @extend %absolute-blow-up;
+  z-index: 10;
+  transition: opacity .4s .6s;
 }
 
 %progressive-bg-mask {
-  @include progressive-bg-mask;
+  @extend %absolute-blow-up;
+  z-index: 20;
+  background: rgba(0,0,0,.4);
 }
 
 %progressive-bg-mask--bottom {
-  @include progressive-bg-mask--bottom;
+  @extend %absolute-blow-up;
+  z-index: 25;
+  background: linear-gradient(transparent 80%, rgba(0,0,0,.4) 90%, rgba(0,0,0,.7) 100%);
 }
 
 %progressive-bg-content {
