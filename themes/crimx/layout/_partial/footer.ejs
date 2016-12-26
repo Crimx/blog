@@ -1,5 +1,16 @@
 <footer class="site-footer">
-  <ul class="new-articles"></ul>
+  <ul class="recommended-post">
+    <% for (let i = 0; i < 4; i += 1) { %>
+    <li class="recommended-post__item">
+      <a class="recommended-post__link" href="#">
+        <div class="recommended-post__cover js-progressive-bg-container">
+          <div class="recommended-post__thumbnail js-progressive-bg-thumbnail"></div>
+        </div>
+        <h1 class="recommended-post__title"></h1>
+      </a>
+    </li>
+    <% } %>
+  </ul>
   <div class="site-description">
     I <a href="https://github.com/<%- theme.github %>/">code</a>, <a href="http://codepen.io/<%- theme.codepen %>/">design</a>, <a href="https://twitter.com/<%- theme.twitter %>/">tweet</a> &amp; <a href="<%- config.url %>">blog</a>.
   </div>
