@@ -23,10 +23,32 @@
   }
 }
 
-.home-entry {
+.home-entry-wrap {
+  @include progressive-bg-container;
+  display: block;
+
+  // &:before {
+  //   @extend %progressive-bg-mask;
+  //   content: '';
+  // }
+}
+
+.home-entry-bg-thumb {
+  @extend %progressive-bg-thumbnail;
+}
+
+h1.home-entry {
+  @include progressive-bg-content;
+  position: relative;
+  margin: 0 (-$global-spacing-unit--small);
   padding: $global-spacing-unit $global-spacing-unit--small;
   text-align: center;
-  @include breakpoint($breakpoint-handheld) {
-    margin: 0 (-$global-spacing-unit--small);
+
+  @include breakpoint($breakpoint-monitor) {
+    margin: 0;
+    padding: $global-spacing-unit--huge $global-spacing-unit--small;
+    font-size: 4em;
+    text-transform: uppercase;
+    letter-spacing: 1px;
   }
 }
