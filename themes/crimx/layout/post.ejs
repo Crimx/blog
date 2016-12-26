@@ -1,15 +1,17 @@
 <%
-var post_cover = page.cover? page.cover : config.cover.post;
+var post_cover = page.cover? page.cover : config.cover.post
 var cover_position = get_cover_position(post_cover)
-var path_to_cover = config.cover.path + post_cover;
-var path_to_thumbnail = config.cover.thumbnailpath + post_cover;
+var path_to_cover = config.cover.path + post_cover
+var path_to_thumbnail = config.cover.thumbnailpath + post_cover
+var thumbnail_base64 = get_thumb_base64(config.cover.home)
 %>
 
 
 <%- partial('_partial/cover', {
     cover_position: cover_position,
     path_to_cover: path_to_cover,
-    path_to_thumbnail: path_to_thumbnail
+    path_to_thumbnail: path_to_thumbnail,
+    thumbnail_base64: thumbnail_base64
   }, {
     cache: !config.relative_link
   })

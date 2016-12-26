@@ -80,6 +80,89 @@ gulp.task('sass-debug', function () {
   }
 }());
 
+var path = require('path')
+var fs = require('fs')
+// GraphicsMagick
+var gm = require('gm')
+gulp.task('thumbnails', function (done) {
+  var coverDir = path.join(__dirname, 'source/images/cover/')
+  var thumbDir = path.join(coverDir, 'thumbnails/')
+
+  if (!fs.existsSync(thumbDir)) {
+    fs.mkdirSync(thumbDir)
+  }
+
+  var base64Path = path.join(thumbDir, '_base64.json')
+  var base64 = {}
+  if (fs.existsSync(base64Path)) {
+    base64 = require(base64Path)
+  }
+
+  var coverList = fs.readdirSync(coverDir)
+    .filter(name => /\.(gif|jpg|jpeg|png)$/i.test(name))
+
+  var thumbSet = new Set(
+    fs.readdirSync(thumbDir)
+      .filter(name => /\.(gif|jpg|jpeg|png)$/i.test(name))
+  )
+
+  var base64OperateCount = 0
+  var writeFileOperateCount = 0
+  coverList.forEach(imgName => {
+    if (thumbSet.has(imgName)) { return }
+
+    // 2 operations a time, writing thumbnail file + base64
+    base64OperateCount += 1
+    writeFileOperateCount += 1
+
+    var coverPath = path.join(coverDir, imgName)
+    var thumbPath = path.join(thumbDir, imgName)
+
+    var thumbPathObj = path.parse(thumbPath)
+    var ext = /jpeg|jpg/i.test(thumbPathObj.ext) ? 'jpeg'
+        : /png/i.test(thumbPathObj.ext) ? 'png' : 'gif'
+
+    var gmCover = gm(coverPath)
+    gmCover.size(function (err, size) {
+      if (err) { console.warn(err) }
+
+      var resizeWidth = 30
+      var resizeHeight = null
+      if (size.width < size.height) {
+        resizeWidth = null
+        resizeHeight = 30
+      }
+
+      gmCover
+        .resize(resizeWidth, resizeHeight)
+        .blur(5)
+        .noProfile()
+        .toBuffer(function (err, buffer) {
+          if (err) { console.warn(err) }
+          base64[imgName] = `data:image/${ext};base64,${buffer.toString('base64')}`
+          if (--base64OperateCount === 0) {
+            // write base64 file
+            fs.writeFile(base64Path, JSON.stringify(base64, null, '\t'))
+            if (writeFileOperateCount === 0) {
+              return done()
+            }
+          }
+        })
+        .write(thumbPath, function (err) {
+          if (err) { console.warn(err) }
+          if (--writeFileOperateCount === 0 && base64OperateCount === 0) {
+            return done()
+          }
+        })
+    })
+  })
+
+  // no operation, straight exit
+  if (writeFileOperateCount === 0 && base64OperateCount === 0) {
+    return done()
+  }
+})
+
 gulp.task('watch', function() {
   gulp.watch(['./themes/crimx/source/_scss/**/*.scss'], ['sass-debug']);
   // gulp.watch(['./themes/crimx/source/_js/**/*.js'], ['js-debug']);
@@ -94,7 +177,7 @@ gulp.task('watch', function() {
 gulp.task('default', function() {
   runSequence(
     'clean',
-    ['sass-debug', 'js-debug'],
+    ['thumbnails', 'sass-debug', 'js-debug'],
     function() {
       hexo.init().then(function() {
         return hexo.call('clean').then(function(){

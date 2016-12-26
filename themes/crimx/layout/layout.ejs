@@ -25,12 +25,14 @@
       var cover_position = get_cover_position(post_cover)
       var path_to_cover = config.cover.path + post_cover
       var path_to_thumbnail = config.cover.thumbnailpath + post_cover
+      var thumbnail_base64 = get_thumb_base64(post_cover)
     %>
 
     <%- partial('_partial/menu', {
         cover_position: cover_position,
         path_to_cover: path_to_cover,
-        path_to_thumbnail: path_to_thumbnail
+        path_to_thumbnail: path_to_thumbnail,
+        thumbnail_base64: thumbnail_base64
       })
     %>
 
