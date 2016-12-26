@@ -3,7 +3,7 @@
 
 var $window = $(window)
 // all the iframes that are supposed to defer
-var $iframeDefers = $('iframe.iframe-defer')
+var $iframeDefers = $('iframe[data-src]')
 
 function scrollHandler () {
   if ($iframeDefers.length > 0) {
@@ -23,4 +23,3 @@ function scrollHandler () {
 }
 
 $window.scroll(scrollHandler)
-
