@@ -10,13 +10,16 @@ function progressiveImg (parentSelector) {
   }
   $(parentSelector + '.js-progressive-bg-container').forEach(function (container) {
     var $container = $(container)
-    var bigBgSrc = $container.css('background-image').replace(/^url\(['"]?(.*?)['"]?\)$/i, '$1')
-    $('<img>')
-      .on('load', function () {
-        $container.find('.js-progressive-bg-thumbnail')
-          .addClass('progressive-bg-thumbnail--hide')
-      })
-      .prop('src', bigBgSrc)
+    var bigBgSrc = $container.css('background-image').match(/url\(['"]?(.+?)['"]?\)/i)
+    if (bigBgSrc) {
+      bigBgSrc = bigBgSrc[1]
+      $('<img>')
+        .on('load', function () {
+          $container.find('.js-progressive-bg-thumbnail')
+            .addClass('progressive-bg-thumbnail--hide')
+        })
+        .prop('src', bigBgSrc)
+    }
   })
 }
 
