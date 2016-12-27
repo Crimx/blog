@@ -3,32 +3,30 @@ tagline:
   content: "\"How do you know I'm mad?\" said Alice.<br>\"You must be,\" said the Cat, \"or you wouldn't have come here.\""
   cite: "Alice's Adventures in Wonderland"
 ---
-<%- partial('_partial/cover', {
-    path_to_cover: config.cover.path + config.cover.home,
-    path_to_thumbnail: config.cover.thumbnailpath + config.cover.home,
-    cover_position: get_cover_position(config.cover.home),
-    thumbnail_base64: get_thumb_base64(config.cover.home)
-  }, {
-    cache: !config.relative_link
-  })
+<%- partial('_partial/cover', get_cover_info(config.cover.home))
 %>
 
 <%- partial('_partial/tagline') %>
+<%
+  var categories_cover_info = get_cover_info(config.cover.categories)
+  var tags_cover_info = get_cover_info(config.cover.tags)
+  var archives_cover_info = get_cover_info(config.cover.archives)
+%>
 <div class="home-main">
   <p>欢迎光临本博客！这里主要是记录 Web 前端相关的一些内容，偶尔涉及其它方面。</p>
   <p>可以点击下面查看分类，移动设备上右滑即可出现菜单：</p>
-  <a class="home-entry-wrap js-progressive-bg-container" href="/categories" style="background:url(<%- config.cover.path + config.cover.categories %>) <%- get_cover_position(config.cover.categories) %>/cover">
-    <div class="home-entry-bg-thumb js-progressive-bg-thumbnail" style="background: url('<%- get_thumb_base64(config.cover.categories) %>') <%- get_cover_position(config.cover.categories) %>/cover"></div>
+  <a class="home-entry-wrap js-progressive-bg-container" href="/categories" style="background:url(<%- categories_cover_info.path_to_cover %>) <%- categories_cover_info.cover_position %>/cover">
+    <div class="home-entry-bg-thumb js-progressive-bg-thumbnail" style="background: url('<%-categories_cover_info.thumbnail_base64 %>') <%- categories_cover_info.cover_position %>/cover"></div>
     <h1 class="home-entry">Categories</h1>
   </a>
   <p>按标签查找也可以比较方便地找到相关内容：</p>
-  <a class="home-entry-wrap js-progressive-bg-container" href="/tags" style="background:url(<%- config.cover.path + config.cover.tags %>) <%- get_cover_position(config.cover.tags) %>/cover">
-    <div class="home-entry-bg-thumb js-progressive-bg-thumbnail" style="background: url('<%- get_thumb_base64(config.cover.categories) %>') <%- get_cover_position(config.cover.tags) %>/cover"></div>
+  <a class="home-entry-wrap js-progressive-bg-container" href="/tags" style="background:url(<%- tags_cover_info.path_to_cover %>) <%- tags_cover_info.cover_position %>/cover">
+    <div class="home-entry-bg-thumb js-progressive-bg-thumbnail" style="background: url('<%- tags_cover_info.thumbnail_base64 %>') <%- tags_cover_info.cover_position %>/cover"></div>
     <h1 class="home-entry">Tags</h1>
   </a>
   <p>查看全部文章的存档：</p>
-  <a class="home-entry-wrap js-progressive-bg-container" href="/archives" style="background:url(<%- config.cover.path + config.cover.archives %>) <%- get_cover_position(config.cover.archives) %>/cover">
-    <div class="home-entry-bg-thumb js-progressive-bg-thumbnail" style="background: url('<%- get_thumb_base64(config.cover.categories) %>') <%- get_cover_position(config.cover.archives) %>/cover"></div>
+  <a class="home-entry-wrap js-progressive-bg-container" href="/archives" style="background:url(<%- archives_cover_info.path_to_cover %>) <%- archives_cover_info.cover_position %>/cover">
+    <div class="home-entry-bg-thumb js-progressive-bg-thumbnail" style="background: url('<%- archives_cover_info.thumbnail_base64 %>') <%- archives_cover_info.cover_position %>/cover"></div>
     <h1 class="home-entry">Archives</h1>
   </a>
 </div>

@@ -6,17 +6,18 @@
   <% let i = -1
     site.categories.sort('name').each((category) => {
       i += 1
-      let post_cover = ''
+      let path_to_cover = ''
       let cover_position = 'center'
       category.posts.sort('-date').some((post) => {
         if (post.cover) {
-          post_cover = post.cover
-          cover_position = get_cover_position(post_cover) || 'center'
+          let cover_info = get_cover_info(post.cover)
+          path_to_cover = cover_info.path_to_cover
+          cover_position = cover_info.cover_position
           return true
         }
       })
   %>
-    <li class="category-item" style="background: <%- colors[i%colors.length].dark %> url(<%- config.cover.path + post_cover %>) <%- cover_position %>/cover">
+    <li class="category-item" style="background: <%- colors[i%colors.length].dark %> url(<%- path_to_cover %>) <%- cover_position %>/cover">
       <a class="category-link" href="<%- url_for(category.path) %>">
         <h1 class="category-title"><%- category.name %></h1>
         <span class="color-mask" style="background-color: <%- colors[i%colors.length].dark %>;"></span>

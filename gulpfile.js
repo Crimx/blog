@@ -1,32 +1,30 @@
-'use strict';
+'use strict'
 
-var gulp = require('gulp');
-var runSequence = require('run-sequence');
-var source = require('vinyl-source-stream');
-var buffer = require('vinyl-buffer');
-var assign = require('lodash.assign');
-var $ = require('gulp-load-plugins')();
+var gulp = require('gulp')
+var runSequence = require('run-sequence')
+var source = require('vinyl-source-stream')
+var buffer = require('vinyl-buffer')
+var assign = require('lodash.assign')
+var $ = require('gulp-load-plugins')()
 
-var autoprefixer = require('autoprefixer');
-var Hexo = require('hexo');
-var hexo = new Hexo(process.cwd(), {});
-var del = require('del');
-var browserSync = require('browser-sync').create();
-var watchify = require('watchify');
-var browserify = require('browserify');
+var autoprefixer = require('autoprefixer')
+var Hexo = require('hexo')
+var hexo = new Hexo(process.cwd(), {})
+var del = require('del')
+var browserSync = require('browser-sync').create()
+var watchify = require('watchify')
+var browserify = require('browserify')
 
-
-gulp.task('clean', function() {
-  return del(['./themes/crimx/source/static/*']);
-});
-
+gulp.task('clean', function () {
+  return del(['./themes/crimx/source/static/*'])
+})
 
 gulp.task('sass-debug', function () {
   return gulp.src('./themes/crimx/source/_scss/style.scss')
     .pipe($.sourcemaps.init({loadMaps: true}))
       .pipe($.sass({
         includePaths: [
-          './node_modules' //required for sass
+          './node_modules' // required for sass
         ]
       }).on('error', $.sass.logError))
       // .pipe($.cleanCss())
@@ -44,26 +42,26 @@ gulp.task('sass-debug', function () {
       ]))
     .pipe($.sourcemaps.write('./'))
     .pipe(gulp.dest('./themes/crimx/source/static/'))
-    .pipe($.size({title: 'sass'}));
-});
+    .pipe($.size({title: 'sass'}))
+})
 
-(function () {
+;(function () {
   // add custom browserify options here
   var customOpts = {
     entries: ['./themes/crimx/source/_js/index.js'],
     debug: true
-  };
-  var opts = assign({}, watchify.args, customOpts);
-  var b = watchify(browserify(opts));
+  }
+  var opts = assign({}, watchify.args, customOpts)
+  var b = watchify(browserify(opts))
 
   // add transformations here
-  // i.e. b.transform(coffeeify);
+  // i.e. b.transform(coffeeify)
 
-  gulp.task('js-debug', bundle); // so you can run `gulp js` to build the file
-  b.on('update', bundle); // on any dep update, runs the bundler
-  b.on('log', $.util.log); // output build logs to terminal
+  gulp.task('js-debug', bundle) // so you can run `gulp js` to build the file
+  b.on('update', bundle) // on any dep update, runs the bundler
+  b.on('log', $.util.log) // output build logs to terminal
 
-  function bundle() {
+  function bundle () {
     return b.bundle()
       // log errors if they happen
       .on('error', $.util.log.bind($.util, 'Browserify Error'))
@@ -76,16 +74,16 @@ gulp.task('sass-debug', function () {
         .pipe($.uglify())
         .on('error', $.util.log)
       .pipe($.sourcemaps.write('./')) // writes .map file
-      .pipe(gulp.dest('./themes/crimx/source/static/'));
+      .pipe(gulp.dest('./themes/crimx/source/static/'))
   }
-}());
+}())
 
 var path = require('path')
 var fs = require('fs')
 // GraphicsMagick
 var gm = require('gm')
 gulp.task('thumbnails', function (done) {
-  var coverDir = path.join(__dirname, 'source/images/cover/')
+  var coverDir = path.join(__dirname, 'source/images/post/cover/')
   var thumbDir = path.join(coverDir, 'thumbnails/')
 
   if (!fs.existsSync(thumbDir)) {
@@ -170,59 +168,55 @@ gulp.task('thumbnails', function (done) {
   }
 })
 
-gulp.task('watch', function() {
-  gulp.watch(['./themes/crimx/source/_scss/**/*.scss'], ['sass-debug']);
-  // gulp.watch(['./themes/crimx/source/_js/**/*.js'], ['js-debug']);
+gulp.task('watch', function () {
+  gulp.watch(['./themes/crimx/source/_scss/**/*.scss'], ['sass-debug'])
+  // gulp.watch(['./themes/crimx/source/_js/**/*.js'], ['js-debug'])
   gulp.watch([
     './themes/**/*',
     './source/**/*',
     '!./themes/crimx/source/_scss/**/*',
-    '!./themes/crimx/source/_js/**/*']).on('change', browserSync.reload);
-});
+    '!./themes/crimx/source/_js/**/*']).on('change', browserSync.reload)
+})
 
-
-gulp.task('default', function() {
+gulp.task('default', function () {
   runSequence(
     'clean',
     ['thumbnails', 'sass-debug', 'js-debug'],
-    function() {
-      hexo.init().then(function() {
-        return hexo.call('clean').then(function(){
-          return hexo.call('generate', {watch: true});
-        });
-      }).catch(function(err){
-        console.log(err);
-      }).then(function() {
+    function () {
+      hexo.init().then(function () {
+        return hexo.call('clean').then(function () {
+          return hexo.call('generate', {watch: true})
+        })
+      }).catch(function (err) {
+        console.log(err)
+      }).then(function () {
         browserSync.init({
           server: './public',
           reloadDelay: 2000
-        });
+        })
 
-        runSequence('watch');
-      });
+        runSequence('watch')
+      })
     }
-  );
+  )
+})
 
-
-});
-
-
-gulp.task('g-clean', function() {
-  hexo.init().then(function(){
-    return hexo.call('clean').then(function(){
-      return hexo.call('generate');
-    });
-  }).catch(function(err){
-    console.log(err);
-  }).then(function() {
+gulp.task('g-clean', function () {
+  hexo.init().then(function () {
+    return hexo.call('clean').then(function () {
+      return hexo.call('generate')
+    })
+  }).catch(function (err) {
+    console.log(err)
+  }).then(function () {
     runSequence(
       'clean',
       'sass',
       'js'
-    );
-  });
-});
+    )
+  })
+})
 
-gulp.task('g', function() {
+gulp.task('g', function () {
   return hexo.call('generate')
-});
+})
