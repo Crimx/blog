@@ -133,6 +133,7 @@ gulp.task('thumbnails', function (done) {
         resizeHeight = 30
       }
 
+      // write base64
       gmCover
         .resize(resizeWidth, resizeHeight)
         .blur(5)
@@ -148,6 +149,12 @@ gulp.task('thumbnails', function (done) {
             }
           }
         })
+
+      // write file
+      gmCover
+        .resize(resizeWidth, resizeHeight)
+        .blur(5)
+        .noProfile()
         .write(thumbPath, function (err) {
           if (err) { console.warn(err) }
           if (--writeFileOperateCount === 0 && base64OperateCount === 0) {
