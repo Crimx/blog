@@ -8,19 +8,22 @@
       i += 1
       let path_to_cover = ''
       let cover_position = 'center'
+      let thumbnail_base64 = ''
       category.posts.sort('-date').some((post) => {
         if (post.cover) {
           let cover_info = get_cover_info(post.cover)
           path_to_cover = cover_info.path_to_cover
           cover_position = cover_info.cover_position
+          thumbnail_base64 = cover_info.thumbnail_base64
           return true
         }
       })
   %>
-    <li class="category-item" style="background: <%- colors[i%colors.length].dark %> url(<%- path_to_cover %>) <%- cover_position %>/cover">
+    <li class="category-item js-progressive-bg-container" style="background: <%- colors[i%colors.length].dark %> url(<%- path_to_cover %>) <%- cover_position %>/cover">
+      <div class="category-item-thumbnail js-progressive-bg-thumbnail" style="background: url('<%- thumbnail_base64 %>') <%- cover_position %>/cover"></div>
+      <div class="color-mask" style="background-color: <%- colors[i%colors.length].dark %>;"></div>
       <a class="category-link" href="<%- url_for(category.path) %>">
         <h1 class="category-title"><%- category.name %></h1>
-        <span class="color-mask" style="background-color: <%- colors[i%colors.length].dark %>;"></span>
       </a>
     </li>
   <% }) %>
