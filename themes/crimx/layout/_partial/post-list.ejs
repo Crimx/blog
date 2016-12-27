@@ -11,7 +11,12 @@ page.posts.sort('-date').each((post) => {
   var cover_info = get_cover_info(post.cover)
 %>
   <ul class="post-list">
-    <li class="post-list-item" style="background-color:<%- color %>;background-image:linear-gradient(rgba(0,0,0,.3),rgba(0,0,0,.3)),url('<%- cover_info.path_to_cover %>');background-position:0,<%- cover_info.cover_position %>;background-size:auto,cover"><a class="post-list-link" href="<%- url_for(post.path) %>"><h1 class="post-list-title"><%- post.title %></h1></a></li>
+    <li class="post-list-item js-progressive-bg-container" style="background:<%- color %> url('<%- cover_info.path_to_cover %>') <%- cover_info.cover_position %>/cover">
+      <div class="post-list-thumbnail js-progressive-bg-thumbnail" style="background:<%- color %> url('<%- cover_info.thumbnail_base64 %>') <%- cover_info.cover_position %>/cover"></div>
+      <a class="post-list-link" href="<%- url_for(post.path) %>">
+        <h1 class="post-list-title"><%- post.title %></h1>
+      </a>
+    </li>
   </ul>
 <%
 })

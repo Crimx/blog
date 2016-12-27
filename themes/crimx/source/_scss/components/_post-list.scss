@@ -27,7 +27,23 @@
   }
 }
 
+.post-list-item {
+  @include progressive-bg-container;
+
+  &:before {
+    @extend %progressive-bg-mask;
+    content: '';
+  }
+}
+
+.post-list-thumbnail {
+  @extend %progressive-bg-thumbnail;
+}
+
 .post-list-title {
+  @include progressive-bg-content;
+  position: relative;
+
   padding: $global-spacing-unit--huge $global-spacing-unit;
   font-weight: bolder;
 
