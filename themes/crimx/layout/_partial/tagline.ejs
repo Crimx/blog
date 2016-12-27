@@ -1,5 +1,5 @@
 <% var tagline = locals.tagline || page.tagline %>
-<% if (tagline) { %>
+<% if (tagline && tagline.content) { %>
   <div class="tagline-wrap">
     <section class="tagline">
       <svg class="tagline-icon-quote" fill="#bdc3c7">
