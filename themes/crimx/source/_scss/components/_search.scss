@@ -5,12 +5,18 @@
 $search-box-height: 14px + 2px + $global-spacing-unit--tiny * 2 + 2px; // font+padding+border
 
 .site-search {
+  @include progressive-bg-container;
   position: relative;
   min-height: 100%;
   // filter: blur(6px);
 }
 
+.site-search-thumbnail {
+  @extend %progressive-bg-thumbnail;
+}
+
 .search-box {
+  @include progressive-bg-content;
   position: absolute;
   top: 35%;
   left: 0;

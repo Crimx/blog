@@ -2,7 +2,8 @@
   var cover_info = get_cover_info('starry-night-1149815_1920.jpg')
 %>
 
-<section class="site-search" style="background: url('<%- cover_info.path_to_cover %>') <%- cover_info.cover_position %>/cover;">
+<section class="site-search js-progressive-bg-container" style="background: url('<%- cover_info.path_to_cover %>') <%- cover_info.cover_position %>/cover;">
+  <div class="site-search-thumbnail js-progressive-bg-thumbnail" style="background: url('<%- cover_info.thumbnail_base64 %>') <%- cover_info.cover_position %>/cover;"></div>
   <div class="search-box">
     <div class="search-input-wrap">
       <input type="text" class="search-input" placeholder=" SEARCH..." />
