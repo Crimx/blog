@@ -4,7 +4,7 @@
 <!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
 <!--[if gt IE 9]><!--> <html class="no-js" lang="zh-cmn-Hans"> <!--<![endif]-->
 
-<%- partial('_partial/head') %>
+<%- partial('_partial/head', null, {cache: !config.relative_link}) %>
 
 <body>
 
@@ -33,7 +33,7 @@
   </div>
 
   <%- js('static/bundle') %>
-  <%- partial('_partial/google-analytics') %>
-  <%- partial('_partial/no-js') %>
+  <%- partial('_partial/google-analytics', null, {cache: !config.relative_link}) %>
+  <%- partial('_partial/no-js', null, {cache: !config.relative_link}) %>
 </body>
 </html>

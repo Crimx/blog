@@ -1,11 +1,9 @@
-<%- partial('_partial/cover', get_cover_info(page.cover || config.cover.post), {
-    cache: !config.relative_link
-  })
+<%- partial('_partial/cover', get_cover_info(page.cover || config.cover.post))
 %>
 
 <%- partial('_partial/tagline') %>
-<%- partial('_partial/toc', null, {cache: !config.relative_link}) %>
+<%- partial('_partial/toc') %>
 <%- partial('_partial/article', {post: page, index: false}) %>
-<%- partial('_partial/disqus') %>
+<%- partial('_partial/disqus', null, {cache: !config.relative_link}) %>
 
 <%- partial('_partial/menu-icon') %>
