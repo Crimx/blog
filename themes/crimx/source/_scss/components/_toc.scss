@@ -32,15 +32,16 @@
   }
 }
 
-.toc {
+.toc-container {
   overflow: hidden;
   padding: $global-spacing-unit 0;
   background: $global-color-background-dark;
   box-shadow: 1px 4px 11px 0 rgba(0, 0, 0, 0.4);
   opacity: .9;
 
-  ol {
-    margin-left: $global-spacing-unit--small;
+  // fixed unintented height
+  li {
+    display: block;
   }
 
   a,
@@ -50,6 +51,12 @@
   a:focus {
     color: $global-color-background;
     outline: 0;
+  }
+}
+
+.toc {
+  ol {
+    margin-left: $global-spacing-unit--small;
   }
 }
 
