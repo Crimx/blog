@@ -81,13 +81,26 @@ if ($tocWrapper.length > 0) {
     evt.preventDefault()
     evt.stopPropagation()
     var $newActive = $(evt.currentTarget)
-    smoothScroll($($newActive.attr('href')).offset().top, $newActive)
+    // hexo generated id based on header name,
+    // which might not be a valid id
+    try {
+      smoothScroll($($newActive.attr('href')).offset().top, $newActive)
+    } catch (err) {
+      console.warn(err)
+    }
   })
 
   // listen to scrolling and update titles
-  var $tocTitles = $tocLink.map(function (titleList, linkItem) {
-    return $($(linkItem).attr('href'))
-  })
+  var $tocTitles = $()
+  // hexo generated id based on header name,
+  // which might not be a valid id
+  try {
+    $tocTitles = $tocLink.map(function (titleList, linkItem) {
+      return $($(linkItem).attr('href'))
+    })
+  } catch (err) {
+    console.warn(err)
+  }
 
   window.addEventListener('scroll', function () {
     var scrollTop = $window.scrollTop()
