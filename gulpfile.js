@@ -171,52 +171,50 @@ gulp.task('thumbnails', function (done) {
 gulp.task('watch', function () {
   gulp.watch(['./themes/crimx/source/_scss/**/*.scss'], ['sass-debug'])
   // gulp.watch(['./themes/crimx/source/_js/**/*.js'], ['js-debug'])
-  gulp.watch([
-    './themes/**/*',
-    './source/**/*',
-    '!./themes/crimx/source/_scss/**/*',
-    '!./themes/crimx/source/_js/**/*']).on('change', browserSync.reload)
+  // gulp.watch([
+  //   './themes/**/*',
+  //   './source/**/*',
+  //   '!./themes/crimx/source/_scss/**/*',
+  //   '!./themes/crimx/source/_js/**/*']).on('change', browserSync.reload)
+  gulp.watch(['./public/**/*']).on('change', browserSync.reload)
 })
 
-gulp.task('default', function () {
-  runSequence(
-    'clean',
-    ['thumbnails', 'sass-debug', 'js-debug'],
-    function () {
-      hexo.init().then(function () {
-        return hexo.call('clean').then(function () {
-          return hexo.call('generate', {watch: true})
-        })
-      }).catch(function (err) {
-        console.log(err)
-      }).then(function () {
-        browserSync.init({
-          server: './public',
-          reloadDelay: 2000
-        })
+gulp.task('default', genTask(true, true, function (err) { return console.log(err) }))
 
-        runSequence('watch')
+gulp.task('g-watch', genTask(true, false, function (err) { return hexo.exit(err) }))
+
+gulp.task('g', genTask(false, false, function (err) { return hexo.exit(err) }))
+
+function genTask (isWatch, isClean, hexoExit) {
+  var isDb = fs.existsSync(path.join(__dirname, 'db.json'))
+
+  return function () {
+    var taskSequence = []
+    if (isClean) { taskSequence.push('clean') }
+    taskSequence.push(['thumbnails', 'sass-debug', 'js-debug'])
+    taskSequence.push(function () {
+      return hexo.init().then(function () {
+        if (isClean || !isDb) {
+          return hexo.call('clean').then(function () {
+            return hexo.call('generate', { watch: isWatch })
+              .then(hexoExit)
+          })
+        } else {
+          return hexo.call('generate', { watch: isWatch })
+            .then(hexoExit)
+        }
       })
-    }
-  )
-})
-
-gulp.task('g-clean', function () {
-  hexo.init().then(function () {
-    return hexo.call('clean').then(function () {
-      return hexo.call('generate')
+      .then(function () {
+        if (isWatch) {
+          browserSync.init({
+            server: './public',
+            reloadDelay: 2000
+          })
+          runSequence('watch')
+        }
+      })
+      .catch(hexoExit)
     })
-  }).catch(function (err) {
-    console.log(err)
-  }).then(function () {
-    runSequence(
-      'clean',
-      'sass',
-      'js'
-    )
-  })
-})
-
-gulp.task('g', function () {
-  return hexo.call('generate')
-})
+    return runSequence.apply(this, taskSequence)
+  }
+}
