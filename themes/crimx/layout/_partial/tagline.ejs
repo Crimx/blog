@@ -1,11 +1,13 @@
 <% var tagline = locals.tagline || page.tagline %>
-<% if (tagline && tagline.content) { %>
+<% if (tagline && (typeof tagline === 'string' || tagline.content)) { %>
   <div class="tagline-wrap">
     <section class="tagline">
+    <% if (tagline.content) { %>
       <svg class="tagline-icon-quote" fill="#bdc3c7">
         <use xlink:href="<%- theme.icon_symbols %>#icon-quote"></use>
       </svg>
-      <blockquote class="tagline-content"><%- tagline.content %></blockquote>
+    <% } %>
+      <blockquote class="tagline-content"><%- tagline.content || tagline %></blockquote>
       <% if (tagline.cite) { %>
         <footer class="tagline-cite">
           <cite><%- tagline.cite %></cite>
