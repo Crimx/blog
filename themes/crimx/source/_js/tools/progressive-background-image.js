@@ -10,9 +10,10 @@ function progressiveImg (parentSelector) {
   }
   $(parentSelector + '.js-progressive-bg-container').forEach(function (container) {
     var $container = $(container)
-    var bigBgSrc = $container.css('background-image').match(/url\(['"]?(.+?)['"]?\)/i)
+    var bigBgSrc = $container.css('background-image').match(/url\((.+?)\)/i)
+
     if (bigBgSrc) {
-      bigBgSrc = bigBgSrc[1]
+      bigBgSrc = bigBgSrc[1].replace(/'|"/g, '')
       $('<img>')
         .on('load', function () {
           $container.find('.js-progressive-bg-thumbnail')
