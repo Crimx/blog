@@ -9,11 +9,11 @@ description:
 author: StrayBugs
 language:
 timezone:
-# disqus_shortname: crimx
+disqus_shortname: crimx
 
 # URL
 ## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'
-url: http://blog.crimx.com
+url: https://blog.crimx.com
 root: /
 permalink: :year/:month/:day/:title/
 permalink_defaults:
@@ -70,10 +70,10 @@ imgpath: /images/
 cover:
   default: nature-forest-trees-fog-2-portrait.jpg
   home: mountains-407700_1920-portrait.jpg
-  post: fog-1220491_1920-portrait.jpg
+  post: pexels-photo-19031-portrait.jpg
   archives: pexels-photo-24343-portrait.jpg
   categories: nature-forest-trees-fog-2-portrait.jpg
-  tags: pexels-photo-19031-portrait.jpg
+  tags: fog-1220491_1920-portrait.jpg
   about: landscape-975091_1920-portrait.jpg
   search: nature-forest-trees-fog-2-portrait.jpg
 
