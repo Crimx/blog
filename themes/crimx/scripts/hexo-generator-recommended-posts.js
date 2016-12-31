@@ -1,8 +1,8 @@
 // generate recommended posts json
 
 /* global hexo */
-var coverPositions = require('../../../source/images/cover/_cover-positions.json')
-var thumbBase64 = require('../../../source/images/cover/thumbnails/_base64.json')
+var coverPositions = require('../../../source/images/post/cover/_cover-positions.json')
+var thumbBase64 = require('../../../source/images/post/cover/thumbnails/_base64.json')
 
 var coverPath = hexo.config.imgpath + 'post/cover/'
 var thumbPath = hexo.config.imgpath + 'post/cover/thumbnails/'
