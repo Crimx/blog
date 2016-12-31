@@ -303,12 +303,16 @@ $nav-color-background: #fff;
   }
 
 #comments {
-  padding: 0 $global-spacing-unit--small;
+  padding: $global-spacing-unit--small $global-article-padding--small;
   @include box-shadow-top-inset;
   background-color: $global-color-background;
+
+  @include breakpoint($breakpoint-monitor) {
+    padding: $global-spacing-unit--small $global-article-padding--large;
+  }
 }
 
 .no-disqus {
-  padding: $global-spacing-unit $global-spacing-unit--small;
+  padding: $global-spacing-unit--small $global-spacing-unit--small;
   text-align: center;
 }
