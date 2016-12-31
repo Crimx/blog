@@ -99,7 +99,7 @@ html_min_beautify:
     # More Options (https://github.com/beautify-web/js-beautify/blob/master/README.md#css--html)
   minify:
     'collapseWhitespace': true
-    'preserveLineBreaks': true
+    'preserveLineBreaks': false
     'minifyJS': true
     'minifyCSS': true
     # More Options (https://github.com/kangax/html-minifier#options-quick-reference)
@@ -124,3 +124,11 @@ githubEmojis:
   className: github-emoji
   localEmojis:
   unicode: true
+
+imagemin:
+  enable     : false
+  interlaced : false
+  multipass  : false
+  optimizationLevel: 2
+  pngquant   : false
+  progressive: false

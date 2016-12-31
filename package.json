@@ -15,9 +15,9 @@
     "hexo-generator-index": "latest",
     "hexo-generator-tag": "latest",
     "hexo-html-min-beautify": "latest",
+    "hexo-imagemin": "^0.1.0",
     "hexo-renderer-ejs": "latest",
     "hexo-renderer-kramed": "^0.1.2",
-    "hexo-renderer-stylus": "latest",
     "hexo-server": "latest",
     "svgxuse": "^1.1.23"
   },
@@ -28,7 +28,6 @@
     "browserify": "^13.1.1",
     "del": "latest",
     "gulp": "latest",
-    "gulp-clean-css": "^2.0.13",
     "gulp-concat": "^2.6.0",
     "gulp-load-plugins": "latest",
     "gulp-postcss": "latest",
