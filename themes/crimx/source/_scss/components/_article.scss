@@ -197,7 +197,7 @@ $nav-color-background: #fff;
   position: relative;
   text-align: center;
   background: $nav-color-background;
-  padding: $global-spacing-unit--small $global-article-padding--small 0;
+  padding: ($global-spacing-unit * 1.5) ($global-article-padding--small * 2) 0;
   overflow: hidden;
 
   @include breakpoint($breakpoint-monitor) {
@@ -223,11 +223,12 @@ $nav-color-background: #fff;
   @include breakpoint($breakpoint-handheld) {
     display: block;
     position: relative;
-    margin-bottom: $global-spacing-unit;
+    margin-bottom: $global-spacing-unit--large;
     padding: 1em;
     text-decoration: none;
     color: #999;
-    border: 1px solid #ddd;
+    // border: 1px solid #ddd;
+    border-top: 1px solid #ddd;
     @include border-hairline;
     -webkit-tap-highlight-color: transparent;
   }
@@ -305,4 +306,9 @@ $nav-color-background: #fff;
   padding: 0 $global-spacing-unit--small;
   @include box-shadow-top-inset;
   background-color: $global-color-background;
+}
+
+.no-disqus {
+  padding: $global-spacing-unit $global-spacing-unit--small;
+  text-align: center;
 }
