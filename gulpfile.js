@@ -207,8 +207,8 @@ function genTask (isWatch, isClean, hexoExit) {
       .then(function () {
         if (isWatch) {
           browserSync.init({
-            server: './public',
-            reloadDelay: 2000
+            server: './public'
+            // reloadDelay: 2000
           })
           runSequence('watch')
         }
