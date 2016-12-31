@@ -23,7 +23,7 @@
 
   <title><% if (title){ %><%= title %> | <% } %><%= config.title %></title>
 
-  <%- partial('favicon') %>
+  <%- partial('favicon', null, { cache: !config.relative_link }) %>
 
   <% if (theme.rss){ %>
     <link rel="alternate" href="<%- theme.rss %>" title="<%= config.title %>" type="application/atom+xml">

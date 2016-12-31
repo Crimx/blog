@@ -4,6 +4,6 @@
 <%- partial('_partial/tagline') %>
 <%- partial('_partial/toc') %>
 <%- partial('_partial/article', {post: page, index: false}) %>
-<%- partial('_partial/disqus', null, {cache: !config.relative_link}) %>
+<%- partial('_partial/disqus') %>
 
-<%- partial('_partial/menu-icon') %>
+<%- partial('_partial/menu-icon', null, {cache: !config.relative_link}) %>
