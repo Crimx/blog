@@ -4,7 +4,7 @@
 
 // scss-lint:disable PropertySpelling
 
-%highlight {
+.highlight {
   overflow-x: auto;
   background: #1d1f21;
   color: #c5c8c6;
@@ -14,6 +14,7 @@
 
   font-size: 14px;
   .line {
+    text-align: left;
     height: 14px * 1.8;
   }
 

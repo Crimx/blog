@@ -6,8 +6,6 @@
  * 文章篇幅
  */
 .article-entry {
-  @extend %postify;
-
   background-color: #fff;
   overflow: hidden;
 
@@ -59,11 +57,6 @@
     border-radius: 0;
     color: #c5c8c6;
     background: #1d1f21;
-  }
-
-  // codeblock
-  .highlight {
-    @extend %highlight;
   }
 
   // 代码两侧不留白

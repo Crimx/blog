@@ -8,7 +8,6 @@
 }
 
 .about-intro {
-  @extend %postify;
   padding: 0 $global-article-padding--small;
 
   @include breakpoint($breakpoint-monitor) {
