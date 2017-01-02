@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>404</title>
+<script>
+var url = /\/\d\d\d\d\/\d\d\/\d\d\/([\w-]+)/i.exec(window.location.href)
+if (url) {
+  url = url[1].toLowerCase()
+
+  var xmlReq = new window.XMLHttpRequest()
+  xmlReq.onload = function () {
+    if (xmlReq.status === 200) {
+      var posts = xmlReq.responseXML.getElementsByTagName('loc')
+      for (var i = 0; i < posts.length; i += 1) {
+        if (posts[i].innerHTML.toLowerCase().indexOf(url) !== -1) {
+          window.location.href = posts[i].innerHTML
+          return
+        }
+      }
+      window.location.href = '//blog.crimx.com/'
+    }
+  }
+  xmlReq.open('get', '/post-sitemap.xml', true)
+  xmlReq.send()
+} else {
+  window.location.href = '//blog.crimx.com/'
+}
+</script>
+</head>
+<body>
+</body>
+</html>
