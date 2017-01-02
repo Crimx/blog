@@ -113,11 +113,11 @@ feed:
 kramed:
   gfm: true
   pedantic: false
-  sanitize: false
+  sanitize: true
   tables: true
-  breaks: true
+  breaks: false
   smartLists: true
-  smartypants: true
+  smartypants: false
 
 githubEmojis:
   enable: true
@@ -125,10 +125,5 @@ githubEmojis:
   localEmojis:
   unicode: true
 
-imagemin:
-  enable     : false
-  interlaced : false
-  multipass  : false
-  optimizationLevel: 2
-  pngquant   : false
-  progressive: false
+sitemap:
+  path: sitemap.xml

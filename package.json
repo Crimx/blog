@@ -15,7 +15,6 @@
     "hexo-generator-index": "latest",
     "hexo-generator-tag": "latest",
     "hexo-html-min-beautify": "latest",
-    "hexo-imagemin": "^0.1.0",
     "hexo-renderer-ejs": "latest",
     "hexo-renderer-kramed": "^0.1.2",
     "hexo-server": "latest",
