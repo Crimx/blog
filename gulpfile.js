@@ -23,13 +23,22 @@ gulp.task('sass-debug', function () {
   return gulp.src('./themes/crimx/source/_scss/style.scss')
     .pipe($.sourcemaps.init({loadMaps: true}))
       .pipe($.sass({
-        outputStyle: 'compressed',
+        outputStyle: 'compact',
         includePaths: [
           './node_modules' // required for sass
         ]
       }).on('error', $.sass.logError))
       .pipe($.postcss([
-        autoprefixer({browsers: ['last 2 versions']})
+        autoprefixer({browsers: [
+          'Android 2.3',
+          'Android >= 4',
+          'Chrome >= 20',
+          'Firefox >= 24',
+          'Explorer >= 8',
+          'iOS >= 6',
+          'Opera >= 12',
+          'Safari >= 6'
+        ]})
       ]))
     .pipe($.sourcemaps.write('./'))
     .pipe(gulp.dest('./themes/crimx/source/static/'))
