@@ -28,11 +28,7 @@
     </li>
   <% }) %>
   </ul> <!-- site-categories -->
-<% } %>
-
-
-
-<% if (page.path === "tags/index.html") {
+<% } else if (page.path === "tags/index.html") {
   let colors = flat_color_templatte()
   let tags = site.tags.map((tag) => {
     return {
