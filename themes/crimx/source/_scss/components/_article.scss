@@ -194,6 +194,8 @@ $nav-color-background: #fff;
   overflow: hidden;
 
   @include breakpoint($breakpoint-monitor) {
+    padding-top: $global-spacing-unit--small;
+
     &:before {
       content: "";
       position: absolute;
