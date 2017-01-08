@@ -97,6 +97,7 @@
       }
 
       .recommended-post__cover {
+        position: relative;
         width: $global-spacing-unit--huge - $global-spacing-unit--small * 2;
         height: $global-spacing-unit--huge - $global-spacing-unit--small * 2;
         background-color: lighten($global-color-background-dark, 5%);
