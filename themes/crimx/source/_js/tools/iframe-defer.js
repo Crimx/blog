@@ -12,6 +12,14 @@ function scrollHandler () {
       var $iframe = $(this)
       if (scrollBottom >= $iframe.offset().top) {
         $iframe.prop('src', $iframe.data('src'))
+
+        // youtube video
+        if ($iframe.data('type') === 'youtube') {
+          $iframe.css({
+            height: $iframe.width() / $iframe.attr('width') * $iframe.attr('height') + 'px'
+          })
+        }
+
         return false // removed once added
       }
       return true
