@@ -13,21 +13,21 @@ tagline:
   var archives_cover_info = get_cover_info(config.cover.archives)
 %>
 <div class="home-main postify">
-  <p>欢迎光临本博客！这里主要是记录 Web 前端相关的一些内容，偶尔涉及其它方面。</p>
-  <p>可以点击下面查看分类，移动设备上右滑即可出现菜单：</p>
-  <a class="home-entry-wrap js-progressive-bg-container" href="/categories" style="background:url(<%- categories_cover_info.path_to_cover %>) <%- categories_cover_info.cover_position %>/cover">
+  <p>欢迎光临本博客！这里主要是记录 Web 前端相关的一些内容，偶尔涉及其它方面。移动设备上右滑即可出现菜单。</p>
+  <p>深入研究 JavaScript 的一些文章：</p>
+  <a class="home-entry-wrap js-progressive-bg-container" href="/tags/Understanding-JavaScript/" style="background:url(<%- categories_cover_info.path_to_cover %>) <%- categories_cover_info.cover_position %>/cover">
     <div class="home-entry-bg-thumb js-progressive-bg-thumbnail" style="background: url('<%-categories_cover_info.thumbnail_base64 %>') <%- categories_cover_info.cover_position %>/cover"></div>
-    <h1 class="home-entry">Categories</h1>
+    <h1 class="home-entry">JavaScript</h1>
   </a>
-  <p>按标签查找也可以比较方便地找到相关内容：</p>
-  <a class="home-entry-wrap js-progressive-bg-container" href="/tags" style="background:url(<%- tags_cover_info.path_to_cover %>) <%- tags_cover_info.cover_position %>/cover">
+  <p>偶尔也会读读源码：</p>
+  <a class="home-entry-wrap js-progressive-bg-container" href="/tags/%E9%97%B2%E8%AF%BB%E6%BA%90%E7%A0%81/" style="background:url(<%- tags_cover_info.path_to_cover %>) <%- tags_cover_info.cover_position %>/cover">
     <div class="home-entry-bg-thumb js-progressive-bg-thumbnail" style="background: url('<%- tags_cover_info.thumbnail_base64 %>') <%- tags_cover_info.cover_position %>/cover"></div>
-    <h1 class="home-entry">Tags</h1>
+    <h1 class="home-entry">闲读源码</h1>
   </a>
-  <p>查看全部文章的存档：</p>
-  <a class="home-entry-wrap js-progressive-bg-container" href="/archives" style="background:url(<%- archives_cover_info.path_to_cover %>) <%- archives_cover_info.cover_position %>/cover">
+  <p>推荐阅读系列：</p>
+  <a class="home-entry-wrap js-progressive-bg-container" href="/tags/Recommended/" style="background:url(<%- archives_cover_info.path_to_cover %>) <%- archives_cover_info.cover_position %>/cover">
     <div class="home-entry-bg-thumb js-progressive-bg-thumbnail" style="background: url('<%- archives_cover_info.thumbnail_base64 %>') <%- archives_cover_info.cover_position %>/cover"></div>
-    <h1 class="home-entry">Archives</h1>
+    <h1 class="home-entry">Recommended</h1>
   </a>
 </div>
 
