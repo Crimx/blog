@@ -8,28 +8,29 @@
 /* ------------------------------------ *\
    POLYFILLs & WORKAROUNDs
 \* ------------------------------------ */
-require('./fallbacks/requestAnimationFrame')
-require('./fallbacks/hairline-border')
-require('./fallbacks/passive-events')
+try { require('./fallbacks/requestAnimationFrame') } catch (err) { console.warn(err) }
+try { require('./fallbacks/hairline-border') } catch (err) { console.warn(err) }
+try { require('./fallbacks/passive-events') } catch (err) { console.warn(err) }
 
 $(document).ready(function () {
   /* ------------------------------------ *\
      TOOLs
   \* ------------------------------------ */
-  require('./tools/iframe-defer')
-  require('./tools/progressive-background-image')()
+  try { require('./tools/iframe-defer') } catch (err) { console.warn(err) }
+  try { require('./tools/progressive-background-image')() } catch (err) { console.warn(err) }
 
   /* ------------------------------------ *\
      COMPONENTs
   \* ------------------------------------ */
-  require('./components/emojis')
-  require('./components/search')
-  require('./components/menu')
-  require('./components/toc')
-  require('./components/footer')
+  try { require('./components/emojis') } catch (err) { console.warn(err) }
+  try { require('./components/search') } catch (err) { console.warn(err) }
+  try { require('./components/menu') } catch (err) { console.warn(err) }
+  try { require('./components/toc') } catch (err) { console.warn(err) }
+  try { require('./components/comments') } catch (err) { console.warn(err) }
+  try { require('./components/footer') } catch (err) { console.warn(err) }
 
   /* ------------------------------------ *\
      POLYFILLs
   \* ------------------------------------ */
-  require('svgxuse')
+  try { require('svgxuse') } catch (err) { console.warn(err) }
 })
