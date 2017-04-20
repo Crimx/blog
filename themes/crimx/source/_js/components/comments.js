@@ -21,9 +21,9 @@ if ($comments.length > 0) {
 }
 
 function injectComments () {
-  // disqus first, duoshuo fallback
+  // disqus first, cloud tie fallback
   var $disqus = $('#disqus_thread')
-  var $duoshuo = $('.ds-thread')
+  var $cloudTie = $('#cloud-tie-wrapper')
 
   if ($disqus.length > 0) {
     window.disqus_config = function () {
@@ -38,20 +38,17 @@ function injectComments () {
       .appendTo(document.body)
   }
 
-  if ($duoshuo.length > 0) {
-    window.duoshuoQuery = { short_name: $duoshuo.data('shortname') }
+  if ($cloudTie.length > 0) {
     $('<script>')
       .on('load', function () {
         $('.no-comments').empty()
         if ($disqus.find('iframe').length > 0) {
           // disqus is loaded
-          $duoshuo.empty()
+          $cloudTie.empty()
         }
       })
-      .attr('src', '//static.duoshuo.com/embed.js')
+      .attr('src', 'https://img1.cache.netease.com/f2e/tie/yun/sdk/loader.js')
       .attr('async', '')
-      .attr('charset', 'UTF-8')
-      .data('timestamp', new Date())
       .appendTo(document.body)
   }
 }

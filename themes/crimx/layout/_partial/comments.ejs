@@ -8,22 +8,28 @@
       <div class="no-comments">
         您还在局域网，评论加载不了。
       </div>
-      <% if (config.ds_shortname) { %>
-        <div class="ds-thread"
-          data-shortname="<%- config.ds_shortname %>"
-          data-thread-key="<%= page.path %>"
-          data-title="<%= page.title %>"
-          <% if (page.permalink){ %> data-url="<%= page.permalink %>" <% } %>
-        ></div>
+      <% if (config.cloud_tie_key) { %>
+        <div id="cloud-tie-wrapper" class="cloud-tie-wrapper"></div>
+        <script>
+          window.cloudTieConfig = {
+            url: document.location.href,
+            sourceId: "<%= page.path %>",
+            productKey: "<%- config.cloud_tie_key %>",
+            target: "cloud-tie-wrapper"
+          };
+        </script>
       <% } %>
       <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
     </div>
-  <% } else if (config.ds_shortname) { %>
-    <div class="ds-thread"
-      data-shortname="<%- config.ds_shortname %>"
-      data-thread-key="<%= page.path %>"
-      data-title="<%= page.title %>"
-      <% if (page.permalink){ %> data-url="<%= page.permalink %>" <% } %>
-    ></div>
+  <% } else if (config.cloud_tie_key) { %>
+    <div id="cloud-tie-wrapper" class="cloud-tie-wrapper"></div>
+    <script>
+      window.cloudTieConfig = {
+        url: document.location.href,
+        sourceId: "<%= page.path %>",
+        productKey: "<%- config.cloud_tie_key %>",
+        target: "cloud-tie-wrapper"
+      };
+    </script>
   <% } %>
 </section>

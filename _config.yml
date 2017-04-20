@@ -10,7 +10,7 @@ author: StrayBugs
 language:
 timezone:
 disqus_shortname: crimx
-ds_shortname: crimx
+cloud_tie_key: "3534ae5439ba40fe914e6bfea6742ee9"
 
 # URL
 ## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'
