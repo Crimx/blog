@@ -11,6 +11,7 @@ tagline:
   var categories_cover_info = get_cover_info(config.cover.categories)
   var tags_cover_info = get_cover_info(config.cover.tags)
   var archives_cover_info = get_cover_info(config.cover.archives)
+  var about_cover_info = get_cover_info(config.cover.about)
 %>
 <div class="home-main postify">
   <p>欢迎光临本博客！这里主要是记录 Web 前端相关的一些内容，偶尔涉及其它方面。移动设备上右滑即可出现菜单。</p>
@@ -19,10 +20,15 @@ tagline:
     <div class="home-entry-bg-thumb js-progressive-bg-thumbnail" style="background: url('<%-categories_cover_info.thumbnail_base64 %>') <%- categories_cover_info.cover_position %>/cover"></div>
     <h1 class="home-entry">JavaScript</h1>
   </a>
-  <p>偶尔也会读读源码：</p>
+  <p>偶尔也会读读源码和规范：</p>
   <a class="home-entry-wrap js-progressive-bg-container" href="/tags/%E9%97%B2%E8%AF%BB%E6%BA%90%E7%A0%81/" style="background:url(<%- tags_cover_info.path_to_cover %>) <%- tags_cover_info.cover_position %>/cover">
     <div class="home-entry-bg-thumb js-progressive-bg-thumbnail" style="background: url('<%- tags_cover_info.thumbnail_base64 %>') <%- tags_cover_info.cover_position %>/cover"></div>
     <h1 class="home-entry">闲读源码</h1>
+  </a>
+  <p></p>
+  <a class="home-entry-wrap js-progressive-bg-container" href="/tags/%E9%97%B2%E8%AF%BB%E8%A7%84%E8%8C%83/" style="background:url(<%- about_cover_info.path_to_cover %>) <%- about_cover_info.cover_position %>/cover">
+    <div class="home-entry-bg-thumb js-progressive-bg-thumbnail" style="background: url('<%- about_cover_info.thumbnail_base64 %>') <%- about_cover_info.cover_position %>/cover"></div>
+    <h1 class="home-entry">闲读规范</h1>
   </a>
   <p>推荐阅读系列：</p>
   <a class="home-entry-wrap js-progressive-bg-container" href="/tags/Recommended/" style="background:url(<%- archives_cover_info.path_to_cover %>) <%- archives_cover_info.cover_position %>/cover">
