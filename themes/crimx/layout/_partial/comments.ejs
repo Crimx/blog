@@ -5,31 +5,8 @@
       data-identifier="<%= page.path %>"
       data-src="//<%- config.disqus_shortname %>.disqus.com/<% if (page.comments) { %>embed.js<% } else { %>count.js<% } %>"
     >
-      <div class="no-comments">
-        您还在局域网，评论加载不了。
-      </div>
-      <% if (config.cloud_tie_key) { %>
-        <div id="cloud-tie-wrapper" class="cloud-tie-wrapper"></div>
-        <script>
-          window.cloudTieConfig = {
-            url: document.location.href,
-            sourceId: "<%= page.path %>",
-            productKey: "<%- config.cloud_tie_key %>",
-            target: "cloud-tie-wrapper"
-          };
-        </script>
-      <% } %>
+      <div class="no-comments">您还在局域网。 ——来自隔墙相望的评论</div>
       <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
     </div>
-  <% } else if (config.cloud_tie_key) { %>
-    <div id="cloud-tie-wrapper" class="cloud-tie-wrapper"></div>
-    <script>
-      window.cloudTieConfig = {
-        url: document.location.href,
-        sourceId: "<%= page.path %>",
-        productKey: "<%- config.cloud_tie_key %>",
-        target: "cloud-tie-wrapper"
-      };
-    </script>
   <% } %>
 </section>
