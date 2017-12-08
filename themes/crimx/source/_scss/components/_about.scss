@@ -88,8 +88,14 @@ $douban-r-item-padding: $global-spacing-unit--tiny / 2;
     td {
       width: $douban-r-item-width--small;
       height: $douban-r-item-height--small;
-      padding: $douban-r-item-padding;
+      padding: 0;
       border: none;
+
+      a {
+        display: block;
+        height: 100%;
+        padding: $douban-r-item-padding;
+      }
     }
 
     @include breakpoint($breakpoint-monitor) {

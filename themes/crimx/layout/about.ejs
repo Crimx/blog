@@ -8,17 +8,18 @@
     <ul class="my-social-media-list">
 <%
       ;[
-        { svg: 'icon-github-circle', url: '//github.com/' + theme.github },
-        { svg: 'icon-weibo-circle', url: '//www.weibo.com/' + theme.weibo },
-        { svg: 'icon-douban-circle', url: '//www.douban.com/people/' + theme.douban },
-        { svg: 'icon-netease-music-circle', url: '//music.163.com/' + theme.netease_music.playlist },
-        { svg: 'icon-zhihu-circle', url: '//www.zhihu.com/people/' + theme.zhihu + '/answers' },
-        'hr',
         { svg: 'icon-mail-circle', url: 'mailto:' + theme.mail },
-        { svg: 'icon-twitter-circle', url: '//twitter.com/' + theme.twitter },
+        { svg: 'icon-github-circle', url: '//github.com/' + theme.github },
         { svg: 'icon-codepen-circle', url: '//codepen.io/' + theme.codepen },
-        { svg: 'icon-bilibili-circle', url: '//space.bilibili.com/' + theme.bilibili },
-        { svg: 'icon-v2ex-circle', url: '//www.v2ex.com/member/' + theme.v2ex }
+        { svg: 'icon-v2ex-circle', url: '//www.v2ex.com/member/' + theme.v2ex },
+        { svg: 'icon-twitter-circle', url: '//twitter.com/' + theme.twitter },
+        'hr',
+        { svg: 'icon-netease-music-circle', url: '//music.163.com/' + theme.netease_music.playlist },
+        { svg: 'icon-douban-circle', url: '//www.douban.com/people/' + theme.douban },
+        { svg: 'icon-fanfou-circle', url: '//fanfou.com/' + theme.fanfou },
+        { svg: 'icon-zhihu-circle', url: '//www.zhihu.com/people/' + theme.zhihu + '/answers' },
+        // { svg: 'icon-bilibili-circle', url: '//space.bilibili.com/' + theme.bilibili },
+        { svg: 'icon-weibo-circle', url: '//www.weibo.com/' + theme.weibo },
       ].forEach(icon => {
         if (icon === 'hr') {
 %>
@@ -27,7 +28,7 @@
         } else {
 %>
           <li>
-            <a href="<%- icon.url %>" target="_blank"></a>
+            <a href="<%- icon.url %>" target="_blank" rel="noopener"></a>
             <svg>
               <use xlink:href="<%- theme.icon_symbols %>#<%- icon.svg %>"></use>
             </svg>
